@@ -1,0 +1,581 @@
+{
+  "timestamp": "2026-03-15T10:16:51.432195",
+  "stocks_analyzed": 5,
+  "results": [
+    {
+      "stock_code": "601857",
+      "name": "中国石油",
+      "market": "SH",
+      "timestamp": "2026-03-15 10:12:58",
+      "technical": {
+        "stock_code": "601857",
+        "stock_name": "中国石油",
+        "timestamp": "2026-03-15 10:13:17",
+        "price": 87.64,
+        "change_pct": 4.5,
+        "indicators": {
+          "MA5": 85.08,
+          "MA10": 82.77,
+          "MA20": 83.77,
+          "MA60": 84.69,
+          "MACD": 0.1117,
+          "RSI": 55.86,
+          "K": 73.59,
+          "D": 57.86,
+          "J": 105.04,
+          "BOLL_UPPER": 89.84,
+          "BOLL_LOWER": 77.7
+        },
+        "signals": [],
+        "trend": "震荡"
+      },
+      "fundamental": {
+        "stock_code": "601857",
+        "name": "股票601857",
+        "timestamp": "2026-03-15 10:13:49",
+        "metrics": {
+          "PE": 28.1,
+          "PB": 2.32,
+          "ROE": 21.14,
+          "debt_ratio": 0,
+          "revenue_growth": 0,
+          "profit_growth": 0,
+          "gross_margin": 0,
+          "net_margin": 0
+        },
+        "scores": {
+          "valuation": 70,
+          "growth": 50,
+          "health": 85,
+          "total": 68.3
+        },
+        "evaluation": "良好 - 基本面较好，可适当配置"
+      },
+      "rating": {
+        "score": 59.1,
+        "rating": "中性",
+        "tech_score": 50,
+        "fund_score": 68.3
+      }
+    },
+    {
+      "stock_code": "600028",
+      "name": "中国石化",
+      "market": "SH",
+      "timestamp": "2026-03-15 10:13:50",
+      "technical": {
+        "stock_code": "600028",
+        "stock_name": "中国石化",
+        "timestamp": "2026-03-15 10:13:58",
+        "price": 131.57,
+        "change_pct": -2.31,
+        "indicators": {
+          "MA5": 133.44,
+          "MA10": 133.42,
+          "MA20": 135.07,
+          "MA60": 131.44,
+          "MACD": 0.1817,
+          "RSI": 39.16,
+          "K": 37.56,
+          "D": 40.28,
+          "J": 32.12,
+          "BOLL_UPPER": 139.75,
+          "BOLL_LOWER": 130.38
+        },
+        "signals": [
+          {
+            "type": "golden_cross",
+            "signal": "买入",
+            "desc": "MA5 上穿 MA10 金叉"
+          },
+          {
+            "type": "kdj_death",
+            "signal": "卖出",
+            "desc": "KDJ 死叉"
+          }
+        ],
+        "trend": "震荡"
+      },
+      "fundamental": {
+        "stock_code": "600028",
+        "name": "股票600028",
+        "timestamp": "2026-03-15 10:14:31",
+        "metrics": {
+          "PE": 27.33,
+          "PB": 1.79,
+          "ROE": 17.91,
+          "debt_ratio": 0,
+          "revenue_growth": 0,
+          "profit_growth": 0,
+          "gross_margin": 0,
+          "net_margin": 0
+        },
+        "scores": {
+          "valuation": 70,
+          "growth": 50,
+          "health": 80,
+          "total": 66.7
+        },
+        "evaluation": "良好 - 基本面较好，可适当配置"
+      },
+      "rating": {
+        "score": 58.4,
+        "rating": "中性",
+        "tech_score": 50,
+        "fund_score": 66.7
+      }
+    },
+    {
+      "stock_code": "600938",
+      "name": "中国海油",
+      "market": "SH",
+      "timestamp": "2026-03-15 10:14:32",
+      "technical": {
+        "stock_code": "600938",
+        "stock_name": "中国海油",
+        "timestamp": "2026-03-15 10:14:40",
+        "price": 145.22,
+        "change_pct": 4.14,
+        "indicators": {
+          "MA5": 146.02,
+          "MA10": 144.09,
+          "MA20": 142.98,
+          "MA60": 137.35,
+          "MACD": 1.7796,
+          "RSI": 61.82,
+          "K": 74.34,
+          "D": 72.72,
+          "J": 77.56,
+          "BOLL_UPPER": 147.57,
+          "BOLL_LOWER": 138.38
+        },
+        "signals": [],
+        "trend": "上升趋势"
+      },
+      "fundamental": {
+        "stock_code": "600938",
+        "name": "股票600938",
+        "timestamp": "2026-03-15 10:15:13",
+        "metrics": {
+          "PE": 26.09,
+          "PB": 3.94,
+          "ROE": 5.41,
+          "debt_ratio": 0,
+          "revenue_growth": 0,
+          "profit_growth": 0,
+          "gross_margin": 0,
+          "net_margin": 0
+        },
+        "scores": {
+          "valuation": 60,
+          "growth": 50,
+          "health": 60,
+          "total": 56.7
+        },
+        "evaluation": "一般 - 基本面平平，需谨慎观察"
+      },
+      "rating": {
+        "score": 60.9,
+        "rating": "中性",
+        "tech_score": 65,
+        "fund_score": 56.7
+      }
+    },
+    {
+      "stock_code": "000858",
+      "name": "五粮液",
+      "market": "SZ",
+      "timestamp": "2026-03-15 10:15:14",
+      "technical": {
+        "stock_code": "000858",
+        "stock_name": "五 粮 液",
+        "timestamp": "2026-03-15 10:15:22",
+        "price": 128.79,
+        "change_pct": 1.23,
+        "indicators": {
+          "MA5": 128.39,
+          "MA10": 126.78,
+          "MA20": 125.41,
+          "MA60": 121.49,
+          "MACD": 1.8737,
+          "RSI": 63.84,
+          "K": 87.44,
+          "D": 84.5,
+          "J": 93.33,
+          "BOLL_UPPER": 130.02,
+          "BOLL_LOWER": 120.79
+        },
+        "signals": [],
+        "trend": "上升趋势"
+      },
+      "fundamental": {
+        "stock_code": "000858",
+        "name": "股票000858",
+        "timestamp": "2026-03-15 10:16:02",
+        "metrics": {
+          "PE": 10.39,
+          "PB": 2.15,
+          "ROE": 19.11,
+          "debt_ratio": 0,
+          "revenue_growth": 0,
+          "profit_growth": 0,
+          "gross_margin": 0,
+          "net_margin": 0
+        },
+        "scores": {
+          "valuation": 80,
+          "growth": 50,
+          "health": 80,
+          "total": 70.0
+        },
+        "evaluation": "良好 - 基本面较好，可适当配置"
+      },
+      "rating": {
+        "score": 67.5,
+        "rating": "推荐",
+        "tech_score": 65,
+        "fund_score": 70.0
+      }
+    },
+    {
+      "stock_code": "600519",
+      "name": "贵州茅台",
+      "market": "SH",
+      "timestamp": "2026-03-15 10:16:03",
+      "technical": {
+        "stock_code": "600519",
+        "stock_name": "贵州茅台",
+        "timestamp": "2026-03-15 10:16:11",
+        "price": 136.63,
+        "change_pct": -2.08,
+        "indicators": {
+          "MA5": 134.82,
+          "MA10": 133.57,
+          "MA20": 128.4,
+          "MA60": 119.96,
+          "MACD": 4.7745,
+          "RSI": 79.61,
+          "K": 84.84,
+          "D": 82.95,
+          "J": 88.64,
+          "BOLL_UPPER": 140.83,
+          "BOLL_LOWER": 115.96
+        },
+        "signals": [
+          {
+            "type": "kdj_golden",
+            "signal": "买入",
+            "desc": "KDJ 金叉"
+          }
+        ],
+        "trend": "上升趋势"
+      },
+      "fundamental": {
+        "stock_code": "600519",
+        "name": "股票600519",
+        "timestamp": "2026-03-15 10:16:44",
+        "metrics": {
+          "PE": 14.12,
+          "PB": 2.91,
+          "ROE": 18.9,
+          "debt_ratio": 0,
+          "revenue_growth": 0,
+          "profit_growth": 0,
+          "gross_margin": 0,
+          "net_margin": 0
+        },
+        "scores": {
+          "valuation": 80,
+          "growth": 50,
+          "health": 80,
+          "total": 70.0
+        },
+        "evaluation": "良好 - 基本面较好，可适当配置"
+      },
+      "rating": {
+        "score": 75.0,
+        "rating": "推荐",
+        "tech_score": 80,
+        "fund_score": 70.0
+      }
+    }
+  ],
+  "sentiment": [
+    {
+      "stock_code": "601857",
+      "stock_name": "中国石油",
+      "timestamp": "2026-03-15 10:16:45",
+      "news_count": 10,
+      "sentiment": {
+        "sentiment": "positive",
+        "score": 0.75,
+        "positive_count": 6,
+        "negative_count": 2,
+        "news_count": 10,
+        "latest_news": [
+          {
+            "title": "中国石油601857龙虎榜数据03-03)",
+            "content": "交易所2026年3月3日公布的交易公开信息显示，中国石油因成为非ST、*ST和S证券连续三个交易日内收盘价格涨幅偏离值累计达到20%的证券上榜。中国石油当日收报13.15元，涨跌幅10.04%，换手率0.57%，成交额117.60亿。",
+            "source": "东方财富Choice数据",
+            "publish_time": "2026-03-03 16:57:34",
+            "url": "http://finance.eastmoney.com/a/202603033660409451.html",
+            "type": "news"
+          },
+          {
+            "title": "历史首次！600028、601857、600938，集体涨停",
+            "content": "石油板块全线爆发，市值超2万亿的中国石油（601857）罕见涨停，中国海油（600938）、中国石化（600028）均涨停，这是也“三桶油”历史首次集体报收涨停；银行板块上扬，农业银行、建设银行、工商银行、中国银行等齐拉升；有色板块再度活跃，黄金概念等表现亮眼，四川黄金、湖南黄金等午后涨停",
+            "source": "证券时报",
+            "publish_time": "2026-03-02 16:20:48",
+            "url": "http://finance.eastmoney.com/a/202603023658529728.html",
+            "type": "news"
+          },
+          {
+            "title": "七国集团或联合释放紧急石油储备，国际油价快速回落",
+            "content": "从A股油气板块表现来看，中国海油（600938）（600938.SH）盘中触及涨停随后回落，日内涨幅7.09%，最高触及44.54元创历史新高（883911）；中国石油（601857）（601857.SH）一度涨至9.59%，全天报收5.04%。",
+            "source": "华夏时报",
+            "publish_time": "2026-03-09 20:04:33",
+            "url": "http://finance.eastmoney.com/a/202603093666260392.html",
+            "type": "news"
+          },
+          {
+            "title": "三大股指跌幅大幅收窄，超4000只个股下跌，中国石油再度飙升！G7将讨论释放石油储备，国际油价快速回落｜A股收盘",
+            "content": "中国石油（601857.SH）盘中触及涨停，截至发稿，上涨5.04%，报12.92元/股，最新总市值2.36万亿元；中国海油（600938.SH）上涨7.09%，报43.36元/股；中国石化（600028.SH）上涨1.74%，报7元/股。",
+            "source": "每日经济新闻",
+            "publish_time": "2026-03-09 15:44:02",
+            "url": "http://finance.eastmoney.com/a/202603093666055933.html",
+            "type": "news"
+          },
+          {
+            "title": "超越农业银行 中国石油重登A股市值冠军",
+            "content": "3月4日，中国石油（601857）早盘大幅高开，开盘后不久迅速下探，盘中短暂触及跌停。截至收盘，该股上涨0.68%，最新收盘价13.24元/股，创2009年以来新高，其A股市值飙升至2.14万亿元。至此，中国石油A股市值正式超越农业银行，成为最新A股市值冠军。",
+            "source": "21世纪经济报道",
+            "publish_time": "2026-03-04 17:26:51",
+            "url": "http://finance.eastmoney.com/a/202603043661807650.html",
+            "type": "news"
+          }
+        ]
+      }
+    },
+    {
+      "stock_code": "600028",
+      "stock_name": "中国石化",
+      "timestamp": "2026-03-15 10:16:46",
+      "news_count": 10,
+      "sentiment": {
+        "sentiment": "negative",
+        "score": 0.0,
+        "positive_count": 0,
+        "negative_count": 4,
+        "news_count": 10,
+        "latest_news": [
+          {
+            "title": "中国石化600028龙虎榜数据03-03)",
+            "content": "交易所2026年3月3日公布的交易公开信息显示，中国石化因成为非ST、*ST和S证券连续三个交易日内收盘价格涨幅偏离值累计达到20%的证券上榜。中国石化当日收报7.82元，涨跌幅9.99%，换手率1.59%，成交额114.27亿。",
+            "source": "东方财富Choice数据",
+            "publish_time": "2026-03-03 16:57:46",
+            "url": "http://finance.eastmoney.com/a/202603033660410892.html",
+            "type": "news"
+          },
+          {
+            "title": "历史首次！600028、601857、600938，集体涨停",
+            "content": "石油板块全线爆发，市值超2万亿的中国石油（601857）罕见涨停，中国海油（600938）、中国石化（600028）均涨停，这是也“三桶油”历史首次集体报收涨停；银行板块上扬，农业银行、建设银行、工商银行、中国银行等齐拉升；有色板块再度活跃，黄金概念等表现亮眼，四川黄金、湖南黄金等午后涨停",
+            "source": "证券时报",
+            "publish_time": "2026-03-02 16:20:48",
+            "url": "http://finance.eastmoney.com/a/202603023658529728.html",
+            "type": "news"
+          },
+          {
+            "title": "中国石化600028龙虎榜数据03-02",
+            "content": "交易所2026年3月2日公布的交易公开信息显示，中国石化因成为有价格涨跌幅限制的日收盘价格涨幅偏离值达到7%的前五只证券上榜。中国石化当日收报7.11元，涨跌幅10.06%，偏离值9.59%，换手率1.15%，成交额74.29亿。",
+            "source": "东方财富Choice数据",
+            "publish_time": "2026-03-02 16:57:35",
+            "url": "http://finance.eastmoney.com/a/202603023658585620.html",
+            "type": "news"
+          },
+          {
+            "title": "股价连续异动 中国石化紧急提示油价波动风险",
+            "content": "中国石化（600028/00386）发布公告，公司股票在2026年2月27日、3月2日和3月3日连续3个交易日，收盘价格涨幅偏离值累计超过20%。 因受地缘政治等因素影响，国际原油价格走势存在诸多不确定性，在此，公司敬请广大投资者注意风险。",
+            "source": "财中社",
+            "publish_time": "2026-03-03 20:02:24",
+            "url": "http://finance.eastmoney.com/a/202603033660538216.html",
+            "type": "news"
+          },
+          {
+            "title": "中国石化：受地缘政治等因素影响 国际原油价格走势存在诸多不确定性",
+            "content": "人民财讯3月3日电，中国石化6000283月3日发布股票交易异常波动公告称，公司A股股票2月27日、3月2日和3月3日连续三个交易日收盘价格涨幅偏离值累计超过20%，波动幅度较大。受地缘政治等因素影响，国际原油价格走势存在诸多不确定性，请投资者注意风险。",
+            "source": "人民财讯",
+            "publish_time": "2026-03-03 19:45:45",
+            "url": "http://finance.eastmoney.com/a/202603033660530160.html",
+            "type": "news"
+          }
+        ]
+      }
+    },
+    {
+      "stock_code": "600938",
+      "stock_name": "中国海油",
+      "timestamp": "2026-03-15 10:16:47",
+      "news_count": 10,
+      "sentiment": {
+        "sentiment": "positive",
+        "score": 0.75,
+        "positive_count": 3,
+        "negative_count": 1,
+        "news_count": 10,
+        "latest_news": [
+          {
+            "title": "历史首次！600028、601857、600938，集体涨停",
+            "content": "石油板块全线爆发，市值超2万亿的中国石油（601857）罕见涨停，中国海油（600938）、中国石化（600028）均涨停，这是也“三桶油”历史首次集体报收涨停；银行板块上扬，农业银行、建设银行、工商银行、中国银行等齐拉升；有色板块再度活跃，黄金概念等表现亮眼，四川黄金、湖南黄金等午后涨停",
+            "source": "证券时报",
+            "publish_time": "2026-03-02 16:20:48",
+            "url": "http://finance.eastmoney.com/a/202603023658529728.html",
+            "type": "news"
+          },
+          {
+            "title": "中国海油600938龙虎榜数据03-03",
+            "content": "交易所2026年3月3日公布的交易公开信息显示，中国海油因成为非ST、*ST和S证券连续三个交易日内收盘价格涨幅偏离值累计达到20%的证券上榜。中国海油当日收报43.41元，涨跌幅10.01%，换手率8.47%，成交额108.37亿。异常期间3月2日至3月3日，期间涨幅21.02%",
+            "source": "东方财富Choice数据",
+            "publish_time": "2026-03-03 16:58:03",
+            "url": "http://finance.eastmoney.com/a/202603033660412821.html",
+            "type": "news"
+          },
+          {
+            "title": "七国集团或联合释放紧急石油储备，国际油价快速回落",
+            "content": "从A股油气板块表现来看，中国海油（600938）（600938.SH）盘中触及涨停随后回落，日内涨幅7.09%，最高触及44.54元创历史新高（883911）；中国石油（601857）（601857.SH）一度涨至9.59%，全天报收5.04%。",
+            "source": "华夏时报",
+            "publish_time": "2026-03-09 20:04:33",
+            "url": "http://finance.eastmoney.com/a/202603093666260392.html",
+            "type": "news"
+          },
+          {
+            "title": "以色列突袭伊朗油库，油价冲破100美元/桶｜市场观察",
+            "content": "上午A股开盘“三桶油”大幅高开，其中上游开采业务为主的中国海油（600938.SH，00883.HK）开盘就涨停。",
+            "source": "第一财经",
+            "publish_time": "2026-03-09 09:44:35",
+            "url": "http://finance.eastmoney.com/a/202603093665750764.html",
+            "type": "news"
+          },
+          {
+            "title": "油气概念高开低走，多只个股涨停“炸板”",
+            "content": "今日早盘，中国海油（600938.SH）开盘涨停，报44.54元/股，创下2022年4月A股上市以来新高；随后回落，截至收盘涨7.09%，报43.36元/股。",
+            "source": "红星资本局",
+            "publish_time": "2026-03-09 18:56:44",
+            "url": "http://finance.eastmoney.com/a/202603093666213449.html",
+            "type": "news"
+          }
+        ]
+      }
+    },
+    {
+      "stock_code": "000858",
+      "stock_name": "五粮液",
+      "timestamp": "2026-03-15 10:16:49",
+      "news_count": 10,
+      "sentiment": {
+        "sentiment": "negative",
+        "score": 0.1,
+        "positive_count": 1,
+        "negative_count": 9,
+        "news_count": 10,
+        "latest_news": [
+          {
+            "title": "食品饮料行业今日净流入资金4.54亿元，贵州茅台等5股净流入资金超3000万元",
+            "content": "五粮液 0.66 0.39 4498.49 605499 东鹏饮料 0.26 0.66 4117.15 000995 皇台酒业 3.20 15.95 2865.15 000799 酒鬼酒 0.45 2.67 2537.86 000639 西王食品 1.06 3.51 1810.87",
+            "source": "证券时报网",
+            "publish_time": "2026-03-13 16:38:38",
+            "url": "http://finance.eastmoney.com/a/202603133671524840.html",
+            "type": "news"
+          },
+          {
+            "title": "五粮液：董事长曾从钦被留置，生产经营情况正常",
+            "content": "五粮液表示，公司将持续关注上述事项的后续进展，严格按照有关法律、法规的规定和要求及时履行信息披露义务。 2月27日，五粮液000858.SZ)股价微涨0.16%，报104.05元/股，最新总市值为4039亿元。",
+            "source": "21世纪经济报道",
+            "publish_time": "2026-02-28 22:39:47",
+            "url": "http://finance.eastmoney.com/a/202602283657583185.html",
+            "type": "news"
+          },
+          {
+            "title": "五粮液董事长曾从钦被立案调查",
+            "content": "2月28日，五粮液（000858）发布公告，近日收到中国共产党宜宾市纪律检查委员会、宜宾市监察委员会关于公司董事长曾从钦的《立案通知书》及《留置通知书》。公告中提到，截至公告日，公司其他董事和高级管理人员均正常履职，生产经营情况正常。",
+            "source": "财中社",
+            "publish_time": "2026-03-01 16:00:17",
+            "url": "http://finance.eastmoney.com/a/202603013657697733.html",
+            "type": "news"
+          },
+          {
+            "title": "五粮液：董事长曾从钦被留置",
+            "content": "五粮液000858.SZ)公告称，公司于近日收到中国共产党宜宾市纪律检查委员会、宜宾市监察委员会关于公司董事长曾从钦的《立案通知书》及宜宾市监察委员会的《留置通知书》。截至公告日，公司其他董事和高级管理人员均正常履职，生产经营情况正常。",
+            "source": "财联社",
+            "publish_time": "2026-02-28 21:54:05",
+            "url": "http://finance.eastmoney.com/a/202602283657569589.html",
+            "type": "news"
+          },
+          {
+            "title": "五粮液：董事长被留置 生产经营情况正常",
+            "content": "人民财讯2月28日电，五粮液0008582月28日公告，公司于近日收到中国共产党宜宾市纪律检查委员会、宜宾市监察委员会关于公司董事长曾从钦的《立案通知书》及宜宾市监察委员会的《留置通知书》。截至本公告日，公司其他董事和高级管理人员均正常履职，生产经营情况正常。",
+            "source": "人民财讯",
+            "publish_time": "2026-02-28 21:58:29",
+            "url": "http://finance.eastmoney.com/a/202602283657571716.html",
+            "type": "news"
+          }
+        ]
+      }
+    },
+    {
+      "stock_code": "600519",
+      "stock_name": "贵州茅台",
+      "timestamp": "2026-03-15 10:16:50",
+      "news_count": 10,
+      "sentiment": {
+        "sentiment": "negative",
+        "score": 0.0,
+        "positive_count": 0,
+        "negative_count": 1,
+        "news_count": 10,
+        "latest_news": [
+          {
+            "title": "贵州茅台：副总经理蒋焰被实施留置",
+            "content": "人民财讯3月13日电，贵州茅台6005193月13日公告，公司于今日收到遵义市监察委员会关于对公司党委委员、副总经理、财务总监、董事会秘书蒋焰实施留置的通知。目前，由公司董事长陈华代行董事会秘书职责。",
+            "source": "人民财讯",
+            "publish_time": "2026-03-13 19:22:39",
+            "url": "http://finance.eastmoney.com/a/202603133671727471.html",
+            "type": "news"
+          },
+          {
+            "title": "贵州茅台：公司副总经理蒋焰被实施留置",
+            "content": "南方财经3月13日电，贵州茅台600519.SH)公告称，公司于2026年3月13日收到遵义市监察委员会关于对公司副总经理蒋焰实施留置的通知。公司生产经营正常有序，公告事项不会对公司生产经营管理产生重大影响。目前，由公司董事长陈华代行董事会秘书职责。",
+            "source": "南方财经网",
+            "publish_time": "2026-03-13 19:15:26",
+            "url": "http://finance.eastmoney.com/a/202603133671721387.html",
+            "type": "news"
+          },
+          {
+            "title": "贵州茅台：董事长陈华代行董秘职责",
+            "content": "【大河财立方消息】3月13日，贵州茅台（600519.SH）公告称，公司于2026年3月13日收到遵义市监察委员会关于对公司党委委员、副总经理、财务总监、董事会秘书蒋焰实施留置的通知。公司生产经营正常有序，公告事项不会对公司生产经营管理产生重大影响。",
+            "source": "大河财立方",
+            "publish_time": "2026-03-13 19:20:20",
+            "url": "http://finance.eastmoney.com/a/202603133671725068.html",
+            "type": "news"
+          },
+          {
+            "title": "贵州茅台财务总监、董事会秘书蒋焰被留置",
+            "content": "3月13日，贵州茅台（600519）发布公告，公司收到遵义市监察委员会关于对公司党委委员、副总经理、财务总监、董事会秘书蒋焰实施留置的通知。 公告中提到，公司董事和其他高级管理人员均正常履职，生产经营正常有序，公告事项不会对公司生产经营管理产生重大影响。",
+            "source": "财中社",
+            "publish_time": "2026-03-13 19:51:46",
+            "url": "http://finance.eastmoney.com/a/202603133671753939.html",
+            "type": "news"
+          },
+          {
+            "title": "突发！贵州茅台董秘蒋焰被查！",
+            "content": "3月13日，贵州茅台（600519）发布公告称，公司于2026年3月13日收到遵义市监察委员会关于对公司副总经理蒋焰实施留置的通知。公司生产经营正常有序，公告事项不会对公司生产经营管理产生重大影响。目前，由公司董事长陈华代行董事会秘书职责。",
+            "source": "证券时报",
+            "publish_time": "2026-03-13 20:15:52",
+            "url": "http://finance.eastmoney.com/a/202603133671773959.html",
+            "type": "news"
+          }
+        ]
+      }
+    }
+  ],
+  "report_path": "reports\\daily_report_2026-03-15.md"
+}

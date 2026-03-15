@@ -1,0 +1,44 @@
+{
+  "stocks": [
+    {"code": "601857", "name": "中国石油", "market": "SH"},
+    {"code": "600028", "name": "中国石化", "market": "SH"},
+    {"code": "600938", "name": "中国海油", "market": "SH"},
+    {"code": "000858", "name": "五粮液", "market": "SZ"},
+    {"code": "600519", "name": "贵州茅台", "market": "SH"}
+  ],
+  "analysis": {
+    "technical": {
+      "enabled": true,
+      "indicators": ["MA", "MACD", "RSI", "KDJ", "BOLL"],
+      "ma_periods": [5, 10, 20, 60],
+      "rsi_period": 14,
+      "boll_period": 20,
+      "boll_std": 2
+    },
+    "fundamental": {
+      "enabled": true,
+      "metrics": ["PE", "PB", "ROE", "debt_ratio", "revenue_growth", "profit_growth"]
+    },
+    "sentiment": {
+      "enabled": true,
+      "sources": ["eastmoney", "sina", "xueqiu"],
+      "cache_hours": 2
+    }
+  },
+  "alerts": {
+    "price_change_threshold": 3.0,
+    "technical_signals": ["golden_cross", "death_cross", "oversold", "overbought"],
+    "sentiment_threshold": 0.6
+  },
+  "report": {
+    "auto_generate": true,
+    "schedule": "daily",
+    "format": ["markdown", "pdf"],
+    "output_dir": "reports"
+  },
+  "api": {
+    "eastmoney": "http://push2.eastmoney.com",
+    "akshare": true,
+    "tushare_token": ""
+  }
+}

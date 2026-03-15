@@ -1,0 +1,11 @@
+# 股票分析 Agent 依赖
+
+# 核心依赖
+akshare>=1.12.0        # 股票数据接口（必须）
+pandas>=1.5.0          # 数据处理
+numpy>=1.23.0          # 数值计算
+
+# 可选依赖
+beautifulsoup4>=4.11.0 # HTML 解析（备用新闻抓取）
+lxml>=4.9.0            # XML/HTML 解析器
+openpyxl>=3.0.0        # Excel 导出

@@ -1,0 +1,342 @@
+{
+  "agent": "ai-publisher-agent",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "generate-article",
+      "type": "script",
+      "description": "生成 AI 资讯文章",
+      "command": "powershell",
+      "args": [
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "D:\\自动化任务\\AI-News-Daily\\generate-daily.ps1"
+      ],
+      "params": {
+        "date": {
+          "type": "string",
+          "required": false,
+          "default": "today",
+          "description": "日期，格式 YYYY-MM-DD"
+        }
+      },
+      "output": {
+        "article_path": "string",
+        "title": "string",
+        "word_count": "number",
+        "draft_path": "string"
+      },
+      "timeout_seconds": 120
+    },
+    {
+      "name": "generate-cover",
+      "type": "script",
+      "description": "生成公众号封面图（专业版）",
+      "command": "python",
+      "args": [
+        "C:\\Users\\Administrator\\.openclaw\\workspace\\skills\\wechat-cover-generator\\generate-cover.py"
+      ],
+      "params": {
+        "title": {
+          "type": "string",
+          "required": true,
+          "description": "文章标题"
+        },
+        "subtitle": {
+          "type": "string",
+          "required": false,
+          "description": "副标题"
+        },
+        "style": {
+          "type": "string",
+          "required": false,
+          "default": "auto",
+          "enum": ["auto", "news", "tech", "analysis", "casual", "sunset"],
+          "description": "封面风格"
+        },
+        "date": {
+          "type": "string",
+          "required": false,
+          "description": "日期，格式 YYYY-MM-DD"
+        },
+        "output": {
+          "type": "string",
+          "required": false,
+          "default": "D:\\自动化任务\\AI-News-Daily\\covers",
+          "description": "输出目录"
+        }
+      },
+      "output": {
+        "cover_path": "string",
+        "square_path": "string",
+        "thumb_path": "string",
+        "combined_path": "string",
+        "style": "string"
+      },
+      "timeout_seconds": 60
+    },
+    {
+      "name": "check-browser-status",
+      "type": "openclaw",
+      "description": "检查浏览器连接状态",
+      "action": "browser",
+      "params": {
+        "action": "status",
+        "profile": "chrome"
+      },
+      "output": {
+        "enabled": "boolean",
+        "running": "boolean",
+        "cdpReady": "boolean",
+        "tabs": "array"
+      },
+      "timeout_seconds": 10
+    },
+    {
+      "name": "get-browser-tabs",
+      "type": "openclaw",
+      "description": "获取浏览器标签页列表",
+      "action": "browser",
+      "params": {
+        "action": "tabs",
+        "profile": "chrome"
+      },
+      "output": {
+        "tabs": "array"
+      },
+      "timeout_seconds": 10
+    },
+    {
+      "name": "navigate-browser",
+      "type": "openclaw",
+      "description": "导航浏览器到指定 URL",
+      "action": "browser",
+      "params": {
+        "action": "navigate",
+        "targetUrl": "string",
+        "targetId": "string (optional)"
+      },
+      "timeout_seconds": 30
+    },
+    {
+      "name": "browser-snapshot",
+      "type": "openclaw",
+      "description": "获取页面快照（UI 元素识别）",
+      "action": "browser",
+      "params": {
+        "action": "snapshot",
+        "targetId": "string",
+        "refs": "aria",
+        "timeoutMs": 5000
+      },
+      "output": {
+        "elements": "array",
+        "page_title": "string",
+        "url": "string"
+      },
+      "timeout_seconds": 15
+    },
+    {
+      "name": "browser-click",
+      "type": "openclaw",
+      "description": "点击页面元素",
+      "action": "browser",
+      "params": {
+        "action": "act",
+        "targetId": "string",
+        "ref": "string",
+        "kind": "click"
+      },
+      "timeout_seconds": 10
+    },
+    {
+      "name": "browser-type",
+      "type": "openclaw",
+      "description": "在页面元素中输入文本",
+      "action": "browser",
+      "params": {
+        "action": "act",
+        "targetId": "string",
+        "ref": "string",
+        "kind": "type",
+        "text": "string"
+      },
+      "timeout_seconds": 10
+    },
+    {
+      "name": "check-file-exists",
+      "type": "script",
+      "description": "检查文件是否存在",
+      "command": "powershell",
+      "args": [
+        "-Command",
+        "Test-Path '{path}'"
+      ],
+      "params": {
+        "path": {
+          "type": "string",
+          "required": true,
+          "description": "文件路径"
+        }
+      },
+      "output": {
+        "exists": "boolean"
+      },
+      "timeout_seconds": 5
+    },
+    {
+      "name": "get-latest-article",
+      "type": "script",
+      "description": "获取最新生成的文章",
+      "command": "powershell",
+      "args": [
+        "-Command",
+        "Get-ChildItem 'D:\\自动化任务\\AI-News-Daily\\published' -Filter 'AI-News-*.md' | Sort-Object LastWriteTime -Descending | Select-Object -First 1"
+      ],
+      "output": {
+        "path": "string",
+        "name": "string",
+        "lastWriteTime": "datetime"
+      },
+      "timeout_seconds": 10
+    },
+    {
+      "name": "read-article",
+      "type": "script",
+      "description": "读取文章内容",
+      "command": "powershell",
+      "args": [
+        "-Command",
+        "Get-Content '{path}' -Raw -Encoding UTF8"
+      ],
+      "params": {
+        "path": {
+          "type": "string",
+          "required": true,
+          "description": "文章文件路径"
+        }
+      },
+      "output": {
+        "content": "string",
+        "title": "string",
+        "word_count": "number"
+      },
+      "timeout_seconds": 10
+    },
+    {
+      "name": "check-ai-detection",
+      "type": "browser",
+      "description": "使用 ZeroGPT 检测 AI 含量",
+      "url": "https://www.zerogpt.com/",
+      "steps": [
+        "navigate to zerogpt.com",
+        "paste article content",
+        "click Detect Text button",
+        "wait for result",
+        "extract AI percentage"
+      ],
+      "params": {
+        "content": {
+          "type": "string",
+          "required": true,
+          "description": "待检测的文章内容"
+        },
+        "threshold": {
+          "type": "number",
+          "required": false,
+          "default": 10,
+          "description": "AI 含量阈值（超过需优化）"
+        }
+      },
+      "output": {
+        "ai_percentage": "number",
+        "passed": "boolean",
+        "report": "string"
+      },
+      "timeout_seconds": 60
+    },
+    {
+      "name": "update-memory",
+      "type": "internal",
+      "description": "更新 Agent 记忆状态",
+      "params": {
+        "key": "string",
+        "value": "any"
+      },
+      "output": {
+        "success": "boolean"
+      }
+    },
+    {
+      "name": "get-memory",
+      "type": "internal",
+      "description": "读取 Agent 记忆状态",
+      "params": {
+        "key": "string"
+      },
+      "output": {
+        "value": "any"
+      }
+    },
+    {
+      "name": "notify-user",
+      "type": "internal",
+      "description": "通知用户任务状态",
+      "params": {
+        "message": "string",
+        "type": "info | success | warning | error",
+        "require_response": "boolean"
+      },
+      "output": {
+        "sent": "boolean"
+      }
+    },
+    {
+      "name": "log-execution",
+      "type": "script",
+      "description": "记录执行日志",
+      "command": "powershell",
+      "args": [
+        "-Command",
+        "Add-Content -Path 'D:\\自动化任务\\AI-News-Daily\\logs\\agent-{date}.log' -Value '[{timestamp}] {message}'"
+      ],
+      "params": {
+        "message": "string",
+        "level": "info | warning | error"
+      },
+      "timeout_seconds": 5
+    }
+  ],
+  "tool_groups": {
+    "article_generation": [
+      "generate-article",
+      "read-article",
+      "check-ai-detection"
+    ],
+    "cover_generation": [
+      "generate-cover"
+    ],
+    "browser_automation": [
+      "check-browser-status",
+      "get-browser-tabs",
+      "navigate-browser",
+      "browser-snapshot",
+      "browser-click",
+      "browser-type"
+    ],
+    "file_operations": [
+      "check-file-exists",
+      "get-latest-article",
+      "read-article"
+    ],
+    "memory": [
+      "update-memory",
+      "get-memory"
+    ],
+    "communication": [
+      "notify-user",
+      "log-execution"
+    ]
+  }
+}

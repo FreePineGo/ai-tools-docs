@@ -1,0 +1,44 @@
+{
+  "stocks": [
+    {
+      "code": "601857",
+      "name": "中国石油",
+      "market": "SH"
+    },
+    {
+      "code": "600028",
+      "name": "中国石化",
+      "market": "SH"
+    },
+    {
+      "code": "600938",
+      "name": "中国海油",
+      "market": "SH"
+    },
+    {
+      "code": "601808",
+      "name": "中海油服",
+      "market": "SH"
+    },
+    {
+      "code": "600583",
+      "name": "海油工程",
+      "market": "SH"
+    },
+    {
+      "code": "002353",
+      "name": "杰瑞股份",
+      "market": "SZ"
+    }
+  ],
+  "alert": {
+    "price_change_threshold": 3.0,
+    "volume_change_threshold": 50.0,
+    "enable_sound": true
+  },
+  "refresh_interval": 5,
+  "export": {
+    "enabled": true,
+    "interval_minutes": 30
+  }
+}
