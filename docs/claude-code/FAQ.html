@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude Code 常见问题解答 - AI Publisher Agent 文档中心</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background: #f6f8fa; color: #24292e; line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        header { background: #0366d6; color: white; padding: 40px 20px; text-align: center; margin-bottom: 20px; }
+        header h1 { font-size: 2em; }
+        nav { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        nav a { color: #0366d6; text-decoration: none; margin-right: 15px; }
+        nav a:hover { text-decoration: underline; }
+        .content { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .content h1 { color: #0366d6; border-bottom: 2px solid #e1e4e8; padding-bottom: 10px; margin-bottom: 20px; }
+        .content h2 { color: #0366d6; margin: 30px 0 15px; }
+        .content h3 { color: #24292e; margin: 20px 0 10px; }
+        .content p { margin: 15px 0; }
+        .content ul, .content ol { margin: 15px 0; padding-left: 30px; }
+        .content li { margin: 8px 0; }
+        .content a { color: #0366d6; text-decoration: none; }
+        .content a:hover { text-decoration: underline; }
+        .content code { background: #f6f8fa; padding: 2px 6px; border-radius: 3px; font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace; }
+        .content pre { background: #f6f8fa; padding: 20px; border-radius: 6px; overflow-x: auto; margin: 20px 0; }
+        .content pre code { background: none; padding: 0; }
+        .content table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+        .content th, .content td { border: 1px solid #e1e4e8; padding: 10px 15px; text-align: left; }
+        .content th { background: #f6f8fa; font-weight: 600; }
+        .content tr:nth-child(even) { background: #f6f8fa; }
+        footer { text-align: center; padding: 20px; color: #586069; margin-top: 40px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🤖 AI Publisher Agent 文档中心</h1>
+    </header>
+    <div class="container">
+        <nav>
+            <a href="../index.html">🏠 主页</a> |
+            <a href="README.html">📚 总索引</a> |
+            <a href="PRD.html">📋 PRD</a> |
+            <a href="guides/SELECTION.html">🎯 选择指南</a> |
+            <a href="guides/COMPARISON.html">⚖️ 对比表</a>
+        </nav>
+        <div class="content">
+<h1>Claude Code 常见问题解答</h1>
+
+<h2>安装问题</h2>
+
+<h3>Q: 安装时提示权限错误</h3>
+
+<strong>A</strong>: 这是 npm 全局安装的常见问题。
+
+<strong>解决方案</strong>:
+
+<pre><code><h1>方法 1: 使用 sudo (macOS/Linux)</h1>
+<p>sudo npm install -g @anthropic-ai/claude-code</p>
+
+<h1>方法 2: 修改 npm 配置 (推荐)</h1>
+<p>npm config set prefix ~/.npm-global</p>
+<p>echo 'export PATH=~/.npm-global/bin:$PATH' >> ~/.bashrc</p>
+<p>source ~/.bashrc</p>
+<p>npm install -g @anthropic-ai/claude-code</p>
+
+<h1>方法 3: 使用 nvm</h1>
+<p>nvm install --lts</p>
+<p>npm install -g @anthropic-ai/claude-code</p>
+</code></pre>
+
+<h3>Q: 安装后找不到 claude 命令</h3>
+
+<strong>A</strong>: PATH 环境变量未包含 npm 全局包目录。
+
+<strong>解决方案</strong>:
+
+<pre><code><h1>找到安装位置</h1>
+<p>npm config get prefix</p>
+
+<h1>添加到 PATH (macOS/Linux)</h1>
+<p>export PATH=$(npm config get prefix)/bin:$PATH</p>
+<p>echo 'export PATH=$(npm config get prefix)/bin:$PATH' >> ~/.bashrc</p>
+
+<h1>Windows PowerShell</h1>
+<p>$env:Path += ";$(npm config get prefix)\bin"</p>
+</code></pre>
+
+<h3>Q: Node.js 版本不兼容</h3>
+
+<strong>A</strong>: Claude Code 需要 Node.js v18 或更高版本。
+
+<strong>解决方案</strong>:
+
+<pre><code><h1>检查当前版本</h1>
+<p>node --version</p>
+
+<h1>使用 nvm 升级 (推荐)</h1>
+<p>nvm install 20</p>
+<p>nvm use 20</p>
+<p>nvm alias default 20</p>
+
+<h1>或直接下载新版本</h1>
+<h1>https://nodejs.org</h1>
+</code></pre>
+
+<h2>API 密钥问题</h2>
+
+<h3>Q: API 密钥无效或过期</h3>
+
+<strong>A</strong>: 可能的原因和解决方案：
+
+<p>1. <strong>密钥复制错误</strong></p>
+   <pre><code>   # 确保没有多余空格
+<p>   echo $ANTHROPIC_API_KEY | xxd</p>
+   </code></pre>
+
+<p>2. <strong>账户额度不足</strong></p>
+<p>   - 登录 console.anthropic.com 检查余额</p>
+<p>   - 充值或等待下月额度</p>
+
+<p>3. <strong>密钥被撤销</strong></p>
+<p>   - 重新生成新密钥</p>
+<p>   - 更新配置</p>
+
+<p>4. <strong>区域限制</strong></p>
+<p>   - 检查 API 端点设置</p>
+<p>   - 使用正确的区域配置</p>
+
+<h3>Q: 如何安全存储 API 密钥</h3>
+
+<strong>A</strong>: 推荐做法：
+
+<pre><code><h1>✅ 推荐：使用环境变量</h1>
+<p>echo 'export ANTHROPIC_API_KEY="your-key"' >> ~/.bashrc</p>
+
+<h1>✅ 推荐：使用配置文件 (限制权限)</h1>
+<p>echo '{"apiKey": "your-key"}' > ~/.claude/config.json</p>
+<p>chmod 600 ~/.claude/config.json</p>
+
+<h1>❌ 避免：硬编码在代码中</h1>
+<h1>❌ 避免：提交到版本控制</h1>
+</code></pre>
+
+<h2>使用问题</h2>
+
+<h3>Q: 响应速度慢</h3>
+
+<strong>A</strong>: 可能的原因：
+
+<p>1. <strong>网络问题</strong></p>
+   <pre><code>   # 测试连接
+<p>   ping console.anthropic.com</p>
+   
+   # 检查延迟
+<p>   curl -w "@curl-format.txt" -o /dev/null -s https://console.anthropic.com</p>
+   </code></pre>
+
+<p>2. <strong>模型负载</strong></p>
+<p>   - 尝试切换到其他模型</p>
+<p>   - 避开高峰时段</p>
+
+<p>3. <strong>请求过大</strong></p>
+<p>   - 拆分大任务为小任务</p>
+<p>   - 减少上下文大小</p>
+
+<h3>Q: 输出被截断</h3>
+
+<strong>A</strong>: 超过最大 token 限制。
+
+<strong>解决方案</strong>:
+
+<pre><code><h1>请求继续</h1>
+<p>请继续</p>
+
+<h1>或要求分部分输出</h1>
+<p>请分三部分回答，这是第一部分</p>
+
+<h1>或增加 token 限制</h1>
+<p>claude --max-tokens 16384</p>
+</code></pre>
+
+<h3>Q: 代码执行失败</h3>
+
+<strong>A</strong>: 检查以下几点：
+
+<p>1. <strong>权限问题</strong></p>
+   <pre><code>   # 检查文件权限
+<p>   ls -la filename</p>
+   
+   # 修复权限
+<p>   chmod +x script.sh</p>
+   </code></pre>
+
+<p>2. <strong>依赖缺失</strong></p>
+   <pre><code>   # 安装依赖
+<p>   npm install</p>
+   </code></pre>
+
+<p>3. <strong>环境差异</strong></p>
+   <pre><code>   # 检查 Node 版本
+<p>   node --version</p>
+   
+   # 检查环境变量
+<p>   env | grep NODE</p>
+   </code></pre>
+
+<h2>文件操作问题</h2>
+
+<h3>Q: 无法读取文件</h3>
+
+<strong>A</strong>: 检查文件路径和权限。
+
+<pre><code><h1>确认文件存在</h1>
+<p>ls -la path/to/file</p>
+
+<h1>检查读取权限</h1>
+<p>chmod +r path/to/file</p>
+
+<h1>使用绝对路径</h1>
+<p>@/absolute/path/to/file</p>
+</code></pre>
+
+<h3>Q: 修改文件后内容丢失</h3>
+
+<strong>A</strong>: 可能的原因：
+
+<p>1. <strong>并发修改</strong></p>
+<p>   - 确保没有其他进程修改同一文件</p>
+<p>   - 使用版本控制</p>
+
+<p>2. <strong>编码问题</strong></p>
+   <pre><code>   # 检查文件编码
+<p>   file -I filename</p>
+   
+   # 统一使用 UTF-8
+<p>   iconv -f 原编码 -t UTF-8 file > file.utf8</p>
+   </code></pre>
+
+<p>3. <strong>写入失败</strong></p>
+<p>   - 检查磁盘空间</p>
+<p>   - 检查写入权限</p>
+
+<h2>Git 集成问题</h2>
+
+<h3>Q: Git 命令执行失败</h3>
+
+<strong>A</strong>: 常见问题：
+
+<p>1. <strong>不在 Git 仓库</strong></p>
+   <pre><code>   # 初始化仓库
+<p>   git init</p>
+   
+   # 或进入正确目录
+<p>   cd /path/to/repo</p>
+   </code></pre>
+
+<p>2. <strong>未配置用户信息</strong></p>
+   <pre><code>   git config --global user.name "Your Name"
+<p>   git config --global user.email "your@email.com"</p>
+   </code></pre>
+
+<p>3. <strong>有未暂存的更改</strong></p>
+   <pre><code>   # 查看状态
+<p>   git status</p>
+   
+   # 暂存更改
+<p>   git add .</p>
+   </code></pre>
+
+<h3>Q: 合并冲突如何解决</h3>
+
+<strong>A</strong>: 让 Claude Code 帮助：
+
+<pre><code>请帮我解决这个合并冲突：
+<p>冲突文件：@src/app.ts</p>
+
+<p>保留两边的更改：</p>
+<ul><li>保留用户认证的新逻辑</li>
+<li>保留性能优化的代码</li>
+</ul></code></pre>
+
+<h2>性能问题</h2>
+
+<h3>Q: 内存使用过高</h3>
+
+<strong>A</strong>: 优化建议：
+
+<p>1. <strong>减少上下文</strong></p>
+   <pre><code>   只分析关键文件，不要包含整个项目
+   </code></pre>
+
+<p>2. <strong>分批处理</strong></p>
+   <pre><code>   先处理前 10 个文件，完成后再处理下一批
+   </code></pre>
+
+<p>3. <strong>定期清理</strong></p>
+   <pre><code>   # 清除会话缓存
+<p>   rm -rf ~/.claude/cache</p>
+   </code></pre>
+
+<h3>Q: 响应不准确</h3>
+
+<strong>A</strong>: 改进提示词：
+
+<pre><code>❌ 模糊：修复这个 bug
+
+<p>✅ 具体：这个函数在输入负数时返回错误结果。</p>
+<p>   期望：返回绝对值</p>
+<p>   实际：返回原值</p>
+<p>   文件：@src/utils/math.ts</p>
+<p>   函数：absValue()</p>
+</code></pre>
+
+<h2>安全问题</h2>
+
+<h3>Q: 代码安全吗？</h3>
+
+<strong>A</strong>: 注意事项：
+
+<p>1. <strong>不要分享敏感信息</strong></p>
+<p>   - API 密钥</p>
+<p>   - 数据库密码</p>
+<p>   - 个人隐私数据</p>
+
+<p>2. <strong>审查生成的代码</strong></p>
+<p>   - 检查安全漏洞</p>
+<p>   - 验证依赖来源</p>
+<p>   - 进行安全测试</p>
+
+<p>3. <strong>遵守公司政策</strong></p>
+<p>   - 确认允许使用 AI 工具</p>
+<p>   - 遵循代码审查流程</p>
+
+<h3>Q: 如何防止代码泄露</h3>
+
+<strong>A</strong>: 最佳实践：
+
+<pre><code><h1>1. 使用本地模型 (如可用)</h1>
+<p>claude --local</p>
+
+<h1>2. 脱敏处理</h1>
+<h1>替换敏感信息后再发送</h1>
+
+<h1>3. 私有部署</h1>
+<h1>考虑企业版私有部署选项</h1>
+</code></pre>
+
+<h2>高级问题</h2>
+
+<h3>Q: 如何自定义模型参数</h3>
+
+<strong>A</strong>: 通过配置文件：
+
+<pre><code>{
+<p>  "model": "claude-sonnet-4-20250514",</p>
+<p>  "maxTokens": 8192,</p>
+<p>  "temperature": 0.7,</p>
+<p>  "topP": 0.9,</p>
+<p>  "timeout": 300000</p>
+<p>}</p>
+</code></pre>
+
+<h3>Q: 可以离线使用吗</h3>
+
+<strong>A</strong>: 目前需要网络连接访问 API。离线方案：
+
+<ul><li>考虑本地部署方案</li>
+<li>使用缓存减少请求</li>
+<li>批量处理离线任务</li>
+</ul>
+<h3>Q: 如何集成到 CI/CD</h3>
+
+<strong>A</strong>: 示例流程：
+
+<pre><code><h1>.github/workflows/claude-review.yml</h1>
+<p>name: Claude Code Review</p>
+<p>on: [pull_request]</p>
+<p>jobs:</p>
+<p>  review:</p>
+<p>    runs-on: ubuntu-latest</p>
+<p>    steps:</p>
+<p>      - uses: actions/checkout@v3</p>
+<p>      - name: Install Claude Code</p>
+<p>        run: npm install -g @anthropic-ai/claude-code</p>
+<p>      - name: Run Review</p>
+<p>        run: claude "Review this PR" --json > review.json</p>
+</code></pre>
+
+<h2>其他资源</h2>
+
+<h3>获取帮助</h3>
+
+<ul><li><strong>官方文档</strong>: https://docs.anthropic.com</li>
+<li><strong>社区论坛</strong>: https://community.anthropic.com</li>
+<li><strong>GitHub Issues</strong>: https://github.com/anthropics/claude-code/issues</li>
+<li><strong>技术支持</strong>: support@anthropic.com</li>
+</ul>
+<h3>学习资源</h3>
+
+<ul><li>官方教程和示例</li>
+<li>社区最佳实践</li>
+<li>视频教程</li>
+<li>案例研究</li>
+</ul>
+<p>---</p>
+
+<strong>没找到答案？</strong> 请提供更多细节，Claude Code 可以帮你诊断具体问题。
+
+        </div>
+    </div>
+    <footer>
+        <p>最后更新：2026-03-15 | 维护者：AI Publisher Agent 团队</p>
+        <p><a href="https://github.com/FreePineGo/ai-tools-docs">GitHub 仓库</a></p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt 编写技巧 - AI Publisher Agent 文档中心</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background: #f6f8fa; color: #24292e; line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        header { background: #0366d6; color: white; padding: 40px 20px; text-align: center; margin-bottom: 20px; }
+        header h1 { font-size: 2em; }
+        nav { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        nav a { color: #0366d6; text-decoration: none; margin-right: 15px; }
+        nav a:hover { text-decoration: underline; }
+        .content { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .content h1 { color: #0366d6; border-bottom: 2px solid #e1e4e8; padding-bottom: 10px; margin-bottom: 20px; }
+        .content h2 { color: #0366d6; margin: 30px 0 15px; }
+        .content h3 { color: #24292e; margin: 20px 0 10px; }
+        .content p { margin: 15px 0; }
+        .content ul, .content ol { margin: 15px 0; padding-left: 30px; }
+        .content li { margin: 8px 0; }
+        .content a { color: #0366d6; text-decoration: none; }
+        .content a:hover { text-decoration: underline; }
+        .content code { background: #f6f8fa; padding: 2px 6px; border-radius: 3px; font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace; }
+        .content pre { background: #f6f8fa; padding: 20px; border-radius: 6px; overflow-x: auto; margin: 20px 0; }
+        .content pre code { background: none; padding: 0; }
+        .content table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+        .content th, .content td { border: 1px solid #e1e4e8; padding: 10px 15px; text-align: left; }
+        .content th { background: #f6f8fa; font-weight: 600; }
+        .content tr:nth-child(even) { background: #f6f8fa; }
+        footer { text-align: center; padding: 20px; color: #586069; margin-top: 40px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🤖 AI Publisher Agent 文档中心</h1>
+    </header>
+    <div class="container">
+        <nav>
+            <a href="../index.html">🏠 主页</a> |
+            <a href="README.html">📚 总索引</a> |
+            <a href="PRD.html">📋 PRD</a> |
+            <a href="guides/SELECTION.html">🎯 选择指南</a> |
+            <a href="guides/COMPARISON.html">⚖️ 对比表</a>
+        </nav>
+        <div class="content">
+<h1>Prompt 编写技巧</h1>
+
+<h2>核心原则</h2>
+
+<h3>1. 明确具体 (Be Specific)</h3>
+
+<p>❌ <strong>模糊的请求</strong>:</p>
+<pre><code>写个函数
+</code></pre>
+
+<p>✅ <strong>具体的请求</strong>:</p>
+<pre><code>用 Python 写一个函数，接收一个整数列表，返回其中的第二大值。
+<p>如果列表长度小于 2，抛出 ValueError。</p>
+<p>添加类型注解和文档字符串。</p>
+</code></pre>
+
+<h3>2. 提供上下文 (Provide Context)</h3>
+
+<p>❌ <strong>缺少上下文</strong>:</p>
+<pre><code>修复这个 bug
+</code></pre>
+
+<p>✅ <strong>完整上下文</strong>:</p>
+<pre><code>以下 Python 函数在输入空列表时抛出 IndexError，请修复：
+
+<p>def get_max(numbers):</p>
+<p>    sorted_nums = sorted(numbers)</p>
+<p>    return sorted_nums[-1]</p>
+
+<p>期望行为：空列表返回 None</p>
+</code></pre>
+
+<h3>3. 指定格式 (Specify Format)</h3>
+
+<p>❌ <strong>不指定格式</strong>:</p>
+<pre><code>生成用户模型
+</code></pre>
+
+<p>✅ <strong>指定格式</strong>:</p>
+<pre><code>用 TypeScript 创建 User 接口，包含以下字段：
+<ul><li>id: string (UUID)</li>
+<li>email: string</li>
+<li>name: string</li>
+<li>createdAt: Date</li>
+<li>updatedAt: Date</li>
+</ul>
+<p>只输出代码，不要解释。</p>
+</code></pre>
+
+<h2>Prompt 模板</h2>
+
+<h3>代码生成模板</h3>
+
+<pre><code>角色：[资深 Python 工程师 / React 专家 / SQL 专家等]
+<p>任务：[具体要完成的任务]</p>
+<p>语言：[编程语言]</p>
+<p>要求：</p>
+<ul><li>[要求 1]</li>
+<li>[要求 2]</li>
+<li>[要求 3]</li>
+</ul>约束：[任何限制条件]
+<p>输出格式：[代码/解释/两者都要]</p>
+</code></pre>
+
+<strong>示例</strong>:
+<pre><code>角色：资深 Python 后端工程师
+<p>任务：创建 JWT 认证装饰器</p>
+<p>语言：Python 3.9+</p>
+<p>要求：</p>
+<ul><li>验证 JWT token 有效性</li>
+<li>从 token 中提取用户 ID</li>
+<li>将用户 ID 添加到请求上下文</li>
+<li>处理过期和无效 token</li>
+</ul>约束：使用 PyJWT 库
+<p>输出格式：只输出代码，包含类型注解</p>
+</code></pre>
+
+<h3>代码审查模板</h3>
+
+<pre><code>请审查以下代码：
+
+<p>[代码内容]</p>
+
+<p>审查要点：</p>
+<p>1. 潜在 bug</p>
+<p>2. 性能问题</p>
+<p>3. 安全漏洞</p>
+<p>4. 代码风格</p>
+<p>5. 改进建议</p>
+
+<p>请按以上要点逐一分析，并提供修改后的代码。</p>
+</code></pre>
+
+<h3>Debug 模板</h3>
+
+<pre><code>问题：[描述问题现象]
+<p>环境：[语言版本、框架版本等]</p>
+<p>预期行为：[应该发生什么]</p>
+<p>实际行为：[实际发生了什么]</p>
+<p>错误信息：[完整的错误堆栈]</p>
+
+<p>相关代码：</p>
+<p>[代码内容]</p>
+
+<p>已尝试的解决方案：</p>
+<ul><li>[尝试 1]</li>
+<li>[尝试 2]</li>
+</ul>
+<p>请分析原因并提供解决方案。</p>
+</code></pre>
+
+<h3>重构模板</h3>
+
+<pre><code>请重构以下代码以改善：
+<ul><li>可读性</li>
+<li>可维护性</li>
+<li>性能</li>
+</ul>
+<p>原始代码：</p>
+<p>[代码内容]</p>
+
+<p>约束条件：</p>
+<ul><li>保持现有功能不变</li>
+<li>不引入新的外部依赖</li>
+<li>遵循 [PEP 8 / Airbnb 等] 风格指南</li>
+</ul>
+<p>请提供：</p>
+<p>1. 重构后的代码</p>
+<p>2. 主要改进说明</p>
+</code></pre>
+
+<h2>高级技巧</h2>
+
+<h3>1. 思维链 (Chain of Thought)</h3>
+
+<p>让模型展示思考过程，提高准确性：</p>
+
+<pre><code>请逐步分析以下问题，然后给出答案：
+
+<p>问题：优化这个 O(n²) 的算法到 O(n log n)</p>
+
+<p>[代码]</p>
+
+<p>要求：</p>
+<p>1. 先分析当前算法的时间复杂度</p>
+<p>2. 指出性能瓶颈</p>
+<p>3. 提出优化思路</p>
+<p>4. 给出优化后的代码</p>
+</code></pre>
+
+<h3>2. 少样本学习 (Few-Shot Learning)</h3>
+
+<p>提供示例帮助模型理解期望输出：</p>
+
+<pre><code>按照以下示例的格式生成代码：
+
+<p>示例 1:</p>
+<p>输入：创建加法函数</p>
+<p>输出：</p>
+</code></pre>python
+<p>def add(a, b):</p>
+<p>    return a + b</p>
+<pre><code>
+<p>示例 2:</p>
+<p>输入：创建乘法函数</p>
+<p>输出：</p>
+</code></pre>python
+<p>def multiply(a, b):</p>
+<p>    return a * b</p>
+<pre><code>
+<p>现在：</p>
+<p>输入：创建除法函数，处理除零错误</p>
+<p>输出：</p>
+</code></pre>
+
+<h3>3. 角色设定 (Role Playing)</h3>
+
+<pre><code>你是一位有 10 年经验的安全工程师，专注于代码安全审计。
+<p>请审查以下代码中的安全漏洞：</p>
+
+<p>[代码]</p>
+
+<p>请按严重程度排序，并提供修复方案。</p>
+</code></pre>
+
+<h3>4. 分步请求 (Step-by-Step)</h3>
+
+<p>复杂任务拆分成多个 prompt：</p>
+
+<pre><code>第一步：设计数据库 schema
+<p>第二步：生成 ORM 模型</p>
+<p>第三步：创建 CRUD 操作</p>
+<p>第四步：添加单元测试</p>
+</code></pre>
+
+<h3>5. 约束条件 (Constraints)</h3>
+
+<p>明确限制条件提高输出质量：</p>
+
+<pre><code>写一个 API 端点，要求：
+<ul><li>使用 FastAPI</li>
+<li>必须包含输入验证</li>
+<li>必须有错误处理</li>
+<li>必须有类型注解</li>
+<li>不能超过 50 行代码</li>
+<li>不使用外部数据库</li>
+</ul></code></pre>
+
+<h2>常见场景 Prompt</h2>
+
+<h3>API 开发</h3>
+
+<pre><code>创建 RESTful API 端点：
+<ul><li>框架：[FastAPI/Express/Spring 等]</li>
+<li>功能：[CRUD/认证/文件上传等]</li>
+<li>认证：[JWT/OAuth2/无]</li>
+<li>数据库：[PostgreSQL/MongoDB 等]</li>
+<li>需要：[验证/日志/缓存/限流]</li>
+</ul>
+<p>输出完整的端点代码和测试示例。</p>
+</code></pre>
+
+<h3>数据处理</h3>
+
+<pre><code>编写数据处理脚本：
+<ul><li>输入：[CSV/JSON/数据库等]</li>
+<li>处理：[清洗/转换/聚合/分析]</li>
+<li>输出：[格式和位置]</li>
+<li>库偏好：[pandas/d3 等]</li>
+<li>性能要求：[内存/速度限制]</li>
+</ul></code></pre>
+
+<h3>测试生成</h3>
+
+<pre><code>为以下代码生成单元测试：
+
+<p>[代码]</p>
+
+<p>要求：</p>
+<ul><li>测试框架：[pytest/Jest/JUnit 等]</li>
+<li>覆盖率目标：[行覆盖/分支覆盖]</li>
+<li>包含：[正常情况/边界情况/错误情况]</li>
+<li>Mock：[需要 mock 的外部依赖]</li>
+</ul></code></pre>
+
+<h3>文档生成</h3>
+
+<pre><code>为以下代码生成文档：
+
+<p>[代码]</p>
+
+<p>要求：</p>
+<ul><li>文档风格：[Google/NumPy/JSDoc 等]</li>
+<li>包含：[参数说明/返回值/异常/示例]</li>
+<li>语言：[中文/英文]</li>
+<li>格式：[docstring/独立文档]</li>
+</ul></code></pre>
+
+<h3>代码转换</h3>
+
+<pre><code>将以下 [源语言] 代码转换为 [目标语言]：
+
+<p>[源代码]</p>
+
+<p>要求：</p>
+<ul><li>保持功能完全一致</li>
+<li>使用目标语言的最佳实践</li>
+<li>添加必要的注释</li>
+<li>处理语言特定的边界情况</li>
+</ul></code></pre>
+
+<h2>优化技巧</h2>
+
+<h3>1. 温度参数调整</h3>
+
+<pre><code><h1>确定性任务（代码生成）</h1>
+<p>temperature = 0.1-0.3</p>
+
+<h1>创意任务（架构设计）</h1>
+<p>temperature = 0.5-0.7</p>
+
+<h1>探索性任务（头脑风暴）</h1>
+<p>temperature = 0.7-0.9</p>
+</code></pre>
+
+<h3>2. 系统消息优化</h3>
+
+<pre><code><h1>通用系统消息</h1>
+<p>system_prompt = """你是资深软件工程师。</p>
+<ul><li>只输出高质量、可运行的代码</li>
+<li>遵循最佳实践和设计模式</li>
+<li>添加必要的错误处理</li>
+<li>代码要有良好的可读性</li>
+<li>使用清晰的变量命名"""</li>
+</ul>
+<h1>特定领域系统消息</h1>
+<p>system_prompt = """你是 Python 数据科学专家。</p>
+<ul><li>使用 pandas 和 numpy</li>
+<li>代码要向量化，避免循环</li>
+<li>添加类型注解</li>
+<li>包含性能优化"""</li>
+</ul></code></pre>
+
+<h3>3. 输出控制</h3>
+
+<pre><code>在 prompt 末尾添加：
+
+<p>"只输出代码，不要解释"</p>
+<p>"先解释思路，再给代码"</p>
+<p>"用中文注释"</p>
+<p>"输出 Markdown 格式的代码块"</p>
+</code></pre>
+
+<h3>4. 迭代优化</h3>
+
+<pre><code>第一轮：生成基础代码
+<p>第二轮：添加错误处理</p>
+<p>第三轮：优化性能</p>
+<p>第四轮：添加测试</p>
+</code></pre>
+
+<h2>避免的陷阱</h2>
+
+<h3>❌ 不要这样做</h3>
+
+<p>1. <strong>过于模糊</strong></p>
+   <pre><code>   帮我写代码
+   </code></pre>
+
+<p>2. <strong>一次性太多</strong></p>
+   <pre><code>   创建整个电商系统，包括用户、商品、订单、支付...
+   </code></pre>
+
+<p>3. <strong>缺少关键信息</strong></p>
+   <pre><code>   修复这个错误（没有提供代码或错误信息）
+   </code></pre>
+
+<p>4. <strong>矛盾的要求</strong></p>
+   <pre><code>   代码要尽可能短，但要包含完整的错误处理和注释
+   </code></pre>
+
+<h3>✅ 应该这样做</h3>
+
+<p>1. <strong>具体明确</strong></p>
+   <pre><code>   用 Python 写一个函数，验证邮箱格式
+   </code></pre>
+
+<p>2. <strong>分步进行</strong></p>
+   <pre><code>   第一步：设计用户数据模型
+<p>   第二步：创建用户注册 API</p>
+   </code></pre>
+
+<p>3. <strong>提供完整信息</strong></p>
+   <pre><code>   环境：Python 3.9, Flask 2.0
+<p>   问题：POST 请求返回 405</p>
+<p>   代码：[附上代码]</p>
+   </code></pre>
+
+<p>4. <strong>合理的要求</strong></p>
+   <pre><code>   代码要简洁，但必须包含输入验证和错误处理
+   </code></pre>
+
+<h2>Prompt 检查清单</h2>
+
+<p>在发送 prompt 前，检查：</p>
+
+<ul><li>[ ] 任务描述是否清晰具体？</li>
+<li>[ ] 是否指定了编程语言和版本？</li>
+<li>[ ] 是否说明了输入和输出？</li>
+<li>[ ] 是否包含必要的约束条件？</li>
+<li>[ ] 是否提供了相关上下文或示例代码？</li>
+<li>[ ] 是否指定了输出格式？</li>
+<li>[ ] 是否有矛盾或不合理的要求？</li>
+<li>[ ] 复杂任务是否已拆分？</li>
+</ul>
+<p>---</p>
+
+<p>*最后更新：2026-03-15*</p>
+
+        </div>
+    </div>
+    <footer>
+        <p>最后更新：2026-03-15 | 维护者：AI Publisher Agent 团队</p>
+        <p><a href="https://github.com/FreePineGo/ai-tools-docs">GitHub 仓库</a></p>
+    </footer>
+</body>
+</html>

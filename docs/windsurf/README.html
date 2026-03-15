@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windsurf - AI 开发环境使用指南 - AI Publisher Agent 文档中心</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background: #f6f8fa; color: #24292e; line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        header { background: #0366d6; color: white; padding: 40px 20px; text-align: center; margin-bottom: 20px; }
+        header h1 { font-size: 2em; }
+        nav { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        nav a { color: #0366d6; text-decoration: none; margin-right: 15px; }
+        nav a:hover { text-decoration: underline; }
+        .content { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .content h1 { color: #0366d6; border-bottom: 2px solid #e1e4e8; padding-bottom: 10px; margin-bottom: 20px; }
+        .content h2 { color: #0366d6; margin: 30px 0 15px; }
+        .content h3 { color: #24292e; margin: 20px 0 10px; }
+        .content p { margin: 15px 0; }
+        .content ul, .content ol { margin: 15px 0; padding-left: 30px; }
+        .content li { margin: 8px 0; }
+        .content a { color: #0366d6; text-decoration: none; }
+        .content a:hover { text-decoration: underline; }
+        .content code { background: #f6f8fa; padding: 2px 6px; border-radius: 3px; font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace; }
+        .content pre { background: #f6f8fa; padding: 20px; border-radius: 6px; overflow-x: auto; margin: 20px 0; }
+        .content pre code { background: none; padding: 0; }
+        .content table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+        .content th, .content td { border: 1px solid #e1e4e8; padding: 10px 15px; text-align: left; }
+        .content th { background: #f6f8fa; font-weight: 600; }
+        .content tr:nth-child(even) { background: #f6f8fa; }
+        footer { text-align: center; padding: 20px; color: #586069; margin-top: 40px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🤖 AI Publisher Agent 文档中心</h1>
+    </header>
+    <div class="container">
+        <nav>
+            <a href="../index.html">🏠 主页</a> |
+            <a href="README.html">📚 总索引</a> |
+            <a href="PRD.html">📋 PRD</a> |
+            <a href="guides/SELECTION.html">🎯 选择指南</a> |
+            <a href="guides/COMPARISON.html">⚖️ 对比表</a>
+        </nav>
+        <div class="content">
+<h1>Windsurf - AI 开发环境使用指南</h1>
+
+<h2>工具简介</h2>
+
+<p>Windsurf 是由 Codeium 开发的下一代 AI 原生 IDE，将 AI 深度集成到开发工作流的每一个环节。它基于 VS Code 构建，提供了超越传统代码补全的智能开发体验，包括项目级理解、智能工作流和深度上下文感知。</p>
+
+<strong>核心优势：</strong>
+<ul><li>完全兼容 VS Code 生态系统</li>
+<li>项目级 AI 理解（Cascade 引擎）</li>
+<li>智能工作流自动化</li>
+<li>免费且功能强大</li>
+</ul>
+<h2>安装步骤</h2>
+
+<h3>1. 下载 Windsurf</h3>
+
+<p>1. <strong>访问官网</strong></p>
+<p>   - 打开 https://codeium.com/windsurf</p>
+<p>   - 点击 "Download for Free"</p>
+
+<p>2. <strong>选择操作系统版本</strong></p>
+<p>   - Windows：下载 <code>.exe</code> 安装程序</p>
+<p>   - macOS：下载 <code>.dmg</code> 文件</p>
+<p>   - Linux：下载 <code>.deb</code>、<code>.rpm</code> 或 <code>.AppImage</code></p>
+
+<h3>2. 安装应用</h3>
+
+#### Windows
+<pre><code>1. 运行下载的 windsurf-setup.exe
+<p>2. 按照安装向导完成安装</p>
+<p>3. 选择是否创建桌面快捷方式</p>
+<p>4. 完成安装</p>
+</code></pre>
+
+#### macOS
+<pre><code>1. 打开下载的 .dmg 文件
+<p>2. 将 Windsurf 拖拽到 Applications 文件夹</p>
+<p>3. 在 Applications 中启动 Windsurf</p>
+</code></pre>
+
+#### Linux
+<pre><code><h1>Debian/Ubuntu</h1>
+<p>sudo dpkg -i windsurf_amd64.deb</p>
+
+<h1>Red Hat/Fedora</h1>
+<p>sudo rpm -i windsurf.x86_64.rpm</p>
+
+<h1>或使用 AppImage</h1>
+<p>chmod +x windsurf.AppImage</p>
+<p>./windsurf.AppImage</p>
+</code></pre>
+
+<h3>3. 首次启动配置</h3>
+
+<pre><code>1. 启动 Windsurf
+<p>2. 使用 GitHub、Google 或邮箱账号登录</p>
+<p>3. 导入 VS Code 设置和扩展（可选）</p>
+<p>4. 完成 Cascade AI 配置</p>
+<p>5. 开始使用</p>
+</code></pre>
+
+<h3>4. 导入 VS Code 配置（可选）</h3>
+
+<pre><code>1. 首次启动时会提示导入 VS Code 配置
+<p>2. 选择要导入的内容：</p>
+<p>   - 设置（Settings）</p>
+<p>   - 扩展（Extensions）</p>
+<p>   - 快捷键（Keybindings）</p>
+<p>   - 代码片段（Snippets）</p>
+<p>3. 确认导入</p>
+</code></pre>
+
+<h2>基本用法</h2>
+
+<h3>1. Cascade AI 聊天</h3>
+
+<pre><code>快捷键：Ctrl+L (Windows/Linux) / Cmd+L (Mac)
+
+<p>功能：</p>
+<ul><li>打开侧边栏 AI 聊天面板</li>
+<li>与 AI 对话获取代码帮助</li>
+<li>支持项目级上下文理解</li>
+<li>可执行文件操作和命令</li>
+</ul></code></pre>
+
+<h3>2. 行内 AI 编辑</h3>
+
+<pre><code>快捷键：Ctrl+I (Windows/Linux) / Cmd+I (Mac)
+
+<p>功能：</p>
+<ul><li>在编辑器内直接编辑代码</li>
+<li>输入自然语言指令</li>
+<li>AI 直接修改选中的代码</li>
+<li>支持 diff 预览</li>
+</ul></code></pre>
+
+<h3>3. 智能补全</h3>
+
+<pre><code>使用方式：
+<p>1. 开始编写代码</p>
+<p>2. Windsurf 自动显示 AI 建议</p>
+<p>3. Tab 接受建议</p>
+<p>4. 支持多行补全</p>
+</code></pre>
+
+<h3>4. 命令面板</h3>
+
+<pre><code>快捷键：Ctrl+Shift+P (Windows/Linux) / Cmd+Shift+P (Mac)
+
+<p>常用命令：</p>
+<ul><li>Cascade: Chat</li>
+<li>Cascade: Edit</li>
+<li>Cascade: Run Command</li>
+<li>Cascade: Explain Code</li>
+</ul></code></pre>
+
+<h2>特色功能</h2>
+
+<h3>🌊 Cascade 引擎</h3>
+
+<strong>项目级 AI 理解：</strong>
+<ul><li>自动索引整个项目结构</li>
+<li>理解文件间的依赖关系</li>
+<li>基于项目上下文提供建议</li>
+<li>支持跨文件代码生成</li>
+</ul>
+<strong>智能工作流：</strong>
+<ul><li>AI 可以执行文件操作</li>
+<li>自动运行终端命令</li>
+<li>创建/修改/删除文件</li>
+<li>实时预览变更</li>
+</ul>
+<h3>🔍 深度上下文感知</h3>
+
+<ul><li><strong>文件上下文</strong>：理解当前文件的所有内容</li>
+<li><strong>项目上下文</strong>：理解整个项目的结构</li>
+<li><strong>Git 上下文</strong>：了解代码变更历史</li>
+<li><strong>终端上下文</strong>：关联终端输出</li>
+</ul>
+<h3>🤖 自主 Agent 能力</h3>
+
+<strong>Cascade 可以：</strong>
+<ul><li>搜索和阅读项目文件</li>
+<li>运行终端命令</li>
+<li>创建和修改文件</li>
+<li>执行多步骤任务</li>
+<li>调试和修复问题</li>
+</ul>
+<h3>📊 智能搜索</h3>
+
+<pre><code>功能：
+<ul><li>自然语言搜索代码</li>
+<li>语义理解而非关键词匹配</li>
+<li>快速定位相关代码</li>
+<li>支持跨文件搜索</li>
+</ul></code></pre>
+
+<h3>🎯 多模式交互</h3>
+
+<p>1. <strong>Chat 模式</strong></p>
+<p>   - 侧边栏对话</p>
+<p>   - 适合复杂问题</p>
+<p>   - 支持文件引用</p>
+
+<p>2. <strong>Edit 模式</strong></p>
+<p>   - 行内编辑</p>
+<p>   - 快速修改</p>
+<p>   - 直接应用</p>
+
+<p>3. <strong>Agent 模式</strong></p>
+<p>   - 自主执行任务</p>
+<p>   - 多步骤操作</p>
+<p>   - 实时反馈</p>
+
+<h3>🛠️ 开发工具集成</h3>
+
+<ul><li><strong>内置终端</strong>：AI 可直接执行命令</li>
+<li><strong>Git 集成</strong>：理解代码变更</li>
+<li><strong>调试器</strong>：AI 辅助调试</li>
+<li><strong>扩展市场</strong>：兼容 VS Code 扩展</li>
+</ul>
+<h2>使用技巧</h2>
+
+<h3>💡 高效提示词技巧</h3>
+
+<p>1. <strong>明确任务目标</strong></p>
+   <pre><code>   ❌ "帮我改一下这个"
+<p>   ✅ "重构这个函数，使用 async/await 替代 Promise 链"</p>
+   </code></pre>
+
+<p>2. <strong>提供充分上下文</strong></p>
+   <pre><code>   在 Cascade 中：
+<p>   "查看 @src/api/user.ts 文件，添加输入验证逻辑"</p>
+   </code></pre>
+
+<p>3. <strong>分步骤描述</strong></p>
+   <pre><code>   "第一步：创建数据库连接
+<p>   第二步：编写查询函数</p>
+<p>   第三步：添加错误处理"</p>
+   </code></pre>
+
+<h3>🎯 最佳实践</h3>
+
+<p>1. <strong>善用文件引用</strong></p>
+<p>   - 使用 <code>@</code> 引用相关文件</p>
+<p>   - 帮助 AI 理解完整上下文</p>
+<p>   - 减少误解和错误</p>
+
+<p>2. <strong>利用 Agent 能力</strong></p>
+<p>   - 让 Cascade 执行多步骤任务</p>
+<p>   - 如："创建一个新的 React 组件，包含样式和测试"</p>
+<p>   - AI 会自动创建所有必要文件</p>
+
+<p>3. <strong>审查 AI 操作</strong></p>
+<p>   - 查看 AI 计划执行的操作</p>
+<p>   - 确认后再应用</p>
+<p>   - 特别是文件删除和命令执行</p>
+
+<p>4. <strong>保持项目整洁</strong></p>
+<p>   - 清晰的目录结构帮助 AI 理解</p>
+<p>   - 一致的命名规范</p>
+<p>   - 完整的类型定义</p>
+
+<h3>⚡ 快捷键速查</h3>
+
+<p>| 操作 | Windows/Linux | Mac | 说明 |</p>
+<p>|------|---------------|-----|------|</p>
+<p>| 打开 Chat | Ctrl+L | Cmd+L | 打开 Cascade 聊天 |</p>
+<p>| 行内编辑 | Ctrl+I | Cmd+I | 选中代码后编辑 |</p>
+<p>| 接受补全 | Tab | Tab | 接受 AI 建议 |</p>
+<p>| 拒绝补全 | Esc | Esc | 拒绝 AI 建议 |</p>
+<p>| 命令面板 | Ctrl+Shift+P | Cmd+Shift+P | 打开命令面板 |</p>
+<p>| 快速打开 | Ctrl+P | Cmd+P | 快速打开文件 |</p>
+
+<h3>🔧 配置建议</h3>
+
+<pre><code>// settings.json 推荐配置
+<p>{</p>
+<p>  "codeium.enable": true,</p>
+<p>  "codeium.enableChat": true,</p>
+<p>  "codeium.enableCopilot": true,</p>
+<p>  "codeium.indexing.enabled": true,</p>
+<p>  "codeium.indexing.ignore": [</p>
+<p>    "node_modules",</p>
+<p>    "dist",</p>
+<p>    "build",</p>
+<p>    ".git",</p>
+<p>    "*.min.js"</p>
+<p>  ],</p>
+<p>  "codeium.chat.maxContextFiles": 10,</p>
+<p>  "codeium.autocomplete.enable": true</p>
+<p>}</p>
+</code></pre>
+
+<h3>🚀 进阶用法</h3>
+
+<p>1. <strong>项目脚手架生成</strong></p>
+   <pre><code>   在 Cascade 中输入：
+<p>   "创建一个 Next.js 项目，包含以下功能：</p>
+<p>   - 用户认证</p>
+<p>   - 数据库连接</p>
+<p>   - API 路由</p>
+<p>   - 基础样式"</p>
+   
+<p>   AI 会自动创建完整的项目结构</p>
+   </code></pre>
+
+<p>2. <strong>代码迁移</strong></p>
+   <pre><code>   "将 src/classic/ 目录下的所有类组件
+<p>   转换为 React 函数组件"</p>
+   
+<p>   AI 会逐个文件处理并更新</p>
+   </code></pre>
+
+<p>3. <strong>批量重构</strong></p>
+   <pre><code>   "将项目中所有的 var 声明
+<p>   改为 const 或 let"</p>
+   
+<p>   AI 会分析并安全地替换</p>
+   </code></pre>
+
+<p>4. <strong>调试辅助</strong></p>
+   <pre><code>   选中报错的代码，在 Chat 中输入：
+<p>   "分析这个错误，找出原因并修复"</p>
+   
+<p>   AI 会分析错误并提供修复方案</p>
+   </code></pre>
+
+<p>5. <strong>文档生成</strong></p>
+   <pre><code>   "为整个 src/api/ 目录生成 API 文档"
+   
+<p>   AI 会读取所有文件并生成完整文档</p>
+   </code></pre>
+
+<p>6. <strong>测试套件生成</strong></p>
+   <pre><code>   "为 src/utils/ 下的所有函数
+<p>   编写单元测试，使用 Jest"</p>
+   
+<p>   AI 会创建完整的测试文件</p>
+   </code></pre>
+
+<h3>💻 终端集成</h3>
+
+<pre><code>Cascade 可以直接执行终端命令：
+
+<p>1. 在 Chat 中输入：</p>
+<p>   "运行 npm install"</p>
+   
+<p>2. AI 会在终端执行命令</p>
+   
+<p>3. 查看输出并继续对话：</p>
+<p>   "安装失败了，查看错误信息"</p>
+</code></pre>
+
+<h3>🔐 安全提示</h3>
+
+<p>1. <strong>审查文件操作</strong></p>
+<p>   - AI 请求删除文件时仔细检查</p>
+<p>   - 确认文件路径正确</p>
+<p>   - 备份重要文件</p>
+
+<p>2. <strong>命令执行安全</strong></p>
+<p>   - 审查 AI 要执行的命令</p>
+<p>   - 特别是 rm、chmod 等危险命令</p>
+<p>   - 避免执行未知来源的脚本</p>
+
+<p>3. <strong>敏感信息保护</strong></p>
+<p>   - 不要在 Chat 中分享 API Key</p>
+<p>   - 使用环境变量管理敏感配置</p>
+<p>   - 检查 AI 生成的代码是否有硬编码密钥</p>
+
+<p>---</p>
+
+<strong>官方资源：</strong>
+<ul><li>官网：https://codeium.com/windsurf</li>
+<li>文档：https://docs.codeium.com/windsurf</li>
+<li>下载：https://codeium.com/windsurf/download</li>
+<li>社区：https://discord.gg/codeium</li>
+</ul>
+        </div>
+    </div>
+    <footer>
+        <p>最后更新：2026-03-15 | 维护者：AI Publisher Agent 团队</p>
+        <p><a href="https://github.com/FreePineGo/ai-tools-docs">GitHub 仓库</a></p>
+    </footer>
+</body>
+</html>

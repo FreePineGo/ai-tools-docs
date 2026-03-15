@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API 使用指南 - AI Publisher Agent 文档中心</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background: #f6f8fa; color: #24292e; line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        header { background: #0366d6; color: white; padding: 40px 20px; text-align: center; margin-bottom: 20px; }
+        header h1 { font-size: 2em; }
+        nav { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        nav a { color: #0366d6; text-decoration: none; margin-right: 15px; }
+        nav a:hover { text-decoration: underline; }
+        .content { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .content h1 { color: #0366d6; border-bottom: 2px solid #e1e4e8; padding-bottom: 10px; margin-bottom: 20px; }
+        .content h2 { color: #0366d6; margin: 30px 0 15px; }
+        .content h3 { color: #24292e; margin: 20px 0 10px; }
+        .content p { margin: 15px 0; }
+        .content ul, .content ol { margin: 15px 0; padding-left: 30px; }
+        .content li { margin: 8px 0; }
+        .content a { color: #0366d6; text-decoration: none; }
+        .content a:hover { text-decoration: underline; }
+        .content code { background: #f6f8fa; padding: 2px 6px; border-radius: 3px; font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace; }
+        .content pre { background: #f6f8fa; padding: 20px; border-radius: 6px; overflow-x: auto; margin: 20px 0; }
+        .content pre code { background: none; padding: 0; }
+        .content table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+        .content th, .content td { border: 1px solid #e1e4e8; padding: 10px 15px; text-align: left; }
+        .content th { background: #f6f8fa; font-weight: 600; }
+        .content tr:nth-child(even) { background: #f6f8fa; }
+        footer { text-align: center; padding: 20px; color: #586069; margin-top: 40px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🤖 AI Publisher Agent 文档中心</h1>
+    </header>
+    <div class="container">
+        <nav>
+            <a href="../index.html">🏠 主页</a> |
+            <a href="README.html">📚 总索引</a> |
+            <a href="PRD.html">📋 PRD</a> |
+            <a href="guides/SELECTION.html">🎯 选择指南</a> |
+            <a href="guides/COMPARISON.html">⚖️ 对比表</a>
+        </nav>
+        <div class="content">
+<h1>API 使用指南</h1>
+
+<h2>概述</h2>
+
+<p>本文档详细介绍如何使用 OpenAI API 进行代码生成和相关任务。虽然 Codex API 已停用，但 GPT-4 系列模型提供了相同的代码能力。</p>
+
+<h2>认证与设置</h2>
+
+<h3>环境变量配置</h3>
+
+<pre><code><h1>Linux/macOS</h1>
+<p>export OPENAI_API_KEY="your-api-key-here"</p>
+
+<h1>Windows PowerShell</h1>
+<p>$env:OPENAI_API_KEY="your-api-key-here"</p>
+
+<h1>Windows CMD</h1>
+<p>set OPENAI_API_KEY=your-api-key-here</p>
+</code></pre>
+
+<h3>配置文件方式</h3>
+
+<p>创建 <code>.env</code> 文件：</p>
+<pre><code>OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxxxxxxxxxx
+<p>OPENAI_ORG_ID=org-xxxxxxxxxxxxxxxxxxxxxxxx  # 可选</p>
+</code></pre>
+
+<h2>Python SDK 使用</h2>
+
+<h3>安装</h3>
+
+<pre><code>pip install openai python-dotenv
+</code></pre>
+
+<h3>基础示例</h3>
+
+<pre><code>import os
+<p>from dotenv import load_dotenv</p>
+<p>from openai import OpenAI</p>
+
+<p>load_dotenv()</p>
+<p>client = OpenAI()</p>
+
+<h1>代码生成</h1>
+<p>def generate_code(prompt: str, language: str = "python") -> str:</p>
+<p>    response = client.chat.completions.create(</p>
+<p>        model="gpt-4",</p>
+<p>        messages=[</p>
+<p>            {</p>
+<p>                "role": "system",</p>
+<p>                "content": f"你是一个专业的{language}程序员。只输出代码，不要解释。"</p>
+<p>            },</p>
+<p>            {</p>
+<p>                "role": "user",</p>
+<p>                "content": prompt</p>
+<p>            }</p>
+<p>        ],</p>
+<p>        temperature=0.2,</p>
+<p>        max_tokens=2000</p>
+<p>    )</p>
+<p>    return response.choices[0].message.content</p>
+
+<h1>使用示例</h1>
+<p>code = generate_code("创建一个快速排序函数")</p>
+<p>print(code)</p>
+</code></pre>
+
+<h3>高级配置</h3>
+
+<pre><code>def advanced_code_generation(
+<p>    prompt: str,</p>
+<p>    model: str = "gpt-4",</p>
+<p>    temperature: float = 0.2,</p>
+<p>    max_tokens: int = 4000,</p>
+<p>    top_p: float = 1.0,</p>
+<p>    frequency_penalty: float = 0.0,</p>
+<p>    presence_penalty: float = 0.0,</p>
+<p>    stop: list = None</p>
+<p>) -> str:</p>
+<p>    """</p>
+<p>    高级代码生成函数</p>
+    
+<p>    Args:</p>
+<p>        prompt: 用户请求</p>
+<p>        model: 模型名称</p>
+<p>        temperature: 创造性程度 (0-2)，代码生成建议 0.1-0.3</p>
+<p>        max_tokens: 最大输出长度</p>
+<p>        top_p: 核采样参数</p>
+<p>        frequency_penalty: 频率惩罚</p>
+<p>        presence_penalty: 存在惩罚</p>
+<p>        stop: 停止序列</p>
+    
+<p>    Returns:</p>
+<p>        生成的代码</p>
+<p>    """</p>
+<p>    client = OpenAI()</p>
+    
+<p>    response = client.chat.completions.create(</p>
+<p>        model=model,</p>
+<p>        messages=[</p>
+<p>            {"role": "system", "content": "你是专家程序员"},</p>
+<p>            {"role": "user", "content": prompt}</p>
+<p>        ],</p>
+<p>        temperature=temperature,</p>
+<p>        max_tokens=max_tokens,</p>
+<p>        top_p=top_p,</p>
+<p>        frequency_penalty=frequency_penalty,</p>
+<p>        presence_penalty=presence_penalty,</p>
+<p>        stop=stop</p>
+<p>    )</p>
+    
+<p>    return response.choices[0].message.content</p>
+</code></pre>
+
+<h2>Node.js SDK 使用</h2>
+
+<h3>安装</h3>
+
+<pre><code>npm install openai dotenv
+</code></pre>
+
+<h3>基础示例</h3>
+
+<pre><code>import OpenAI from 'openai';
+<p>import dotenv from 'dotenv';</p>
+
+<p>dotenv.config();</p>
+
+<p>const openai = new OpenAI({</p>
+<p>  apiKey: process.env.OPENAI_API_KEY,</p>
+<p>});</p>
+
+<p>async function generateCode(prompt, language = 'javascript') {</p>
+<p>  const completion = await openai.chat.completions.create({</p>
+<p>    model: 'gpt-4',</p>
+<p>    messages: [</p>
+<p>      {</p>
+<p>        role: 'system',</p>
+<p>        content: <code>你是一个专业的${language}程序员。只输出代码。</code></p>
+<p>      },</p>
+<p>      {</p>
+<p>        role: 'user',</p>
+<p>        content: prompt</p>
+<p>      }</p>
+<p>    ],</p>
+<p>    temperature: 0.2,</p>
+<p>    max_tokens: 2000,</p>
+<p>  });</p>
+
+<p>  return completion.choices[0].message.content;</p>
+<p>}</p>
+
+<p>// 使用</p>
+<p>const code = await generateCode('创建一个 HTTP 服务器');</p>
+<p>console.log(code);</p>
+</code></pre>
+
+<h2>REST API 直接调用</h2>
+
+<h3>HTTP 请求示例</h3>
+
+<pre><code>curl https://api.openai.com/v1/chat/completions \
+<p>  -H "Content-Type: application/json" \</p>
+<p>  -H "Authorization: Bearer $OPENAI_API_KEY" \</p>
+<p>  -d '{</p>
+<p>    "model": "gpt-4",</p>
+<p>    "messages": [</p>
+<p>      {</p>
+<p>        "role": "system",</p>
+<p>        "content": "你是 Python 专家"</p>
+<p>      },</p>
+<p>      {</p>
+<p>        "role": "user",</p>
+<p>        "content": "写一个装饰器来缓存函数结果"</p>
+<p>      }</p>
+<p>    ],</p>
+<p>    "temperature": 0.2,</p>
+<p>    "max_tokens": 2000</p>
+<p>  }'</p>
+</code></pre>
+
+<h3>Python requests 示例</h3>
+
+<pre><code>import requests
+<p>import os</p>
+
+<p>def call_api(prompt: str) -> str:</p>
+<p>    url = "https://api.openai.com/v1/chat/completions"</p>
+<p>    headers = {</p>
+<p>        "Content-Type": "application/json",</p>
+<p>        "Authorization": f"Bearer {os.getenv('OPENAI_API_KEY')}"</p>
+<p>    }</p>
+    
+<p>    data = {</p>
+<p>        "model": "gpt-4",</p>
+<p>        "messages": [</p>
+<p>            {"role": "system", "content": "你是编程助手"},</p>
+<p>            {"role": "user", "content": prompt}</p>
+<p>        ],</p>
+<p>        "temperature": 0.2,</p>
+<p>        "max_tokens": 2000</p>
+<p>    }</p>
+    
+<p>    response = requests.post(url, headers=headers, json=data)</p>
+<p>    result = response.json()</p>
+    
+<p>    return result['choices'][0]['message']['content']</p>
+</code></pre>
+
+<h2>流式响应</h2>
+
+<h3>Python 流式示例</h3>
+
+<pre><code>from openai import OpenAI
+
+<p>client = OpenAI()</p>
+
+<p>stream = client.chat.completions.create(</p>
+<p>    model="gpt-4",</p>
+<p>    messages=[{"role": "user", "content": "写一个 Python 脚本"}],</p>
+<p>    stream=True</p>
+<p>)</p>
+
+<p>for chunk in stream:</p>
+<p>    if chunk.choices[0].delta.content is not None:</p>
+<p>        print(chunk.choices[0].delta.content, end="")</p>
+</code></pre>
+
+<h3>Node.js 流式示例</h3>
+
+<pre><code>const stream = await openai.chat.completions.create({
+<p>  model: 'gpt-4',</p>
+<p>  messages: [{ role: 'user', content: '写代码' }],</p>
+<p>  stream: true,</p>
+<p>});</p>
+
+<p>for await (const chunk of stream) {</p>
+<p>  process.stdout.write(chunk.choices[0]?.delta?.content || '');</p>
+<p>}</p>
+</code></pre>
+
+<h2>错误处理</h2>
+
+<pre><code>from openai import OpenAI, APIError, RateLimitError, AuthenticationError
+
+<p>client = OpenAI()</p>
+
+<p>try:</p>
+<p>    response = client.chat.completions.create(</p>
+<p>        model="gpt-4",</p>
+<p>        messages=[{"role": "user", "content": "写代码"}]</p>
+<p>    )</p>
+<p>except AuthenticationError:</p>
+<p>    print("API 密钥无效或已过期")</p>
+<p>except RateLimitError:</p>
+<p>    print("请求过于频繁，请稍后重试")</p>
+<p>except APIError as e:</p>
+<p>    print(f"API 错误：{e}")</p>
+<p>except Exception as e:</p>
+<p>    print(f"未知错误：{e}")</p>
+</code></pre>
+
+<h2>使用技巧</h2>
+
+<h3>1. 系统消息优化</h3>
+
+<pre><code>messages = [
+<p>    {</p>
+<p>        "role": "system",</p>
+<p>        "content": """你是资深软件工程师。</p>
+<p>        - 只输出代码，不解释</p>
+<p>        - 使用最佳实践</p>
+<p>        - 添加必要的注释</p>
+<p>        - 包含错误处理"""</p>
+<p>    },</p>
+<p>    {"role": "user", "content": "你的请求"}</p>
+<p>]</p>
+</code></pre>
+
+<h3>2. 上下文管理</h3>
+
+<pre><code><h1>多轮对话保持上下文</h1>
+<p>conversation = [</p>
+<p>    {"role": "system", "content": "你是 Python 助手"},</p>
+<p>    {"role": "user", "content": "创建一个类"},</p>
+<p>    {"role": "assistant", "content": "class MyClass:..."},</p>
+<p>    {"role": "user", "content": "添加一个方法"}  # 模型知道是哪个类</p>
+<p>]</p>
+</code></pre>
+
+<h3>3. 代码提取</h3>
+
+<pre><code>import re
+
+<p>def extract_code(response: str, language: str = "python") -> str:</p>
+<p>    """从响应中提取代码块"""</p>
+<p>    pattern = f"</code></pre>{language}\\n(.*?)``<code>"</p>
+<p>    match = re.search(pattern, response, re.DOTALL)</p>
+<p>    return match.group(1) if match else response</p>
+<pre><code>
+<h2>成本优化</h2>
+
+<h3>1. 选择合适的模型</h3>
+
+<p>| 模型 | 代码能力 | 成本 | 推荐场景 |</p>
+<p>|------|----------|------|----------|</p>
+<p>| GPT-4 | ⭐⭐⭐⭐⭐ | 高 | 复杂任务、生产代码 |</p>
+<p>| GPT-4 Turbo | ⭐⭐⭐⭐⭐ | 中 | 日常开发 |</p>
+<p>| GPT-3.5 Turbo | ⭐⭐⭐⭐ | 低 | 简单任务、原型 |</p>
+
+<h3>2. Token 优化</h3>
+
+</code></pre>python
+<h1>精简 prompt</h1>
+<h1>❌ 冗长</h1>
+<p>prompt = "请帮我写一个 Python 函数，这个函数要能够接收一个列表作为参数，然后返回列表中的最大值..."</p>
+
+<h1>✅ 简洁</h1>
+<p>prompt = "Python 函数：返回列表最大值"</p>
+<pre><code>
+<h3>3. 缓存结果</h3>
+
+</code></pre>python
+<p>import hashlib</p>
+<p>import json</p>
+
+<p>cache = {}</p>
+
+<p>def cached_generation(prompt: str) -> str:</p>
+<p>    key = hashlib.md5(prompt.encode()).hexdigest()</p>
+<p>    if key in cache:</p>
+<p>        return cache[key]</p>
+    
+<p>    result = generate_code(prompt)</p>
+<p>    cache[key] = result</p>
+<p>    return result</p>
+</code>``
+
+<h2>安全最佳实践</h2>
+
+<p>1. <strong>密钥管理</strong>: 使用环境变量或密钥管理服务</p>
+<p>2. <strong>输入验证</strong>: 验证和清理用户输入</p>
+<p>3. <strong>输出审查</strong>: 始终审查生成的代码</p>
+<p>4. <strong>速率限制</strong>: 实现客户端限流</p>
+<p>5. <strong>日志记录</strong>: 记录 API 调用用于审计</p>
+
+<p>---</p>
+
+<p>*最后更新：2026-03-15*</p>
+
+        </div>
+    </div>
+    <footer>
+        <p>最后更新：2026-03-15 | 维护者：AI Publisher Agent 团队</p>
+        <p><a href="https://github.com/FreePineGo/ai-tools-docs">GitHub 仓库</a></p>
+    </footer>
+</body>
+</html>

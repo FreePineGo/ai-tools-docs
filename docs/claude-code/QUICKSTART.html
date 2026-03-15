@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude Code 快速开始 - AI Publisher Agent 文档中心</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background: #f6f8fa; color: #24292e; line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        header { background: #0366d6; color: white; padding: 40px 20px; text-align: center; margin-bottom: 20px; }
+        header h1 { font-size: 2em; }
+        nav { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        nav a { color: #0366d6; text-decoration: none; margin-right: 15px; }
+        nav a:hover { text-decoration: underline; }
+        .content { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .content h1 { color: #0366d6; border-bottom: 2px solid #e1e4e8; padding-bottom: 10px; margin-bottom: 20px; }
+        .content h2 { color: #0366d6; margin: 30px 0 15px; }
+        .content h3 { color: #24292e; margin: 20px 0 10px; }
+        .content p { margin: 15px 0; }
+        .content ul, .content ol { margin: 15px 0; padding-left: 30px; }
+        .content li { margin: 8px 0; }
+        .content a { color: #0366d6; text-decoration: none; }
+        .content a:hover { text-decoration: underline; }
+        .content code { background: #f6f8fa; padding: 2px 6px; border-radius: 3px; font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace; }
+        .content pre { background: #f6f8fa; padding: 20px; border-radius: 6px; overflow-x: auto; margin: 20px 0; }
+        .content pre code { background: none; padding: 0; }
+        .content table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+        .content th, .content td { border: 1px solid #e1e4e8; padding: 10px 15px; text-align: left; }
+        .content th { background: #f6f8fa; font-weight: 600; }
+        .content tr:nth-child(even) { background: #f6f8fa; }
+        footer { text-align: center; padding: 20px; color: #586069; margin-top: 40px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🤖 AI Publisher Agent 文档中心</h1>
+    </header>
+    <div class="container">
+        <nav>
+            <a href="../index.html">🏠 主页</a> |
+            <a href="README.html">📚 总索引</a> |
+            <a href="PRD.html">📋 PRD</a> |
+            <a href="guides/SELECTION.html">🎯 选择指南</a> |
+            <a href="guides/COMPARISON.html">⚖️ 对比表</a>
+        </nav>
+        <div class="content">
+<h1>Claude Code 快速开始</h1>
+
+<h2>5 分钟快速上手</h2>
+
+<h3>第一步：启动 Claude Code</h3>
+
+<pre><code><h1>进入项目目录</h1>
+<p>cd /path/to/your/project</p>
+
+<h1>启动交互式会话</h1>
+<p>claude</p>
+</code></pre>
+
+<h3>第二步：基本对话</h3>
+
+<p>启动后，你可以直接输入自然语言指令：</p>
+
+<pre><code>你好，请帮我创建一个简单的 Python Hello World 程序
+</code></pre>
+
+<h3>第三步：查看和执行建议</h3>
+
+<p>Claude Code 会：</p>
+<p>1. 分析你的请求</p>
+<p>2. 生成代码或命令</p>
+<p>3. 等待你的确认</p>
+<p>4. 执行操作</p>
+
+<h2>常用场景示例</h2>
+
+<h3>场景 1: 创建新项目</h3>
+
+<pre><code>帮我创建一个 React + TypeScript 项目，包含以下功能：
+<ul><li>用户登录页面</li>
+<li>仪表盘</li>
+<li>API 集成</li>
+</ul></code></pre>
+
+<h3>场景 2: 代码解释</h3>
+
+<pre><code>请解释这个文件的功能：
+<p>@src/components/App.tsx</p>
+</code></pre>
+
+<h3>场景 3: Bug 修复</h3>
+
+<pre><code>这个函数返回了错误的结果，请帮我调试：
+<p>@src/utils/calculator.ts</p>
+
+<p>问题是：当输入负数时，计算结果不正确。</p>
+</code></pre>
+
+<h3>场景 4: 代码重构</h3>
+
+<pre><code>请重构这个文件，提高可读性和性能：
+<p>@src/legacy/old-module.js</p>
+
+<p>要求：</p>
+<ul><li>使用 ES6+ 语法</li>
+<li>添加类型注解</li>
+<li>拆分大函数</li>
+</ul></code></pre>
+
+<h3>场景 5: 添加功能</h3>
+
+<pre><code>请在用户模型中添加以下字段：
+<ul><li>phone (字符串)</li>
+<li>avatar (URL)</li>
+<li>lastLogin (日期)</li>
+</ul>
+<p>同时更新相关的 API 和测试。</p>
+</code></pre>
+
+<h2>核心命令速查</h2>
+
+<h3>文件操作</h3>
+
+<pre><code><h1>读取文件</h1>
+<p>读取 @filename</p>
+
+<h1>创建文件</h1>
+<p>创建一个新文件 src/new-feature.ts，包含...</p>
+
+<h1>修改文件</h1>
+<p>修改 @filename，添加...</p>
+
+<h1>删除文件</h1>
+<p>删除 @filename</p>
+</code></pre>
+
+<h3>代码操作</h3>
+
+<pre><code><h1>搜索代码</h1>
+<p>搜索包含 "user authentication" 的代码</p>
+
+<h1>运行测试</h1>
+<p>运行单元测试</p>
+
+<h1>构建项目</h1>
+<p>构建项目并报告错误</p>
+</code></pre>
+
+<h3>Git 操作</h3>
+
+<pre><code><h1>查看状态</h1>
+<p>git 状态</p>
+
+<h1>提交更改</h1>
+<p>提交更改，消息："添加用户认证功能"</p>
+
+<h1>创建分支</h1>
+<p>创建新分支 feature/new-auth</p>
+</code></pre>
+
+<h2>特殊语法</h2>
+
+<h3>引用文件</h3>
+
+<pre><code>@filename       # 引用单个文件
+<p>@folder/        # 引用整个文件夹</p>
+<p>@*.ts           # 引用所有 TypeScript 文件</p>
+</code></pre>
+
+<h3>多文件操作</h3>
+
+<pre><code>请比较 @file1.ts 和 @file2.ts 的差异
+</code></pre>
+
+<h3>条件执行</h3>
+
+<pre><code>如果测试通过，就部署到 staging 环境
+</code></pre>
+
+<h2>会话管理</h2>
+
+<h3>保存会话</h3>
+
+<pre><code><h1>导出当前会话</h1>
+<p>claude --export session.json</p>
+</code></pre>
+
+<h3>加载历史会话</h3>
+
+<pre><code><h1>从文件恢复</h1>
+<p>claude --import session.json</p>
+</code></pre>
+
+<h3>清除上下文</h3>
+
+<pre><code>/clear  # 清除当前会话历史
+</code></pre>
+
+<h2>实用技巧</h2>
+
+<h3>技巧 1: 分步请求</h3>
+
+<p>与其一次性要求复杂功能，不如分步进行：</p>
+
+<pre><code>第一步：创建用户模型
+<p>第二步：添加验证逻辑</p>
+<p>第三步：编写 API 端点</p>
+<p>第四步：添加测试</p>
+</code></pre>
+
+<h3>技巧 2: 提供上下文</h3>
+
+<pre><code>项目背景：这是一个电商平台的后端服务
+<p>技术栈：Node.js + Express + MongoDB</p>
+<p>当前问题：用户登录接口响应慢</p>
+</code></pre>
+
+<h3>技巧 3: 指定输出格式</h3>
+
+<pre><code>请用表格形式列出所有 API 端点
+<p>请用流程图描述数据流</p>
+<p>请用代码块展示修改内容</p>
+</code></pre>
+
+<h3>技巧 4: 迭代优化</h3>
+
+<pre><code>这个实现不错，但请：
+<p>1. 添加错误处理</p>
+<p>2. 优化性能</p>
+<p>3. 添加日志</p>
+</code></pre>
+
+<h2>退出会话</h2>
+
+<pre><code><h1>方法 1: 输入退出命令</h1>
+<p>/exit</p>
+
+<h1>方法 2: 使用快捷键</h1>
+<p>Ctrl+D 或 Ctrl+C</p>
+
+<h1>方法 3: 直接关闭终端</h1>
+</code></pre>
+
+<h2>下一步</h2>
+
+<ul><li>📖 阅读 <a href="./COMMANDS.md">COMMANDS.md</a> 了解完整命令列表</li>
+<li>🎯 查看 <a href="./SKILLS.md">SKILLS.md</a> 学习高级功能</li>
+<li>💡 参考 <a href="./BEST_PRACTICES.md">BEST_PRACTICES.md</a> 提升效率</li>
+</ul>
+<p>---</p>
+
+<strong>提示</strong>: 实践是最好的学习方式。现在就开始尝试与 Claude Code 对话吧！
+
+        </div>
+    </div>
+    <footer>
+        <p>最后更新：2026-03-15 | 维护者：AI Publisher Agent 团队</p>
+        <p><a href="https://github.com/FreePineGo/ai-tools-docs">GitHub 仓库</a></p>
+    </footer>
+</body>
+</html>

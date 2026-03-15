@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aider - CLI AI 编程工具使用指南 - AI Publisher Agent 文档中心</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background: #f6f8fa; color: #24292e; line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        header { background: #0366d6; color: white; padding: 40px 20px; text-align: center; margin-bottom: 20px; }
+        header h1 { font-size: 2em; }
+        nav { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        nav a { color: #0366d6; text-decoration: none; margin-right: 15px; }
+        nav a:hover { text-decoration: underline; }
+        .content { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .content h1 { color: #0366d6; border-bottom: 2px solid #e1e4e8; padding-bottom: 10px; margin-bottom: 20px; }
+        .content h2 { color: #0366d6; margin: 30px 0 15px; }
+        .content h3 { color: #24292e; margin: 20px 0 10px; }
+        .content p { margin: 15px 0; }
+        .content ul, .content ol { margin: 15px 0; padding-left: 30px; }
+        .content li { margin: 8px 0; }
+        .content a { color: #0366d6; text-decoration: none; }
+        .content a:hover { text-decoration: underline; }
+        .content code { background: #f6f8fa; padding: 2px 6px; border-radius: 3px; font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace; }
+        .content pre { background: #f6f8fa; padding: 20px; border-radius: 6px; overflow-x: auto; margin: 20px 0; }
+        .content pre code { background: none; padding: 0; }
+        .content table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+        .content th, .content td { border: 1px solid #e1e4e8; padding: 10px 15px; text-align: left; }
+        .content th { background: #f6f8fa; font-weight: 600; }
+        .content tr:nth-child(even) { background: #f6f8fa; }
+        footer { text-align: center; padding: 20px; color: #586069; margin-top: 40px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🤖 AI Publisher Agent 文档中心</h1>
+    </header>
+    <div class="container">
+        <nav>
+            <a href="../index.html">🏠 主页</a> |
+            <a href="README.html">📚 总索引</a> |
+            <a href="PRD.html">📋 PRD</a> |
+            <a href="guides/SELECTION.html">🎯 选择指南</a> |
+            <a href="guides/COMPARISON.html">⚖️ 对比表</a>
+        </nav>
+        <div class="content">
+<h1>Aider - CLI AI 编程工具使用指南</h1>
+
+<h2>工具简介</h2>
+
+<p>Aider 是一款命令行界面的 AI 编程助手，专为开发者设计。它可以直接在终端中与 AI 对话，自动编辑项目文件，支持 Git 版本控制，并能够理解整个代码库的上下文。Aider 适合喜欢终端工作流的开发者，支持多种大语言模型。</p>
+
+<strong>核心优势：</strong>
+<ul><li>纯命令行操作，无需离开终端</li>
+<li>自动 Git 集成，每次修改自动提交</li>
+<li>支持多种 AI 模型（GPT-4、Claude、本地模型等）</li>
+<li>项目级代码理解</li>
+<li>开源免费使用</li>
+</ul>
+<h2>安装步骤</h2>
+
+<h3>前置要求</h3>
+
+<ul><li>Python 3.9 或更高版本</li>
+<li>pip 包管理器</li>
+<li>Git（用于版本控制功能）</li>
+</ul>
+<h3>1. 安装 Aider</h3>
+
+<pre><code><h1>使用 pip 安装（推荐）</h1>
+<p>pip install aider-chat</p>
+
+<h1>或使用 pipx（隔离环境）</h1>
+<p>pipx install aider-chat</p>
+
+<h1>验证安装</h1>
+<p>aider --version</p>
+</code></pre>
+
+<h3>2. 配置 API Key</h3>
+
+<p>Aider 支持多种 AI 模型，需要配置相应的 API Key：</p>
+
+#### 使用 OpenAI
+
+<pre><code><h1>设置环境变量</h1>
+<p>export OPENAI_API_KEY=your-api-key-here</p>
+
+<h1>或在 Windows PowerShell</h1>
+<p>$env:OPENAI_API_KEY="your-api-key-here"</p>
+
+<h1>或在 .env 文件中配置</h1>
+<p>echo "OPENAI_API_KEY=your-api-key-here" >> .env</p>
+</code></pre>
+
+#### 使用 Anthropic (Claude)
+
+<pre><code>export ANTHROPIC_API_KEY=your-api-key-here
+</code></pre>
+
+#### 使用其他模型
+
+<pre><code><h1>Google Gemini</h1>
+<p>export GEMINI_API_KEY=your-api-key-here</p>
+
+<h1>Groq</h1>
+<p>export GROQ_API_KEY=your-api-key-here</p>
+
+<h1>本地模型 (Ollama)</h1>
+<h1>无需 API Key，确保 Ollama 服务运行中</h1>
+</code></pre>
+
+<h3>3. 配置 Git（推荐）</h3>
+
+<pre><code><h1>初始化 Git 仓库（如果还没有）</h1>
+<p>git init</p>
+
+<h1>配置 Git 用户信息</h1>
+<p>git config user.name "Your Name"</p>
+<p>git config user.email "your.email@example.com"</p>
+
+<h1>创建初始提交</h1>
+<p>git add .</p>
+<p>git commit -m "Initial commit"</p>
+</code></pre>
+
+<h3>4. 首次运行</h3>
+
+<pre><code><h1>进入项目目录</h1>
+<p>cd your-project</p>
+
+<h1>启动 Aider</h1>
+<p>aider</p>
+
+<h1>或指定模型</h1>
+<p>aider --model gpt-4o</p>
+
+<h1>或指定多个文件</h1>
+<p>aider src/main.py src/utils.py</p>
+</code></pre>
+
+<h2>基本用法</h2>
+
+<h3>1. 启动 Aider</h3>
+
+<pre><code><h1>基本启动</h1>
+<p>aider</p>
+
+<h1>指定模型</h1>
+<p>aider --model claude-3-5-sonnet</p>
+
+<h1>指定文件</h1>
+<p>aider src/app.py</p>
+
+<h1>只读模式（不修改文件）</h1>
+<p>aider --read-only</p>
+
+<h1>禁用 Git 自动提交</h1>
+<p>aider --no-auto-commits</p>
+</code></pre>
+
+<h3>2. 与 AI 对话</h3>
+
+<p>启动 Aider 后，进入交互式对话模式：</p>
+
+<pre><code>> 帮我创建一个用户登录函数
+
+<p>> 给这个函数添加错误处理</p>
+
+<p>> 重构这个模块，使用类来组织代码</p>
+
+<p>> 为这些函数编写单元测试</p>
+</code></pre>
+
+<h3>3. 常用命令</h3>
+
+<pre><code>/exit          - 退出 Aider
+<p>/undo          - 撤销最后一次修改</p>
+<p>/diff          - 显示当前变更</p>
+<p>/commit        - 手动提交变更</p>
+<p>/model         - 查看或切换模型</p>
+<p>/tokens        - 显示 token 使用情况</p>
+<p>/clear         - 清空聊天历史</p>
+<p>/help          - 显示帮助信息</p>
+<p>/run           - 运行 shell 命令</p>
+<p>/add           - 添加文件到上下文</p>
+<p>/drop          - 从上下文移除文件</p>
+</code></pre>
+
+<h3>4. 添加文件到上下文</h3>
+
+<pre><code><h1>在对话中</h1>
+<p>/add src/utils.py</p>
+<p>/add docs/*.md</p>
+
+<h1>启动时指定</h1>
+<p>aider src/main.py src/config.py</p>
+</code></pre>
+
+<h2>特色功能</h2>
+
+<h3>🤖 多模型支持</h3>
+
+<strong>支持的模型：</strong>
+<ul><li>OpenAI: gpt-4o, gpt-4-turbo, gpt-3.5-turbo</li>
+<li>Anthropic: claude-3-5-sonnet, claude-3-opus, claude-3-haiku</li>
+<li>Google: gemini-pro, gemini-1.5-pro</li>
+<li>Groq: llama-3-70b, mixtral-8x7b</li>
+<li>本地模型：Ollama, LM Studio</li>
+</ul>
+<strong>切换模型：</strong>
+<pre><code><h1>启动时指定</h1>
+<p>aider --model claude-3-5-sonnet</p>
+
+<h1>对话中切换</h1>
+<p>/model claude-3-5-sonnet</p>
+</code></pre>
+
+<h3>📁 项目级理解</h3>
+
+<ul><li><strong>自动索引</strong>：Aider 自动分析项目结构</li>
+<li><strong>智能检索</strong>：根据上下文引用相关文件</li>
+<li><strong>跨文件编辑</strong>：理解文件间依赖关系</li>
+<li><strong>代码导航</strong>：快速定位相关代码</li>
+</ul>
+<h3>🔀 Git 集成</h3>
+
+<strong>自动版本控制：</strong>
+<ul><li>每次 AI 修改后自动创建 Git 提交</li>
+<li>提交信息描述变更内容</li>
+<li>支持撤销（/undo）</li>
+<li>保持完整的变更历史</li>
+</ul>
+<strong>手动控制：</strong>
+<pre><code><h1>禁用自动提交</h1>
+<p>aider --no-auto-commits</p>
+
+<h1>手动提交</h1>
+<p>/commit</p>
+
+<h1>查看变更</h1>
+<p>/diff</p>
+
+<h1>撤销修改</h1>
+<p>/undo</p>
+</code></pre>
+
+<h3>🎯 智能文件管理</h3>
+
+<pre><code><h1>添加文件到上下文</h1>
+<p>/add filename.py</p>
+
+<h1>添加多个文件</h1>
+<p>/add file1.py file2.py</p>
+
+<h1>使用通配符</h1>
+<p>/add src/*.py</p>
+
+<h1>移除文件</h1>
+<p>/drop filename.py</p>
+
+<h1>查看当前上下文</h1>
+<p>/ls</p>
+</code></pre>
+
+<h3>🛠️ 终端命令执行</h3>
+
+<pre><code><h1>在 Aider 中运行命令</h1>
+<p>/run npm install</p>
+
+<p>/run python test.py</p>
+
+<p>/run git status</p>
+</code></pre>
+
+<h3>📊 Token 管理</h3>
+
+<pre><code><h1>查看 token 使用情况</h1>
+<p>/tokens</p>
+
+<h1>查看模型成本</h1>
+<p>/model --cost</p>
+</code></pre>
+
+<h2>使用技巧</h2>
+
+<h3>💡 高效提示词技巧</h3>
+
+<p>1. <strong>具体明确</strong></p>
+   <pre><code>   ❌ "修复 bug"
+<p>   ✅ "修复第 45 行的空指针异常，当 user_input 为 None 时"</p>
+   </code></pre>
+
+<p>2. <strong>提供上下文</strong></p>
+   <pre><code>   /add src/auth.py
+<p>   帮我在这个文件中添加 JWT 验证</p>
+   </code></pre>
+
+<p>3. <strong>分步执行</strong></p>
+   <pre><code>   第一步：创建数据库模型
+<p>   第二步：添加验证逻辑</p>
+<p>   第三步：编写 API 端点</p>
+<p>   第四步：生成测试用例</p>
+   </code></pre>
+
+<h3>🎯 最佳实践</h3>
+
+<p>1. <strong>初始化 Git 仓库</strong></p>
+   <pre><code>   # 在使用 Aider 前
+<p>   git init</p>
+<p>   git add .</p>
+<p>   git commit -m "Initial commit"</p>
+   </code></pre>
+
+<p>2. <strong>合理选择模型</strong></p>
+   <pre><code>   # 简单任务 - 使用快速/便宜模型
+<p>   aider --model gpt-3.5-turbo</p>
+   
+   # 复杂任务 - 使用强大模型
+<p>   aider --model claude-3-5-sonnet</p>
+   </code></pre>
+
+<p>3. <strong>管理上下文文件</strong></p>
+   <pre><code>   # 只添加相关文件，避免 token 浪费
+<p>   /add src/user_service.py</p>
+<p>   /add src/models/user.py</p>
+   
+   # 完成后清理
+<p>   /drop src/user_service.py</p>
+   </code></pre>
+
+<p>4. <strong>审查 AI 修改</strong></p>
+   <pre><code>   # 查看变更
+<p>   /diff</p>
+   
+   # 不满意就撤销
+<p>   /undo</p>
+   
+   # 满意后提交
+<p>   /commit</p>
+   </code></pre>
+
+<h3>⚡ 常用工作流</h3>
+
+#### 1. 新功能开发
+
+<pre><code><h1>启动 Aider，添加相关文件</h1>
+<p>aider src/api/ src/models/</p>
+
+<h1>描述需求</h1>
+<p>> 创建一个新的用户注册 API 端点</p>
+<p>> 需要包含邮箱验证和密码强度检查</p>
+
+<h1>审查修改</h1>
+<p>/diff</p>
+
+<h1>运行测试</h1>
+<p>/run pytest tests/test_registration.py</p>
+
+<h1>提交</h1>
+<p>/commit</p>
+</code></pre>
+
+#### 2. 代码重构
+
+<pre><code><h1>添加要重构的文件</h1>
+<p>/add src/legacy_module.py</p>
+
+<h1>描述重构目标</h1>
+<p>> 将这个模块重构为使用现代 Python 特性</p>
+<p>> 使用类型注解和 dataclass</p>
+
+<h1>审查并测试</h1>
+<p>/diff</p>
+<p>/run python -m pytest</p>
+
+<h1>提交</h1>
+<p>/commit</p>
+</code></pre>
+
+#### 3. Bug 修复
+
+<pre><code><h1>添加相关文件</h1>
+<p>/add src/error_handler.py</p>
+
+<h1>提供错误信息</h1>
+<p>> 修复这个错误：[粘贴错误信息]</p>
+<p>> 错误发生在用户登录时</p>
+
+<h1>验证修复</h1>
+<p>/run python test_login.py</p>
+
+<h1>提交</h1>
+<p>/commit</p>
+</code></pre>
+
+#### 4. 测试编写
+
+<pre><code><h1>添加源代码文件</h1>
+<p>/add src/calculator.py</p>
+
+<h1>请求生成测试</h1>
+<p>> 为这个模块编写完整的单元测试</p>
+<p>> 覆盖所有边界情况</p>
+
+<h1>运行测试</h1>
+<p>/run pytest tests/test_calculator.py -v</p>
+
+<h1>提交</h1>
+<p>/commit</p>
+</code></pre>
+
+<h3>🔧 配置选项</h3>
+
+<pre><code><h1>.aider.conf.yml 配置文件</h1>
+
+<p>model: claude-3-5-sonnet</p>
+<p>auto-commits: true</p>
+<p>dirty-commits: true</p>
+<p>attribute-author: true</p>
+<p>attribute-committer: true</p>
+<p>map-tokens: 1024</p>
+<p>max-chat-history-tokens: 4096</p>
+</code></pre>
+
+<h3>📋 命令行参数</h3>
+
+<pre><code><h1>常用参数</h1>
+
+<p>--model MODEL          # 指定 AI 模型</p>
+<p>--no-auto-commits      # 禁用自动提交</p>
+<p>--read-only            # 只读模式</p>
+<p>--dark-mode            # 深色主题</p>
+<p>--light-mode           # 浅色主题</p>
+<p>--verbose              # 详细输出</p>
+<p>--analytics            # 启用分析</p>
+
+<p>--file FILE            # 添加文件</p>
+<p>--message MSG          # 初始消息</p>
+<p>--commit               # 提交变更</p>
+<p>--help                 # 显示帮助</p>
+</code></pre>
+
+<h3>🚀 进阶用法</h3>
+
+<p>1. <strong>批量处理</strong></p>
+   <pre><code>   # 为多个文件生成文档
+<p>   aider --message "为这些文件生成 docstring" src/*.py</p>
+   </code></pre>
+
+<p>2. <strong>代码审查</strong></p>
+   <pre><code>   # 让 AI 审查代码
+<p>   /add src/main.py</p>
+<p>   > 审查这段代码，找出潜在问题和改进建议</p>
+   </code></pre>
+
+<p>3. <strong>性能优化</strong></p>
+   <pre><code>   /add src/slow_function.py
+<p>   > 分析这个函数的性能瓶颈并优化</p>
+   </code></pre>
+
+<p>4. <strong>安全审计</strong></p>
+   <pre><code>   /add src/auth.py
+<p>   > 检查这段代码的安全漏洞</p>
+   </code></pre>
+
+<p>5. <strong>依赖更新</strong></p>
+   <pre><code>   > 更新 requirements.txt 中的所有依赖到最新版本
+<p>   > 修复可能的兼容性问题</p>
+   </code></pre>
+
+<h3>🛡️ 安全提示</h3>
+
+<p>1. <strong>审查所有修改</strong></p>
+<p>   - 使用 <code>/diff</code> 查看 AI 的所有修改</p>
+<p>   - 特别是安全相关的代码</p>
+<p>   - 确认没有引入漏洞</p>
+
+<p>2. <strong>敏感信息</strong></p>
+<p>   - 不要在对话中分享 API Key</p>
+<p>   - 使用环境变量管理敏感配置</p>
+<p>   - 检查 AI 是否硬编码了密钥</p>
+
+<p>3. <strong>Git 历史</strong></p>
+<p>   - 保持清晰的提交历史</p>
+<p>   - 重要的修改手动编写提交信息</p>
+<p>   - 定期审查 Git 日志</p>
+
+<p>4. <strong>依赖安全</strong></p>
+<p>   - 审查 AI 建议的依赖更新</p>
+<p>   - 检查新版本的安全性</p>
+<p>   - 使用依赖扫描工具</p>
+
+<p>---</p>
+
+<strong>官方资源：</strong>
+<ul><li>GitHub：https://github.com/paul-gauthier/aider</li>
+<li>官网：https://aider.chat</li>
+<li>文档：https://aider.chat/docs</li>
+<li>PyPI：https://pypi.org/project/aider-chat/</li>
+</ul>
+        </div>
+    </div>
+    <footer>
+        <p>最后更新：2026-03-15 | 维护者：AI Publisher Agent 团队</p>
+        <p><a href="https://github.com/FreePineGo/ai-tools-docs">GitHub 仓库</a></p>
+    </footer>
+</body>
+</html>

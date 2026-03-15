@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenClaw 常见问题 (FAQ) - AI Publisher Agent 文档中心</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background: #f6f8fa; color: #24292e; line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        header { background: #0366d6; color: white; padding: 40px 20px; text-align: center; margin-bottom: 20px; }
+        header h1 { font-size: 2em; }
+        nav { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        nav a { color: #0366d6; text-decoration: none; margin-right: 15px; }
+        nav a:hover { text-decoration: underline; }
+        .content { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .content h1 { color: #0366d6; border-bottom: 2px solid #e1e4e8; padding-bottom: 10px; margin-bottom: 20px; }
+        .content h2 { color: #0366d6; margin: 30px 0 15px; }
+        .content h3 { color: #24292e; margin: 20px 0 10px; }
+        .content p { margin: 15px 0; }
+        .content ul, .content ol { margin: 15px 0; padding-left: 30px; }
+        .content li { margin: 8px 0; }
+        .content a { color: #0366d6; text-decoration: none; }
+        .content a:hover { text-decoration: underline; }
+        .content code { background: #f6f8fa; padding: 2px 6px; border-radius: 3px; font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace; }
+        .content pre { background: #f6f8fa; padding: 20px; border-radius: 6px; overflow-x: auto; margin: 20px 0; }
+        .content pre code { background: none; padding: 0; }
+        .content table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+        .content th, .content td { border: 1px solid #e1e4e8; padding: 10px 15px; text-align: left; }
+        .content th { background: #f6f8fa; font-weight: 600; }
+        .content tr:nth-child(even) { background: #f6f8fa; }
+        footer { text-align: center; padding: 20px; color: #586069; margin-top: 40px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🤖 AI Publisher Agent 文档中心</h1>
+    </header>
+    <div class="container">
+        <nav>
+            <a href="../index.html">🏠 主页</a> |
+            <a href="README.html">📚 总索引</a> |
+            <a href="PRD.html">📋 PRD</a> |
+            <a href="guides/SELECTION.html">🎯 选择指南</a> |
+            <a href="guides/COMPARISON.html">⚖️ 对比表</a>
+        </nav>
+        <div class="content">
+<h1>OpenClaw 常见问题 (FAQ)</h1>
+
+<p>常见问题和解决方案汇总。</p>
+
+<h2>📑 目录</h2>
+
+<ul><li><a href="#安装问题">安装问题</a></li>
+<li><a href="#配置问题">配置问题</a></li>
+<li><a href="#运行问题">运行问题</a></li>
+<li><a href="#agent-问题">Agent 问题</a></li>
+<li><a href="#技能问题">技能问题</a></li>
+<li><a href="#工具问题">工具问题</a></li>
+<li><a href="#性能问题">性能问题</a></li>
+<li><a href="#安全问题">安全问题</a></li>
+</ul>
+<p>---</p>
+
+<h2>安装问题</h2>
+
+<h3>Q: 安装时提示权限错误</h3>
+
+<strong>问题</strong>: <code>npm install -g openclaw</code> 失败，显示权限错误。
+
+<strong>解决方案</strong>:
+
+<strong>Windows</strong>:
+<pre><code><h1>以管理员身份运行 PowerShell</h1>
+<p>Set-ExecutionPolicy RemoteSigned -Scope CurrentUser</p>
+<p>npm install -g openclaw --force</p>
+</code></pre>
+
+<strong>macOS/Linux</strong>:
+<pre><code><h1>方法 1: 使用 sudo</h1>
+<p>sudo npm install -g openclaw --unsafe-perm=true</p>
+
+<h1>方法 2: 修复 npm 权限（推荐）</h1>
+<p>mkdir ~/.npm-global</p>
+<p>npm config set prefix '~/.npm-global'</p>
+<p>echo 'export PATH=~/.npm-global/bin:$PATH' >> ~/.bashrc</p>
+<p>source ~/.bashrc</p>
+<p>npm install -g openclaw</p>
+</code></pre>
+
+<h3>Q: Node.js 版本不兼容</h3>
+
+<strong>问题</strong>: 提示 Node.js 版本过低。
+
+<strong>解决方案</strong>:
+<pre><code><h1>检查当前版本</h1>
+<p>node --version</p>
+
+<h1>使用 nvm 升级（推荐）</h1>
+<p>nvm install 20</p>
+<p>nvm use 20</p>
+<p>nvm alias default 20</p>
+
+<h1>或从官网下载</h1>
+<h1>https://nodejs.org</h1>
+</code></pre>
+
+<h3>Q: 安装后找不到命令</h3>
+
+<strong>问题</strong>: 安装成功但 <code>openclaw</code> 命令不存在。
+
+<strong>解决方案</strong>:
+<pre><code><h1>检查 npm 全局路径</h1>
+<p>npm bin -g</p>
+
+<h1>添加到 PATH</h1>
+<h1>Windows</h1>
+<p>setx PATH "%PATH%;C:\Users\YourName\AppData\Roaming\npm"</p>
+
+<h1>macOS/Linux</h1>
+<p>export PATH=$(npm bin -g):$PATH</p>
+<p>echo 'export PATH=$(npm bin -g):$PATH' >> ~/.bashrc</p>
+
+<h1>验证</h1>
+<p>openclaw --version</p>
+</code></pre>
+
+<p>---</p>
+
+<h2>配置问题</h2>
+
+<h3>Q: API Key 配置无效</h3>
+
+<strong>问题</strong>: 模型调用失败，提示认证错误。
+
+<strong>解决方案</strong>:
+
+<p>1. <strong>检查 API Key 格式</strong>:</p>
+<pre><code>{
+<p>  "models": {</p>
+<p>    "providers": {</p>
+<p>      "qwen": {</p>
+<p>        "apiKey": "sk-正确格式"  // 确保没有多余空格</p>
+<p>      }</p>
+<p>    }</p>
+<p>  }</p>
+<p>}</p>
+</code></pre>
+
+<p>2. <strong>使用环境变量</strong>:</p>
+<pre><code>export QWEN_API_KEY="sk-xxx"
+</code></pre>
+
+<p>3. <strong>验证 Key 有效性</strong>:</p>
+<pre><code>curl -H "Authorization: Bearer sk-xxx" \
+<p>  https://dashscope.aliyuncs.com/api/v1/models</p>
+</code></pre>
+
+<p>4. <strong>检查配额</strong>:</p>
+<p>登录对应平台查看 API 配额和余额。</p>
+
+<h3>Q: 配置文件不生效</h3>
+
+<strong>问题</strong>: 修改配置后没有效果。
+
+<strong>解决方案</strong>:
+<pre><code><h1>1. 验证配置语法</h1>
+<p>openclaw config validate</p>
+
+<h1>2. 重启 Gateway</h1>
+<p>openclaw gateway restart</p>
+
+<h1>3. 清除缓存</h1>
+<p>openclaw system cleanup --cache</p>
+
+<h1>4. 检查配置路径</h1>
+<h1>应该是 ~/.openclaw/config.json</h1>
+</code></pre>
+
+<h3>Q: 如何切换模型提供商</h3>
+
+<strong>问题</strong>: 想从 Qwen 切换到 Claude。
+
+<strong>解决方案</strong>:
+
+<p>编辑 <code>~/.openclaw/config.json</code>:</p>
+<pre><code>{
+<p>  "models": {</p>
+<p>    "default": "anthropic",  // 更改默认模型</p>
+<p>    "providers": {</p>
+<p>      "anthropic": {</p>
+<p>        "apiKey": "${ANTHROPIC_API_KEY}",</p>
+<p>        "model": "claude-3-sonnet-20240229"</p>
+<p>      }</p>
+<p>    }</p>
+<p>  }</p>
+<p>}</p>
+</code></pre>
+
+<p>然后重启：</p>
+<pre><code>openclaw gateway restart
+</code></pre>
+
+<p>---</p>
+
+<h2>运行问题</h2>
+
+<h3>Q: Gateway 启动失败</h3>
+
+<strong>问题</strong>: <code>openclaw gateway start</code> 失败。
+
+<strong>解决方案</strong>:
+
+<p>1. <strong>检查端口占用</strong>:</p>
+<pre><code><h1>Windows</h1>
+<p>netstat -ano | findstr :3000</p>
+
+<h1>macOS/Linux</h1>
+<p>lsof -i :3000</p>
+
+<h1>更改端口</h1>
+<p>openclaw gateway start --port 3001</p>
+</code></pre>
+
+<p>2. <strong>查看详细错误</strong>:</p>
+<pre><code>openclaw gateway start --verbose
+<p>openclaw gateway logs --level debug</p>
+</code></pre>
+
+<p>3. <strong>检查依赖</strong>:</p>
+<pre><code>openclaw system doctor
+</code></pre>
+
+<p>4. <strong>重置 Gateway</strong>:</p>
+<pre><code>openclaw gateway stop --force
+<p>openclaw system cleanup</p>
+<p>openclaw gateway start</p>
+</code></pre>
+
+<h3>Q: Agent 无响应</h3>
+
+<strong>问题</strong>: Agent 启动后不响应消息。
+
+<strong>解决方案</strong>:
+
+<p>1. <strong>检查 Agent 状态</strong>:</p>
+<pre><code>openclaw agent status my-agent
+<p>openclaw agent logs my-agent</p>
+</code></pre>
+
+<p>2. <strong>重启 Agent</strong>:</p>
+<pre><code>openclaw agent stop my-agent
+<p>openclaw agent run my-agent</p>
+</code></pre>
+
+<p>3. <strong>检查模型连接</strong>:</p>
+<pre><code>openclaw test-model qwen
+</code></pre>
+
+<p>4. <strong>增加超时</strong>:</p>
+<pre><code>{
+<p>  "models": {</p>
+<p>    "providers": {</p>
+<p>      "qwen": {</p>
+<p>        "timeout": 60000</p>
+<p>      }</p>
+<p>    }</p>
+<p>  }</p>
+<p>}</p>
+</code></pre>
+
+<h3>Q: 命令执行卡住</h3>
+
+<strong>问题</strong>: 某些命令执行后一直等待。
+
+<strong>解决方案</strong>:
+
+<pre><code><h1>设置超时</h1>
+<p>openclaw exec "long-command" --timeout 30</p>
+
+<h1>后台运行</h1>
+<p>openclaw exec "long-command" --background</p>
+
+<h1>查看进程</h1>
+<p>openclaw process list</p>
+
+<h1>终止进程</h1>
+<p>openclaw process kill <session-id></p>
+</code></pre>
+
+<p>---</p>
+
+<h2>Agent 问题</h2>
+
+<h3>Q: Agent 记忆丢失</h3>
+
+<strong>问题</strong>: 重启后 Agent 不记得之前的对话。
+
+<strong>解决方案</strong>:
+
+<p>1. <strong>检查记忆配置</strong>:</p>
+<pre><code>{
+<p>  "agents": {</p>
+<p>    "defaultMemory": true,</p>
+<p>    "autoSave": true</p>
+<p>  }</p>
+<p>}</p>
+</code></pre>
+
+<p>2. <strong>验证记忆文件</strong>:</p>
+<pre><code>ls -la agents/my-agent/memory/
+<p>cat agents/my-agent/memory/MEMORY.md</p>
+</code></pre>
+
+<p>3. <strong>手动保存记忆</strong>:</p>
+<pre><code>openclaw memory save my-agent
+</code></pre>
+
+<p>4. <strong>检查权限</strong>:</p>
+<pre><code><h1>确保有写入权限</h1>
+<p>chmod -R 755 agents/my-agent/memory/</p>
+</code></pre>
+
+<h3>Q: Agent 行为不符合预期</h3>
+
+<strong>问题</strong>: Agent 回复风格不对。
+
+<strong>解决方案</strong>:
+
+<p>1. <strong>检查 SOUL.md</strong>:</p>
+<pre><code>cat agents/my-agent/SOUL.md
+<h1>确保人格定义清晰</h1>
+</code></pre>
+
+<p>2. <strong>检查 USER.md</strong>:</p>
+<pre><code>cat agents/my-agent/USER.md
+<h1>确保用户信息完整</h1>
+</code></pre>
+
+<p>3. <strong>添加示例对话</strong>:</p>
+<p>在 SOUL.md 中添加：</p>
+<pre><code><h2>对话示例</h2>
+
+<p>用户：你好</p>
+<p>助手：你好！我是小助手，有什么可以帮你的吗？😊</p>
+
+<p>用户：帮我写代码</p>
+<p>助手：好的！请告诉我具体需求...</p>
+</code></pre>
+
+<p>4. <strong>重新训练上下文</strong>:</p>
+<pre><code>openclaw agent reset-context my-agent
+</code></pre>
+
+<h3>Q: 如何删除 Agent</h3>
+
+<strong>问题</strong>: 想删除不需要的 Agent。
+
+<strong>解决方案</strong>:
+<pre><code><h1>安全删除</h1>
+<p>openclaw agent delete my-agent</p>
+
+<h1>强制删除</h1>
+<p>openclaw agent delete my-agent --force</p>
+
+<h1>手动删除</h1>
+<p>rm -rf agents/my-agent</p>
+</code></pre>
+
+<p>---</p>
+
+<h2>技能问题</h2>
+
+<h3>Q: 技能安装失败</h3>
+
+<strong>问题</strong>: <code>openclaw skills install xxx</code> 失败。
+
+<strong>解决方案</strong>:
+
+<p>1. <strong>检查网络</strong>:</p>
+<pre><code>openclaw network check
+</code></pre>
+
+<p>2. <strong>使用镜像</strong>:</p>
+<pre><code>{
+<p>  "skills": {</p>
+<p>    "clawhub": {</p>
+<p>      "registry": "https://mirror.clawhub.com"</p>
+<p>    }</p>
+<p>  }</p>
+<p>}</p>
+</code></pre>
+
+<p>3. <strong>手动安装</strong>:</p>
+<pre><code>git clone https://github.com/xxx/skill-name.git
+<p>openclaw skills install ./skill-name</p>
+</code></pre>
+
+<p>4. <strong>检查兼容性</strong>:</p>
+<pre><code>openclaw skills info skill-name
+<h1>查看要求的 OpenClaw 版本</h1>
+</code></pre>
+
+<h3>Q: 技能不工作</h3>
+
+<strong>问题</strong>: 安装的技能无法使用。
+
+<strong>解决方案</strong>:
+
+<p>1. <strong>检查启用状态</strong>:</p>
+<pre><code>openclaw skills list
+<p>openclaw skills enable skill-name</p>
+</code></pre>
+
+<p>2. <strong>查看技能日志</strong>:</p>
+<pre><code>openclaw skills logs skill-name
+</code></pre>
+
+<p>3. <strong>检查配置</strong>:</p>
+<pre><code>cat skills/skill-name/SKILL.md
+<h1>确认配置正确</h1>
+</code></pre>
+
+<p>4. <strong>重新安装</strong>:</p>
+<pre><code>openclaw skills uninstall skill-name
+<p>openclaw skills install skill-name</p>
+</code></pre>
+
+<h3>Q: 如何开发自定义技能</h3>
+
+<strong>问题</strong>: 想创建自己的技能。
+
+<strong>解决方案</strong>:
+
+<p>查看 <a href="AGENT_DEV.md#技能开发">Agent 开发指南</a></p>
+
+<p>快速开始：</p>
+<pre><code>openclaw skills create my-skill
+<p>cd skills/my-skill</p>
+<h1>编辑 SKILL.md 和 index.js</h1>
+<p>openclaw skills test my-skill</p>
+</code></pre>
+
+<p>---</p>
+
+<h2>工具问题</h2>
+
+<h3>Q: 浏览器无法启动</h3>
+
+<strong>问题</strong>: 浏览器工具报错。
+
+<strong>解决方案</strong>:
+
+<p>1. <strong>安装依赖</strong>:</p>
+<pre><code><h1>Playwright 浏览器</h1>
+<p>npx playwright install</p>
+
+<h1>或 Puppeteer</h1>
+<p>npm install puppeteer</p>
+</code></pre>
+
+<p>2. <strong>检查配置</strong>:</p>
+<pre><code>{
+<p>  "tools": {</p>
+<p>    "browser": {</p>
+<p>      "enabled": true,</p>
+<p>      "headless": true</p>
+<p>    }</p>
+<p>  }</p>
+<p>}</p>
+</code></pre>
+
+<p>3. <strong>测试浏览器</strong>:</p>
+<pre><code>openclaw browser open https://example.com
+</code></pre>
+
+<p>4. <strong>使用系统浏览器</strong>:</p>
+<pre><code>{
+<p>  "tools": {</p>
+<p>    "browser": {</p>
+<p>      "useSystem": true,</p>
+<p>      "path": "/usr/bin/google-chrome"</p>
+<p>    }</p>
+<p>  }</p>
+<p>}</p>
+</code></pre>
+
+<h3>Q: 网络搜索失败</h3>
+
+<strong>问题</strong>: web_search 返回错误。
+
+<strong>解决方案</strong>:
+
+<p>1. <strong>检查 API Key</strong>:</p>
+<pre><code>echo $BRAVE_API_KEY
+<h1>或检查配置中的 key</h1>
+</code></pre>
+
+<p>2. <strong>测试 API</strong>:</p>
+<pre><code>curl -H "X-Subscription-Token: $BRAVE_API_KEY" \
+<p>  "https://api.search.brave.com/res/v1/web/search?q=test"</p>
+</code></pre>
+
+<p>3. <strong>检查配额</strong>:</p>
+<p>登录 Brave Search 控制台查看使用量。</p>
+
+<p>4. <strong>使用备用方案</strong>:</p>
+<pre><code>{
+<p>  "tools": {</p>
+<p>    "webSearch": {</p>
+<p>      "provider": "duckduckgo"  // 或其他提供商</p>
+<p>    }</p>
+<p>  }</p>
+<p>}</p>
+</code></pre>
+
+<h3>Q: 消息发送失败</h3>
+
+<strong>问题</strong>: 无法发送消息到 Discord/Telegram 等。
+
+<strong>解决方案</strong>:
+
+<p>1. <strong>检查 Token</strong>:</p>
+<pre><code><h1>Discord</h1>
+<p>curl -H "Authorization: Bot $DISCORD_TOKEN" \</p>
+<p>  https://discord.com/api/users/@me</p>
+
+<h1>Telegram</h1>
+<p>curl "https://api.telegram.org/bot$TELEGRAM_TOKEN/getMe"</p>
+</code></pre>
+
+<p>2. <strong>检查权限</strong>:</p>
+<p>确保 Bot 有发送消息的权限。</p>
+
+<p>3. <strong>检查频道 ID</strong>:</p>
+<pre><code><h1>Discord</h1>
+<p>openclaw message list --channel general</p>
+<h1>确认频道存在</h1>
+</code></pre>
+
+<p>4. <strong>查看速率限制</strong>:</p>
+<p>某些平台有发送频率限制。</p>
+
+<p>---</p>
+
+<h2>性能问题</h2>
+
+<h3>Q: Agent 响应慢</h3>
+
+<strong>问题</strong>: Agent 回复很慢。
+
+<strong>解决方案</strong>:
+
+<p>1. <strong>优化模型参数</strong>:</p>
+<pre><code>{
+<p>  "models": {</p>
+<p>    "providers": {</p>
+<p>      "qwen": {</p>
+<p>        "maxTokens": 2048,  // 减少最大 token</p>
+<p>        "temperature": 0.7</p>
+<p>      }</p>
+<p>    }</p>
+<p>  }</p>
+<p>}</p>
+</code></pre>
+
+<p>2. <strong>减少上下文</strong>:</p>
+<pre><code>{
+<p>  "agents": {</p>
+<p>    "maxContextLength": 4096  // 减少上下文长度</p>
+<p>  }</p>
+<p>}</p>
+</code></pre>
+
+<p>3. <strong>使用更快的模型</strong>:</p>
+<pre><code>{
+<p>  "models": {</p>
+<p>    "default": "qwen-turbo"  // 使用快速版本</p>
+<p>  }</p>
+<p>}</p>
+</code></pre>
+
+<p>4. <strong>启用缓存</strong>:</p>
+<pre><code>{
+<p>  "cache": {</p>
+<p>    "enabled": true,</p>
+<p>    "ttl": 3600</p>
+<p>  }</p>
+<p>}</p>
+</code></pre>
+
+<h3>Q: 内存占用高</h3>
+
+<strong>问题</strong>: OpenClaw 占用大量内存。
+
+<strong>解决方案</strong>:
+
+<pre><code><h1>1. 限制并发 Agent</h1>
+<p>openclaw config edit</p>
+<h1>设置 maxConcurrent: 3</h1>
+
+<h1>2. 清理缓存</h1>
+<p>openclaw system cleanup --cache</p>
+
+<h1>3. 重启服务</h1>
+<p>openclaw gateway restart</p>
+
+<h1>4. 检查内存泄漏</h1>
+<p>openclaw system doctor --full</p>
+</code></pre>
+
+<h3>Q: 磁盘空间不足</h3>
+
+<strong>问题</strong>: 日志和记忆占用太多空间。
+
+<strong>解决方案</strong>:
+
+<pre><code><h1>清理旧日志</h1>
+<p>openclaw system cleanup --logs --older-than 7d</p>
+
+<h1>清理旧记忆</h1>
+<p>openclaw memory cleanup --older-than 30d</p>
+
+<h1>压缩旧文件</h1>
+<p>find ~/.openclaw/logs -name "*.log" -mtime +7 -exec gzip {} \;</p>
+
+<h1>设置自动清理</h1>
+<p>{</p>
+<p>  "logging": {</p>
+<p>    "maxFiles": 10,</p>
+<p>    "maxSize": "10MB"</p>
+<p>  }</p>
+<p>}</p>
+</code></pre>
+
+<p>---</p>
+
+<h2>安全问题</h2>
+
+<h3>Q: 如何保护 API Key</h3>
+
+<strong>问题</strong>: 担心 API Key 泄露。
+
+<strong>解决方案</strong>:
+
+<p>1. <strong>使用环境变量</strong>:</p>
+<pre><code>export QWEN_API_KEY="sk-xxx"
+<h1>在配置中引用 ${QWEN_API_KEY}</h1>
+</code></pre>
+
+<p>2. <strong>使用密钥管理</strong>:</p>
+<pre><code><h1>Linux</h1>
+<p>echo "sk-xxx" | secret-tool store --label='OpenClaw' openclaw api-key</p>
+
+<h1>macOS</h1>
+<p>security add-generic-password -s openclaw -a api-key -w "sk-xxx"</p>
+</code></pre>
+
+<p>3. <strong>限制权限</strong>:</p>
+<pre><code>chmod 600 ~/.openclaw/config.json
+</code></pre>
+
+<p>4. <strong>定期轮换</strong>:</p>
+<p>定期更新 API Key。</p>
+
+<h3>Q: 如何限制 Agent 权限</h3>
+
+<strong>问题</strong>: 防止 Agent 执行危险操作。
+
+<strong>解决方案</strong>:
+
+<pre><code>{
+<p>  "security": {</p>
+<p>    "requireApproval": [</p>
+<p>      "exec",</p>
+<p>      "file.delete",</p>
+<p>      "message.send"</p>
+<p>    ],</p>
+<p>    "denylist": [</p>
+<p>      "exec.sudo",</p>
+<p>      "file.delete_recursive"</p>
+<p>    ],</p>
+<p>    "allowlist": [</p>
+<p>      "read",</p>
+<p>      "write",</p>
+<p>      "web_search"</p>
+<p>    ]</p>
+<p>  }</p>
+<p>}</p>
+</code></pre>
+
+<h3>Q: 如何审计 Agent 行为</h3>
+
+<strong>问题</strong>: 想查看 Agent 做了什么。
+
+<strong>解决方案</strong>:
+
+<pre><code><h1>查看操作日志</h1>
+<p>openclaw logs agent my-agent --level info</p>
+
+<h1>导出审计日志</h1>
+<p>openclaw audit export --output audit.json</p>
+
+<h1>实时监控</h1>
+<p>openclaw logs agent my-agent --follow</p>
+</code></pre>
+
+<p>---</p>
+
+<h2>其他问题</h2>
+
+<h3>Q: 如何更新 OpenClaw</h3>
+
+<strong>问题</strong>: 想升级到最新版本。
+
+<strong>解决方案</strong>:
+<pre><code><h1>检查更新</h1>
+<p>openclaw system update --check</p>
+
+<h1>执行更新</h1>
+<p>openclaw system update</p>
+
+<h1>或手动更新</h1>
+<p>npm update -g openclaw</p>
+
+<h1>验证版本</h1>
+<p>openclaw --version</p>
+</code></pre>
+
+<h3>Q: 如何备份数据</h3>
+
+<strong>问题</strong>: 想备份 Agent 和配置。
+
+<strong>解决方案</strong>:
+<pre><code><h1>创建备份</h1>
+<p>openclaw system backup --output backup-$(date +%Y%m%d).zip</p>
+
+<h1>或手动备份</h1>
+<p>tar -czf openclaw-backup.tar.gz \</p>
+<p>  ~/.openclaw/config.json \</p>
+<p>  ~/openclaw-workspace/agents/</p>
+</code></pre>
+
+<h3>Q: 如何获取帮助</h3>
+
+<strong>问题</strong>: 遇到未列出的问题。
+
+<strong>解决方案</strong>:
+
+<p>1. <strong>查看文档</strong>:</p>
+<pre><code>openclaw help
+<p>openclaw docs</p>
+</code></pre>
+
+<p>2. <strong>运行诊断</strong>:</p>
+<pre><code>openclaw system doctor --full
+</code></pre>
+
+<p>3. <strong>查看日志</strong>:</p>
+<pre><code>openclaw gateway logs --level debug
+</code></pre>
+
+<p>4. <strong>社区支持</strong>:</p>
+<ul><li><a href="https://github.com/openclaw/issues">GitHub Issues</a></li>
+<li><a href="https://discord.gg/openclaw">Discord 社区</a></li>
+<li><a href="https://clawhub.com/forum">ClawHub 论坛</a></li>
+</ul>
+<p>5. <strong>提交 Bug</strong>:</p>
+<pre><code>openclaw bug-report
+</code></pre>
+
+<p>---</p>
+
+<h2>快速诊断命令</h2>
+
+<pre><code><h1>完整系统检查</h1>
+<p>openclaw system doctor --full</p>
+
+<h1>检查配置</h1>
+<p>openclaw config validate</p>
+
+<h1>测试模型</h1>
+<p>openclaw test-model qwen</p>
+
+<h1>检查网络</h1>
+<p>openclaw network check</p>
+
+<h1>查看状态</h1>
+<p>openclaw gateway status</p>
+<p>openclaw agent status all</p>
+
+<h1>清理系统</h1>
+<p>openclaw system cleanup --all</p>
+</code></pre>
+
+<p>---</p>
+
+<strong>仍有问题？</strong> 请查看完整 <a href="README.md">文档</a> 或联系社区支持。
+
+        </div>
+    </div>
+    <footer>
+        <p>最后更新：2026-03-15 | 维护者：AI Publisher Agent 团队</p>
+        <p><a href="https://github.com/FreePineGo/ai-tools-docs">GitHub 仓库</a></p>
+    </footer>
+</body>
+</html>

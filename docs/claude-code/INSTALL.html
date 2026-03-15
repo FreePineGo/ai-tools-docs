@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude Code 安装指南 - AI Publisher Agent 文档中心</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background: #f6f8fa; color: #24292e; line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        header { background: #0366d6; color: white; padding: 40px 20px; text-align: center; margin-bottom: 20px; }
+        header h1 { font-size: 2em; }
+        nav { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        nav a { color: #0366d6; text-decoration: none; margin-right: 15px; }
+        nav a:hover { text-decoration: underline; }
+        .content { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .content h1 { color: #0366d6; border-bottom: 2px solid #e1e4e8; padding-bottom: 10px; margin-bottom: 20px; }
+        .content h2 { color: #0366d6; margin: 30px 0 15px; }
+        .content h3 { color: #24292e; margin: 20px 0 10px; }
+        .content p { margin: 15px 0; }
+        .content ul, .content ol { margin: 15px 0; padding-left: 30px; }
+        .content li { margin: 8px 0; }
+        .content a { color: #0366d6; text-decoration: none; }
+        .content a:hover { text-decoration: underline; }
+        .content code { background: #f6f8fa; padding: 2px 6px; border-radius: 3px; font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace; }
+        .content pre { background: #f6f8fa; padding: 20px; border-radius: 6px; overflow-x: auto; margin: 20px 0; }
+        .content pre code { background: none; padding: 0; }
+        .content table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+        .content th, .content td { border: 1px solid #e1e4e8; padding: 10px 15px; text-align: left; }
+        .content th { background: #f6f8fa; font-weight: 600; }
+        .content tr:nth-child(even) { background: #f6f8fa; }
+        footer { text-align: center; padding: 20px; color: #586069; margin-top: 40px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🤖 AI Publisher Agent 文档中心</h1>
+    </header>
+    <div class="container">
+        <nav>
+            <a href="../index.html">🏠 主页</a> |
+            <a href="README.html">📚 总索引</a> |
+            <a href="PRD.html">📋 PRD</a> |
+            <a href="guides/SELECTION.html">🎯 选择指南</a> |
+            <a href="guides/COMPARISON.html">⚖️ 对比表</a>
+        </nav>
+        <div class="content">
+<h1>Claude Code 安装指南</h1>
+
+<h2>前置要求</h2>
+
+<p>在开始安装之前，请确保满足以下要求：</p>
+
+<h3>系统要求</h3>
+
+<p>| 组件 | 要求 | 验证命令 |</p>
+<p>|------|------|----------|</p>
+<p>| Node.js | v18.0+ | <code>node --version</code> |</p>
+<p>| npm | v9.0+ | <code>npm --version</code> |</p>
+<p>| 操作系统 | macOS 10.15+ / Linux / Windows 10+ | - |</p>
+
+<h3>安装 Node.js</h3>
+
+#### macOS
+
+<pre><code><h1>使用 Homebrew (推荐)</h1>
+<p>brew install node</p>
+
+<h1>或使用官方安装包</h1>
+<h1>访问 https://nodejs.org 下载 LTS 版本</h1>
+</code></pre>
+
+#### Linux
+
+<pre><code><h1>Ubuntu/Debian</h1>
+<p>curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -</p>
+<p>sudo apt-get install -y nodejs</p>
+
+<h1>CentOS/RHEL</h1>
+<p>curl -fsSL https://rpm.nodesource.com/setup_lts.x | sudo bash -</p>
+<p>sudo yum install -y nodejs</p>
+
+<h1>或使用 nvm (推荐)</h1>
+<p>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash</p>
+<p>nvm install --lts</p>
+</code></pre>
+
+#### Windows
+
+<p>1. 访问 <a href="https://nodejs.org">https://nodejs.org</a></p>
+<p>2. 下载 LTS 版本安装程序</p>
+<p>3. 运行安装程序，按提示完成安装</p>
+<p>4. 重启终端验证：<code>node --version</code></p>
+
+<h2>安装步骤</h2>
+
+<h3>步骤 1: 全局安装 Claude Code</h3>
+
+<pre><code>npm install -g @anthropic-ai/claude-code
+</code></pre>
+
+<strong>注意</strong>: 如果遇到权限问题：
+
+<pre><code><h1>macOS/Linux: 使用 sudo</h1>
+<p>sudo npm install -g @anthropic-ai/claude-code</p>
+
+<h1>或者修改 npm 默认目录 (推荐)</h1>
+<p>npm config set prefix ~/.npm-global</p>
+<p>echo 'export PATH=~/.npm-global/bin:$PATH' >> ~/.bashrc</p>
+<p>source ~/.bashrc</p>
+<p>npm install -g @anthropic-ai/claude-code</p>
+</code></pre>
+
+<h3>步骤 2: 验证安装</h3>
+
+<pre><code>claude --version
+</code></pre>
+
+<p>成功输出示例：</p>
+<pre><code>claude-code/1.0.0 (node/v20.x.x)
+</code></pre>
+
+<h3>步骤 3: 配置 API 密钥</h3>
+
+#### 方法一：交互式配置（推荐）
+
+<pre><code>claude
+</code></pre>
+
+<p>首次运行时，会提示输入 API 密钥。</p>
+
+#### 方法二：环境变量
+
+<pre><code><h1>macOS/Linux (~/.bashrc 或 ~/.zshrc)</h1>
+<p>export ANTHROPIC_API_KEY="your-api-key-here"</p>
+
+<h1>Windows PowerShell</h1>
+<p>$env:ANTHROPIC_API_KEY="your-api-key-here"</p>
+
+<h1>Windows CMD</h1>
+<p>set ANTHROPIC_API_KEY=your-api-key-here</p>
+</code></pre>
+
+#### 方法三：配置文件
+
+<p>创建 <code>~/.claude/config.json</code>:</p>
+
+<pre><code>{
+<p>  "apiKey": "your-api-key-here",</p>
+<p>  "model": "claude-sonnet-4-20250514",</p>
+<p>  "maxTokens": 8192</p>
+<p>}</p>
+</code></pre>
+
+<h3>步骤 4: 获取 API 密钥</h3>
+
+<p>1. 访问 <a href="https://console.anthropic.com">https://console.anthropic.com</a></p>
+<p>2. 登录或注册账户</p>
+<p>3. 进入 API Keys 页面</p>
+<p>4. 创建新的 API 密钥</p>
+<p>5. 复制密钥并保存（只显示一次）</p>
+
+#### API 密钥类型
+
+<p>| 类型 | 用途 | 配额 |</p>
+<p>|------|------|------|</p>
+<p>| Free Tier | 个人试用 | 有限额度 |</p>
+<p>| Paid Tier | 生产使用 | 根据套餐 |</p>
+<p>| Enterprise | 企业定制 | 联系销售 |</p>
+
+<h2>验证安装</h2>
+
+<p>运行以下命令验证一切正常：</p>
+
+<pre><code><h1>检查版本</h1>
+<p>claude --version</p>
+
+<h1>运行测试对话</h1>
+<p>echo "Hello, Claude! Please respond with 'Installation successful!'" | claude</p>
+</code></pre>
+
+<h2>可选配置</h2>
+
+<h3>设置默认模型</h3>
+
+<pre><code><h1>在配置文件中设置</h1>
+<p>echo '{"defaultModel": "claude-sonnet-4-20250514"}' >> ~/.claude/config.json</p>
+</code></pre>
+
+<h3>配置代理（如需要）</h3>
+
+<pre><code>export HTTPS_PROXY="http://proxy-server:port"
+<p>export HTTP_PROXY="http://proxy-server:port"</p>
+</code></pre>
+
+<h3>增加 Token 限制</h3>
+
+<pre><code>{
+<p>  "maxTokens": 16384,</p>
+<p>  "timeout": 300000</p>
+<p>}</p>
+</code></pre>
+
+<h2>故障排除</h2>
+
+<h3>问题 1: npm 安装失败</h3>
+
+<pre><code><h1>清除 npm 缓存</h1>
+<p>npm cache clean --force</p>
+
+<h1>重新安装</h1>
+<p>npm install -g @anthropic-ai/claude-code</p>
+</code></pre>
+
+<h3>问题 2: 权限错误</h3>
+
+<pre><code><h1>macOS/Linux</h1>
+<p>sudo chown -R $(whoami) ~/.npm</p>
+
+<h1>或使用 nvm 避免权限问题</h1>
+<p>nvm install --lts</p>
+</code></pre>
+
+<h3>问题 3: API 密钥无效</h3>
+
+<ul><li>检查密钥是否正确复制（无多余空格）</li>
+<li>确认账户有可用额度</li>
+<li>检查网络连接</li>
+<li>验证 API 端点是否正确</li>
+</ul>
+<h3>问题 4: 命令未找到</h3>
+
+<pre><code><h1>检查 PATH</h1>
+<p>echo $PATH</p>
+
+<h1>找到 claude 安装位置</h1>
+<p>which claude</p>
+
+<h1>手动添加到 PATH</h1>
+<p>export PATH=$PATH:$(npm config get prefix)/bin</p>
+</code></pre>
+
+<h3>问题 5: 连接超时</h3>
+
+<pre><code><h1>检查网络</h1>
+<p>ping console.anthropic.com</p>
+
+<h1>检查防火墙设置</h1>
+<h1>确保允许访问 API 端点</h1>
+</code></pre>
+
+<h2>升级</h2>
+
+<pre><code><h1>升级到最新版本</h1>
+<p>npm update -g @anthropic-ai/claude-code</p>
+
+<h1>或重新安装</h1>
+<p>npm install -g @anthropic-ai/claude-code@latest</p>
+</code></pre>
+
+<h2>卸载</h2>
+
+<pre><code>npm uninstall -g @anthropic-ai/claude-code
+
+<h1>清理配置文件</h1>
+<p>rm -rf ~/.claude</p>
+</code></pre>
+
+<p>---</p>
+
+<p>安装完成后，请继续阅读 <a href="./QUICKSTART.md">QUICKSTART.md</a> 开始使用。</p>
+
+        </div>
+    </div>
+    <footer>
+        <p>最后更新：2026-03-15 | 维护者：AI Publisher Agent 团队</p>
+        <p><a href="https://github.com/FreePineGo/ai-tools-docs">GitHub 仓库</a></p>
+    </footer>
+</body>
+</html>

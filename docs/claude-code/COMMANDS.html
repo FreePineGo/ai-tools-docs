@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude Code 命令参考 - AI Publisher Agent 文档中心</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background: #f6f8fa; color: #24292e; line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        header { background: #0366d6; color: white; padding: 40px 20px; text-align: center; margin-bottom: 20px; }
+        header h1 { font-size: 2em; }
+        nav { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        nav a { color: #0366d6; text-decoration: none; margin-right: 15px; }
+        nav a:hover { text-decoration: underline; }
+        .content { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .content h1 { color: #0366d6; border-bottom: 2px solid #e1e4e8; padding-bottom: 10px; margin-bottom: 20px; }
+        .content h2 { color: #0366d6; margin: 30px 0 15px; }
+        .content h3 { color: #24292e; margin: 20px 0 10px; }
+        .content p { margin: 15px 0; }
+        .content ul, .content ol { margin: 15px 0; padding-left: 30px; }
+        .content li { margin: 8px 0; }
+        .content a { color: #0366d6; text-decoration: none; }
+        .content a:hover { text-decoration: underline; }
+        .content code { background: #f6f8fa; padding: 2px 6px; border-radius: 3px; font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace; }
+        .content pre { background: #f6f8fa; padding: 20px; border-radius: 6px; overflow-x: auto; margin: 20px 0; }
+        .content pre code { background: none; padding: 0; }
+        .content table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+        .content th, .content td { border: 1px solid #e1e4e8; padding: 10px 15px; text-align: left; }
+        .content th { background: #f6f8fa; font-weight: 600; }
+        .content tr:nth-child(even) { background: #f6f8fa; }
+        footer { text-align: center; padding: 20px; color: #586069; margin-top: 40px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🤖 AI Publisher Agent 文档中心</h1>
+    </header>
+    <div class="container">
+        <nav>
+            <a href="../index.html">🏠 主页</a> |
+            <a href="README.html">📚 总索引</a> |
+            <a href="PRD.html">📋 PRD</a> |
+            <a href="guides/SELECTION.html">🎯 选择指南</a> |
+            <a href="guides/COMPARISON.html">⚖️ 对比表</a>
+        </nav>
+        <div class="content">
+<h1>Claude Code 命令参考</h1>
+
+<h2>命令行参数</h2>
+
+<h3>基本命令</h3>
+
+<p>| 命令 | 说明 | 示例 |</p>
+<p>|------|------|------|</p>
+<p>| <code>claude</code> | 启动交互式会话 | <code>claude</code> |</p>
+<p>| <code>claude --version</code> | 显示版本信息 | <code>claude --version</code> |</p>
+<p>| <code>claude --help</code> | 显示帮助信息 | <code>claude --help</code> |</p>
+<p>| <code>claude [prompt]</code> | 执行单条指令 | <code>claude "解释这个文件"</code> |</p>
+
+<h3>配置选项</h3>
+
+<p>| 参数 | 简写 | 说明 |</p>
+<p>|------|------|------|</p>
+<p>| <code>--model <name></code> | <code>-m</code> | 指定使用的模型 |</p>
+<p>| <code>--max-tokens <n></code> | <code>-t</code> | 设置最大 token 数 |</p>
+<p>| <code>--timeout <ms></code> | <code>-T</code> | 设置超时时间（毫秒） |</p>
+<p>| <code>--config <path></code> | <code>-c</code> | 指定配置文件路径 |</p>
+<p>| <code>--verbose</code> | <code>-v</code> | 详细输出模式 |</p>
+<p>| <code>--quiet</code> | <code>-q</code> | 静默模式 |</p>
+<p>| <code>--json</code> | <code>-j</code> | JSON 格式输出 |</p>
+
+<h3>会话管理</h3>
+
+<p>| 参数 | 说明 |</p>
+<p>|------|------|</p>
+<p>| <code>--session <id></code> | 加载指定会话 |</p>
+<p>| <code>--new-session</code> | 创建新会话 |</p>
+<p>| <code>--export <file></code> | 导出会话到文件 |</p>
+<p>| <code>--import <file></code> | 从文件导入会话 |</p>
+<p>| <code>--list-sessions</code> | 列出所有会话 |</p>
+
+<h2>内置命令（Slash Commands）</h2>
+
+<p>在交互式会话中可用的斜杠命令：</p>
+
+<h3>导航命令</h3>
+
+<p>| 命令 | 说明 |</p>
+<p>|------|------|</p>
+<p>| <code>/help</code> | 显示帮助信息 |</p>
+<p>| <code>/clear</code> | 清除当前会话历史 |</p>
+<p>| <code>/exit</code> | 退出会话 |</p>
+<p>| <code>/quit</code> | 退出会话（同 /exit） |</p>
+
+<h3>文件命令</h3>
+
+<p>| 命令 | 说明 | 示例 |</p>
+<p>|------|------|------|</p>
+<p>| <code>/read</code> | 读取文件内容 | <code>/read src/app.ts</code> |</p>
+<p>| <code>/write</code> | 写入文件 | <code>/write output.txt 内容</code> |</p>
+<p>| <code>/edit</code> | 编辑文件 | <code>/edit config.json</code> |</p>
+<p>| <code>/create</code> | 创建新文件 | <code>/create src/new.ts</code> |</p>
+<p>| <code>/delete</code> | 删除文件 | <code>/delete temp.txt</code> |</p>
+<p>| <code>/list</code> | 列出目录内容 | <code>/list src/</code> |</p>
+
+<h3>代码命令</h3>
+
+<p>| 命令 | 说明 | 示例 |</p>
+<p>|------|------|------|</p>
+<p>| <code>/search</code> | 搜索代码 | <code>/search "function test"</code> |</p>
+<p>| <code>/run</code> | 运行命令 | <code>/run npm test</code> |</p>
+<p>| <code>/build</code> | 构建项目 | <code>/build</code> |</p>
+<p>| <code>/test</code> | 运行测试 | <code>/test</code> |</p>
+<p>| <code>/lint</code> | 代码检查 | <code>/lint</code> |</p>
+<p>| <code>/format</code> | 格式化代码 | <code>/format src/</code> |</p>
+
+<h3>Git 命令</h3>
+
+<p>| 命令 | 说明 | 示例 |</p>
+<p>|------|------|------|</p>
+<p>| <code>/git status</code> | 查看状态 | <code>/git status</code> |</p>
+<p>| <code>/git add</code> | 添加文件 | <code>/git add .</code> |</p>
+<p>| <code>/git commit</code> | 提交更改 | <code>/git commit -m "msg"</code> |</p>
+<p>| <code>/git push</code> | 推送代码 | <code>/git push</code> |</p>
+<p>| <code>/git pull</code> | 拉取代码 | <code>/git pull</code> |</p>
+<p>| <code>/git log</code> | 查看历史 | <code>/git log</code> |</p>
+<p>| <code>/git diff</code> | 查看差异 | <code>/git diff</code> |</p>
+
+<h3>配置命令</h3>
+
+<p>| 命令 | 说明 |</p>
+<p>|------|------|</p>
+<p>| <code>/config</code> | 查看当前配置 |</p>
+<p>| <code>/config set</code> | 设置配置项 |</p>
+<p>| <code>/config reset</code> | 重置配置 |</p>
+<p>| <code>/model</code> | 切换模型 |</p>
+<p>| <code>/prefs</code> | 查看偏好设置 |</p>
+
+<h2>自然语言指令模式</h2>
+
+<h3>文件操作指令</h3>
+
+<pre><code><h1>读取文件</h1>
+<p>读取 @package.json</p>
+<p>显示 @src/index.ts 的内容</p>
+<p>查看配置文件</p>
+
+<h1>创建文件</h1>
+<p>创建一个新文件 src/utils/helper.ts</p>
+<p>在 docs 文件夹创建 README.md</p>
+<p>生成一个 TypeScript 配置文件</p>
+
+<h1>修改文件</h1>
+<p>修改 @app.ts，添加错误处理</p>
+<p>更新 @config.json 中的端口设置</p>
+<p>在 @styles.css 中添加新样式</p>
+
+<h1>删除文件</h1>
+<p>删除临时文件 temp.txt</p>
+<p>移除 @old-module.js</p>
+<p>清理构建输出目录</p>
+</code></pre>
+
+<h3>代码生成指令</h3>
+
+<pre><code><h1>生成代码</h1>
+<p>创建一个用户认证函数</p>
+<p>生成一个 React 组件用于显示列表</p>
+<p>编写一个 API 端点处理用户注册</p>
+
+<h1>重构代码</h1>
+<p>优化这个函数的性能</p>
+<p>将这段代码转换为 TypeScript</p>
+<p>提取重复逻辑为独立函数</p>
+
+<h1>添加功能</h1>
+<p>为这个类添加日志功能</p>
+<p>实现缓存机制</p>
+<p>添加输入验证</p>
+</code></pre>
+
+<h3>调试指令</h3>
+
+<pre><code><h1>分析问题</h1>
+<p>为什么这个测试失败了？</p>
+<p>找出内存泄漏的原因</p>
+<p>解释这个错误信息</p>
+
+<h1>修复问题</h1>
+<p>修复这个空指针异常</p>
+<p>解决类型不匹配问题</p>
+<p>修正 API 响应格式</p>
+
+<h1>优化代码</h1>
+<p>提高这个查询的性能</p>
+<p>减少这个函数的复杂度</p>
+<p>优化资源加载</p>
+</code></pre>
+
+<h3>项目指令</h3>
+
+<pre><code><h1>项目设置</h1>
+<p>初始化一个新的 Node.js 项目</p>
+<p>设置 TypeScript 配置</p>
+<p>配置 ESLint 和 Prettier</p>
+
+<h1>依赖管理</h1>
+<p>安装 express 和相关类型定义</p>
+<p>更新所有依赖到最新版本</p>
+<p>移除未使用的依赖</p>
+
+<h1>构建部署</h1>
+<p>构建生产版本</p>
+<p>部署到 Vercel</p>
+<p>生成 Docker 配置</p>
+</code></pre>
+
+<h2>文件引用语法</h2>
+
+<h3>单文件引用</h3>
+
+<pre><code>@filename           # 当前目录文件
+<p>@path/to/file       # 指定路径文件</p>
+<p>@./relative/path    # 显式相对路径</p>
+<p>@/absolute/path     # 绝对路径</p>
+</code></pre>
+
+<h3>多文件引用</h3>
+
+<pre><code>@*.ts               # 所有 TypeScript 文件
+<p>@src/**/*.js        # src 下所有 JS 文件</p>
+<p>@**/*.test.ts       # 所有测试文件</p>
+<p>@{file1,file2}      # 多个指定文件</p>
+</code></pre>
+
+<h3>文件夹引用</h3>
+
+<pre><code>@src/               # src 目录
+<p>@components/**      # components 及其子目录</p>
+<p>@docs/*             # docs 直接子项（不递归）</p>
+</code></pre>
+
+<h2>输出控制</h2>
+
+<h3>格式选项</h3>
+
+<pre><code><h1>代码块</h1>
+<p>请用代码块展示</p>
+
+<h1>表格</h1>
+<p>用表格形式列出</p>
+
+<h1>列表</h1>
+<p>以列表形式展示</p>
+
+<h1>JSON</h1>
+<p>输出为 JSON 格式</p>
+
+<h1>Markdown</h1>
+<p>生成 Markdown 文档</p>
+</code></pre>
+
+<h3>详细程度</h3>
+
+<pre><code><h1>简洁模式</h1>
+<p>简要回答</p>
+<p>只给出代码</p>
+<p>不要解释</p>
+
+<h1>详细模式</h1>
+<p>详细解释</p>
+<p>包含注释</p>
+<p>提供背景信息</p>
+
+<h1>逐步模式</h1>
+<p>分步骤说明</p>
+<p>展示思考过程</p>
+<p>列出备选方案</p>
+</code></pre>
+
+<h2>环境变量</h2>
+
+<p>| 变量 | 说明 | 默认值 |</p>
+<p>|------|------|--------|</p>
+<p>| <code>ANTHROPIC_API_KEY</code> | API 密钥 | - |</p>
+<p>| <code>ANTHROPIC_MODEL</code> | 默认模型 | claude-sonnet-4-20250514 |</p>
+<p>| <code>CLAUDE_CONFIG</code> | 配置文件路径 | ~/.claude/config.json |</p>
+<p>| <code>CLAUDE_MAX_TOKENS</code> | 最大 token 数 | 8192 |</p>
+<p>| <code>CLAUDE_TIMEOUT</code> | 超时时间 (ms) | 300000 |</p>
+<p>| <code>HTTPS_PROXY</code> | HTTPS 代理 | - |</p>
+<p>| <code>NO_COLOR</code> | 禁用颜色输出 | - |</p>
+
+<h2>退出代码</h2>
+
+<p>| 代码 | 说明 |</p>
+<p>|------|------|</p>
+<p>| 0 | 成功执行 |</p>
+<p>| 1 | 一般错误 |</p>
+<p>| 2 | 配置错误 |</p>
+<p>| 3 | API 错误 |</p>
+<p>| 4 | 网络错误 |</p>
+<p>| 130 | 用户中断 (Ctrl+C) |</p>
+
+<p>---</p>
+
+<strong>提示</strong>: 使用 <code>claude --help</code> 查看最新的命令列表和选项。
+
+        </div>
+    </div>
+    <footer>
+        <p>最后更新：2026-03-15 | 维护者：AI Publisher Agent 团队</p>
+        <p><a href="https://github.com/FreePineGo/ai-tools-docs">GitHub 仓库</a></p>
+    </footer>
+</body>
+</html>

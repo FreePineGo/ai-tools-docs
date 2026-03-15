@@ -1,93 +1,234 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>AI Publisher Agent 文档中心</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📑 完整文档索引 - AI Publisher Agent 文档中心</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background: #f6f8fa; color: #24292e; }
+        body { font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background: #f6f8fa; color: #24292e; line-height: 1.6; }
         .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-        header { background: #0366d6; color: white; padding: 40px 20px; text-align: center; }
-        header h1 { font-size: 2.5em; }
-        .nav { background: white; padding: 20px; margin: 20px 0; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-        .nav h2 { margin-bottom: 15px; color: #0366d6; }
-        .links { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
-        .links a { display: block; padding: 15px; background: #f6f8fa; border-radius: 6px; text-decoration: none; color: #0366d6; border: 1px solid #e1e4e8; }
-        .links a:hover { background: #0366d6; color: white; }
-        .section { background: white; padding: 30px; margin: 20px 0; border-radius: 8px; }
-        .section h2 { color: #0366d6; margin-bottom: 20px; border-bottom: 2px solid #e1e4e8; padding-bottom: 10px; }
-        .docs-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .doc-item { background: #f6f8fa; padding: 20px; border-radius: 6px; }
-        .doc-item h3 { color: #0366d6; margin-bottom: 10px; }
-        .doc-item a { color: #0366d6; text-decoration: none; }
+        header { background: #0366d6; color: white; padding: 40px 20px; text-align: center; margin-bottom: 20px; }
+        header h1 { font-size: 2em; }
+        nav { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        nav a { color: #0366d6; text-decoration: none; margin-right: 15px; }
+        nav a:hover { text-decoration: underline; }
+        .content { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .content h1 { color: #0366d6; border-bottom: 2px solid #e1e4e8; padding-bottom: 10px; margin-bottom: 20px; }
+        .content h2 { color: #0366d6; margin: 30px 0 15px; }
+        .content h3 { color: #24292e; margin: 20px 0 10px; }
+        .content p { margin: 15px 0; }
+        .content ul, .content ol { margin: 15px 0; padding-left: 30px; }
+        .content li { margin: 8px 0; }
+        .content a { color: #0366d6; text-decoration: none; }
+        .content a:hover { text-decoration: underline; }
+        .content code { background: #f6f8fa; padding: 2px 6px; border-radius: 3px; font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace; }
+        .content pre { background: #f6f8fa; padding: 20px; border-radius: 6px; overflow-x: auto; margin: 20px 0; }
+        .content pre code { background: none; padding: 0; }
+        .content table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+        .content th, .content td { border: 1px solid #e1e4e8; padding: 10px 15px; text-align: left; }
+        .content th { background: #f6f8fa; font-weight: 600; }
+        .content tr:nth-child(even) { background: #f6f8fa; }
         footer { text-align: center; padding: 20px; color: #586069; margin-top: 40px; }
     </style>
 </head>
 <body>
     <header>
         <h1>🤖 AI Publisher Agent 文档中心</h1>
-        <p>完整的 AI 工具使用指南和最佳实践</p>
     </header>
     <div class="container">
-        <nav class="nav">
-            <h2>📚 快速导航</h2>
-            <div class="links">
-                <a href="docs/README.md">📖 文档总索引</a>
-                <a href="docs/PRD.md">📋 PRD 需求文档</a>
-                <a href="docs/USER_PERSONAS.md">👥 用户角色</a>
-                <a href="docs/guides/SELECTION.md">🎯 选择指南</a>
-                <a href="docs/guides/COMPARISON.md">⚖️ 对比表</a>
-            </div>
+        <nav>
+            <a href="../index.html">🏠 主页</a> |
+            <a href="README.html">📚 总索引</a> |
+            <a href="PRD.html">📋 PRD</a> |
+            <a href="guides/SELECTION.html">🎯 选择指南</a> |
+            <a href="guides/COMPARISON.html">⚖️ 对比表</a>
         </nav>
-        <section class="section">
-            <h2>🛠️ AI 编码助手文档</h2>
-            <div class="docs-list">
-                <div class="doc-item">
-                    <h3>🤖 Claude Code</h3>
-                    <p>Anthropic 官方 CLI 工具</p>
-                    <p><a href="docs/claude-code/README.md">查看文档 →</a></p>
-                </div>
-                <div class="doc-item">
-                    <h3>📝 Codex</h3>
-                    <p>OpenAI Codex CLI</p>
-                    <p><a href="docs/codex/README.md">查看文档 →</a></p>
-                </div>
-                <div class="doc-item">
-                    <h3>🎯 Cursor</h3>
-                    <p>AI 代码编辑器</p>
-                    <p><a href="docs/cursor/README.md">查看文档 →</a></p>
-                </div>
-                <div class="doc-item">
-                    <h3>✈️ Copilot</h3>
-                    <p>GitHub Copilot</p>
-                    <p><a href="docs/copilot/README.md">查看文档 →</a></p>
-                </div>
-                <div class="doc-item">
-                    <h3>🌊 Windsurf</h3>
-                    <p>Codeium AI IDE</p>
-                    <p><a href="docs/windsurf/README.md">查看文档 →</a></p>
-                </div>
-                <div class="doc-item">
-                    <h3>🅰️ Aider</h3>
-                    <p>CLI 驱动的 AI 编程助手</p>
-                    <p><a href="docs/aider/README.md">查看文档 →</a></p>
-                </div>
-            </div>
-        </section>
-        <section class="section">
-            <h2>🔧 OpenClaw 框架文档</h2>
-            <div class="docs-list">
-                <div class="doc-item"><h3>📖 框架介绍</h3><p><a href="docs/openclaw/README.md">查看文档 →</a></p></div>
-                <div class="doc-item"><h3>📥 安装指南</h3><p><a href="docs/openclaw/INSTALL.md">查看文档 →</a></p></div>
-                <div class="doc-item"><h3>🚀 快速开始</h3><p><a href="docs/openclaw/QUICKSTART.md">查看文档 →</a></p></div>
-                <div class="doc-item"><h3>⌨️ 命令参考</h3><p><a href="docs/openclaw/COMMANDS.md">查看文档 →</a></p></div>
-                <div class="doc-item"><h3>⚙️ 配置说明</h3><p><a href="docs/openclaw/CONFIG.md">查看文档 →</a></p></div>
-                <div class="doc-item"><h3>❓ 常见问题</h3><p><a href="docs/openclaw/FAQ.md">查看文档 →</a></p></div>
-            </div>
-        </section>
+        <div class="content">
+<h1>📑 完整文档索引</h1>
+
+<p>本文档提供 AI Publisher Agent 项目所有文档的详细索引。</p>
+
+<p>---</p>
+
+<h2>📋 根目录文档</h2>
+
+<p>| 文件名 | 说明 | 目标读者 |</p>
+<p>|--------|------|----------|</p>
+<p>| <a href="PRD.md">PRD.md</a> | 产品需求文档 - 定义产品目标、功能范围 | 开发者、产品经理 |</p>
+<p>| <a href="USER_PERSONAS.md">USER_PERSONAS.md</a> | 用户角色文档 - 描述目标用户群体和使用场景 | 开发者、设计师 |</p>
+<p>| <a href="CONTENT_STRUCTURE.md">CONTENT_STRUCTURE.md</a> | 内容结构说明 - 项目内容组织方式 | 所有内容贡献者 |</p>
+
+<p>---</p>
+
+<h2>🤖 AI 编码助手文档</h2>
+
+<h3>Aider</h3>
+
+<p>| 文件名 | 说明 |</p>
+<p>|--------|------|</p>
+<p>| <a href="aider/README.md">aider/README.md</a> | Aider 介绍和快速开始 |</p>
+
+<strong>适用场景</strong>: CLI 爱好者、Git 集成需求、轻量级 AI 编程
+
+<h3>Claude Code</h3>
+
+<p>| 文件名 | 说明 |</p>
+<p>|--------|------|</p>
+<p>| <a href="claude-code/README.md">claude-code/README.md</a> | Claude Code 介绍 |</p>
+<p>| <a href="claude-code/INSTALL.md">claude-code/INSTALL.md</a> | 安装指南 |</p>
+<p>| <a href="claude-code/QUICKSTART.md">claude-code/QUICKSTART.md</a> | 快速开始教程 |</p>
+<p>| <a href="claude-code/COMMANDS.md">claude-code/COMMANDS.md</a> | 命令完整参考 |</p>
+<p>| <a href="claude-code/BEST_PRACTICES.md">claude-code/BEST_PRACTICES.md</a> | 最佳实践和使用技巧 |</p>
+<p>| <a href="claude-code/FAQ.md">claude-code/FAQ.md</a> | 常见问题解答 |</p>
+<p>| <a href="claude-code/SKILLS.md">claude-code/SKILLS.md</a> | Skills 系统说明 |</p>
+
+<strong>适用场景</strong>: 需要强大推理能力、复杂任务处理、Anthropic 生态用户
+
+<h3>Codex</h3>
+
+<p>| 文件名 | 说明 |</p>
+<p>|--------|------|</p>
+<p>| <a href="codex/README.md">codex/README.md</a> | Codex CLI 介绍 |</p>
+<p>| <a href="codex/API_GUIDE.md">codex/API_GUIDE.md</a> | API 使用指南 |</p>
+<p>| <a href="codex/EXAMPLES.md">codex/EXAMPLES.md</a> | 使用示例集合 |</p>
+<p>| <a href="codex/FAQ.md">codex/FAQ.md</a> | 常见问题解答 |</p>
+<p>| <a href="codex/PROMPTS.md">codex/PROMPTS.md</a> | 提示词参考 |</p>
+
+<strong>适用场景</strong>: OpenAI 生态用户、需要 API 级别控制
+
+<h3>GitHub Copilot</h3>
+
+<p>| 文件名 | 说明 |</p>
+<p>|--------|------|</p>
+<p>| <a href="copilot/README.md">copilot/README.md</a> | Copilot 介绍和配置 |</p>
+
+<strong>适用场景</strong>: VS Code 用户、实时代码补全需求
+
+<h3>Cursor</h3>
+
+<p>| 文件名 | 说明 |</p>
+<p>|--------|------|</p>
+<p>| <a href="cursor/README.md">cursor/README.md</a> | Cursor 编辑器介绍 |</p>
+
+<strong>适用场景</strong>: 需要 AI 原生 IDE、聊天式编程
+
+<h3>Windsurf</h3>
+
+<p>| 文件名 | 说明 |</p>
+<p>|--------|------|</p>
+<p>| <a href="windsurf/README.md">windsurf/README.md</a> | Windsurf (Codeium) 介绍 |</p>
+
+<strong>适用场景</strong>: Codeium 用户、免费 AI IDE 替代方案
+
+<p>---</p>
+
+<h2>🏗️ OpenClaw 框架文档</h2>
+
+<p>| 文件名 | 说明 | 目标读者 |</p>
+<p>|--------|------|----------|</p>
+<p>| <a href="openclaw/README.md">openclaw/README.md</a> | OpenClaw 框架介绍和核心概念 | 所有开发者 |</p>
+<p>| <a href="openclaw/INSTALL.md">openclaw/INSTALL.md</a> | OpenClaw 安装和配置指南 | 新用户 |</p>
+<p>| <a href="openclaw/QUICKSTART.md">openclaw/QUICKSTART.md</a> | 5 分钟快速开始 | 新用户 |</p>
+<p>| <a href="openclaw/COMMANDS.md">openclaw/COMMANDS.md</a> | CLI 命令完整参考 | 所有用户 |</p>
+<p>| <a href="openclaw/CONFIG.md">openclaw/CONFIG.md</a> | 配置文件详解 | 高级用户 |</p>
+<p>| <a href="openclaw/AGENT_DEV.md">openclaw/AGENT_DEV.md</a> | Agent 开发指南 | Agent 开发者 |</p>
+<p>| <a href="openclaw/FAQ.md">openclaw/FAQ.md</a> | OpenClaw 常见问题 | 所有用户 |</p>
+
+<p>---</p>
+
+<h2>📚 使用指南</h2>
+
+<p>| 文件名 | 说明 | 适用场景 |</p>
+<p>|--------|------|----------|</p>
+<p>| <a href="guides/SELECTION.md">guides/SELECTION.md</a> | 如何选择适合的 AI 助手 | 初次选择工具 |</p>
+<p>| <a href="guides/COMPARISON.md">guides/COMPARISON.md</a> | AI 助手功能对比表 | 工具选型决策 |</p>
+<p>| <a href="guides/WORKFLOWS.md">guides/WORKFLOWS.md</a> | 推荐工作流程和模式 | 日常开发 |</p>
+<p>| <a href="guides/TIPS.md">guides/TIPS.md</a> | 实用技巧和效率提升方法 | 所有用户 |</p>
+
+<p>---</p>
+
+<h2>🔎 按主题索引</h2>
+
+<h3>安装和配置</h3>
+
+<ul><li><a href="claude-code/INSTALL.md">claude-code/INSTALL.md</a> - Claude Code 安装</li>
+<li><a href="openclaw/INSTALL.md">openclaw/INSTALL.md</a> - OpenClaw 安装</li>
+<li><a href="openclaw/CONFIG.md">openclaw/CONFIG.md</a> - OpenClaw 配置</li>
+</ul>
+<h3>快速开始</h3>
+
+<ul><li><a href="claude-code/QUICKSTART.md">claude-code/QUICKSTART.md</a> - Claude Code 快速开始</li>
+<li><a href="openclaw/QUICKSTART.md">openclaw/QUICKSTART.md</a> - OpenClaw 快速开始</li>
+<li><a href="aider/README.md">aider/README.md</a> - Aider 快速开始</li>
+</ul>
+<h3>命令参考</h3>
+
+<ul><li><a href="claude-code/COMMANDS.md">claude-code/COMMANDS.md</a> - Claude Code 命令</li>
+<li><a href="openclaw/COMMANDS.md">openclaw/COMMANDS.md</a> - OpenClaw 命令</li>
+<li><a href="codex/API_GUIDE.md">codex/API_GUIDE.md</a> - Codex API</li>
+</ul>
+<h3>最佳实践</h3>
+
+<ul><li><a href="claude-code/BEST_PRACTICES.md">claude-code/BEST_PRACTICES.md</a> - Claude Code 最佳实践</li>
+<li><a href="guides/WORKFLOWS.md">guides/WORKFLOWS.md</a> - 推荐工作流程</li>
+<li><a href="guides/TIPS.md">guides/TIPS.md</a> - 实用技巧</li>
+</ul>
+<h3>问题排查</h3>
+
+<ul><li><a href="claude-code/FAQ.md">claude-code/FAQ.md</a> - Claude Code FAQ</li>
+<li><a href="codex/FAQ.md">codex/FAQ.md</a> - Codex FAQ</li>
+<li><a href="openclaw/FAQ.md">openclaw/FAQ.md</a> - OpenClaw FAQ</li>
+</ul>
+<h3>开发指南</h3>
+
+<ul><li><a href="openclaw/AGENT_DEV.md">openclaw/AGENT_DEV.md</a> - Agent 开发</li>
+<li><a href="codex/PROMPTS.md">codex/PROMPTS.md</a> - 提示词工程</li>
+<li><a href="claude-code/SKILLS.md">claude-code/SKILLS.md</a> - Skills 系统</li>
+</ul>
+<p>---</p>
+
+<h2>📊 文档统计</h2>
+
+<p>| 类别 | 文档数量 |</p>
+<p>|------|----------|</p>
+<p>| 根目录文档 | 3 |</p>
+<p>| AI 助手文档 | 20 |</p>
+<p>| OpenClaw 文档 | 7 |</p>
+<p>| 使用指南 | 4 |</p>
+<p>| <strong>总计</strong> | <strong>34</strong> |</p>
+
+<p>---</p>
+
+<h2>🗺️ 推荐阅读路径</h2>
+
+<h3>路径 1: OpenClaw 新手</h3>
+<pre><code>openclaw/README.md → openclaw/INSTALL.md → openclaw/QUICKSTART.md → openclaw/COMMANDS.md
+</code></pre>
+
+<h3>路径 2: AI 助手选型</h3>
+<pre><code>guides/SELECTION.md → guides/COMPARISON.md → [选择具体助手文档]
+</code></pre>
+
+<h3>路径 3: 日常开发参考</h3>
+<pre><code>guides/WORKFLOWS.md → guides/TIPS.md → [具体助手命令参考]
+</code></pre>
+
+<h3>路径 4: Agent 开发</h3>
+<pre><code>openclaw/AGENT_DEV.md → claude-code/SKILLS.md → codex/PROMPTS.md
+</code></pre>
+
+<p>---</p>
+
+<strong>文档版本</strong>: 1.0  
+<strong>最后更新</strong>: 2026-03-15  
+<strong>维护者</strong>: AI Publisher Agent 团队
+
+        </div>
     </div>
     <footer>
         <p>最后更新：2026-03-15 | 维护者：AI Publisher Agent 团队</p>
+        <p><a href="https://github.com/FreePineGo/ai-tools-docs">GitHub 仓库</a></p>
     </footer>
 </body>
 </html>

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>常见问题解答 (FAQ) - AI Publisher Agent 文档中心</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background: #f6f8fa; color: #24292e; line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        header { background: #0366d6; color: white; padding: 40px 20px; text-align: center; margin-bottom: 20px; }
+        header h1 { font-size: 2em; }
+        nav { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        nav a { color: #0366d6; text-decoration: none; margin-right: 15px; }
+        nav a:hover { text-decoration: underline; }
+        .content { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .content h1 { color: #0366d6; border-bottom: 2px solid #e1e4e8; padding-bottom: 10px; margin-bottom: 20px; }
+        .content h2 { color: #0366d6; margin: 30px 0 15px; }
+        .content h3 { color: #24292e; margin: 20px 0 10px; }
+        .content p { margin: 15px 0; }
+        .content ul, .content ol { margin: 15px 0; padding-left: 30px; }
+        .content li { margin: 8px 0; }
+        .content a { color: #0366d6; text-decoration: none; }
+        .content a:hover { text-decoration: underline; }
+        .content code { background: #f6f8fa; padding: 2px 6px; border-radius: 3px; font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace; }
+        .content pre { background: #f6f8fa; padding: 20px; border-radius: 6px; overflow-x: auto; margin: 20px 0; }
+        .content pre code { background: none; padding: 0; }
+        .content table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+        .content th, .content td { border: 1px solid #e1e4e8; padding: 10px 15px; text-align: left; }
+        .content th { background: #f6f8fa; font-weight: 600; }
+        .content tr:nth-child(even) { background: #f6f8fa; }
+        footer { text-align: center; padding: 20px; color: #586069; margin-top: 40px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🤖 AI Publisher Agent 文档中心</h1>
+    </header>
+    <div class="container">
+        <nav>
+            <a href="../index.html">🏠 主页</a> |
+            <a href="README.html">📚 总索引</a> |
+            <a href="PRD.html">📋 PRD</a> |
+            <a href="guides/SELECTION.html">🎯 选择指南</a> |
+            <a href="guides/COMPARISON.html">⚖️ 对比表</a>
+        </nav>
+        <div class="content">
+<h1>常见问题解答 (FAQ)</h1>
+
+<h2>基础问题</h2>
+
+<h3>Q1: Codex 和 GPT-4 有什么区别？</h3>
+
+<strong>A</strong>: 
+<ul><li><strong>Codex</strong> 是 OpenAI 专门针对代码优化的模型，基于 GPT-3 训练，于 2023 年停止独立服务</li>
+<li><strong>GPT-4</strong> 是更强大的通用模型，代码能力与 Codex 相当甚至更强</li>
+<li>目前推荐使用 GPT-4 或 GPT-4 Turbo 进行代码生成任务</li>
+</ul>
+<h3>Q2: 需要付费吗？费用如何计算？</h3>
+
+<strong>A</strong>: 
+<p>是的，OpenAI API 是付费服务。费用按 Token 计算：</p>
+
+<p>| 模型 | 输入价格 | 输出价格 |</p>
+<p>|------|----------|----------|</p>
+<p>| GPT-4 | $0.03/1K tokens | $0.06/1K tokens |</p>
+<p>| GPT-4 Turbo | $0.01/1K tokens | $0.03/1K tokens |</p>
+<p>| GPT-3.5 Turbo | $0.0005/1K tokens | $0.0015/1K tokens |</p>
+
+<p>1000 tokens ≈ 750 个英文单词或 500-600 行代码</p>
+
+<h3>Q3: 如何获取 API 密钥？</h3>
+
+<strong>A</strong>:
+<p>1. 访问 <a href="https://platform.openai.com">platform.openai.com</a></p>
+<p>2. 注册或登录账户</p>
+<p>3. 进入 API Keys 页面</p>
+<p>4. 点击 "Create new secret key"</p>
+<p>5. 复制并安全保存密钥（只显示一次）</p>
+
+<h3>Q4: API 密钥泄露了怎么办？</h3>
+
+<strong>A</strong>:
+<p>1. <strong>立即</strong>在 OpenAI 平台删除该密钥</p>
+<p>2. 检查是否有异常使用记录</p>
+<p>3. 生成新密钥</p>
+<p>4. 更新所有使用该密钥的地方</p>
+<p>5. 考虑设置使用限额和告警</p>
+
+<h2>使用问题</h2>
+
+<h3>Q5: 生成的代码不能运行怎么办？</h3>
+
+<strong>A</strong>:
+<p>1. <strong>检查错误信息</strong>：仔细阅读报错内容</p>
+<p>2. <strong>提供完整上下文</strong>：包括语言版本、依赖库、完整错误堆栈</p>
+<p>3. <strong>迭代修复</strong>：将错误信息反馈给 AI，请求修复</p>
+<p>4. <strong>人工审查</strong>：AI 生成的代码必须经过测试</p>
+
+<p>示例反馈 prompt：</p>
+<pre><code>以下代码运行时报错：
+
+<p>[代码]</p>
+
+<p>错误信息：</p>
+<p>[完整错误]</p>
+
+<p>环境：Python 3.9, pandas 1.5.0</p>
+
+<p>请分析原因并修复。</p>
+</code></pre>
+
+<h3>Q6: 如何确保生成的代码质量？</h3>
+
+<strong>A</strong>:
+<p>1. <strong>代码审查</strong>：人工检查逻辑和安全性</p>
+<p>2. <strong>单元测试</strong>：为生成的代码编写测试</p>
+<p>3. <strong>静态分析</strong>：使用 linter 检查代码风格</p>
+<p>4. <strong>性能测试</strong>：验证性能是否符合要求</p>
+<p>5. <strong>安全扫描</strong>：检查潜在安全漏洞</p>
+
+<h3>Q7: 支持哪些编程语言？</h3>
+
+<strong>A</strong>:
+<p>支持 50+ 种语言，最常用的包括：</p>
+<ul><li>Python ⭐⭐⭐⭐⭐</li>
+<li>JavaScript/TypeScript ⭐⭐⭐⭐⭐</li>
+<li>Java ⭐⭐⭐⭐⭐</li>
+<li>C/C++ ⭐⭐⭐⭐⭐</li>
+<li>Go ⭐⭐⭐⭐⭐</li>
+<li>Rust ⭐⭐⭐⭐</li>
+<li>SQL ⭐⭐⭐⭐⭐</li>
+<li>PHP ⭐⭐⭐⭐</li>
+<li>Ruby ⭐⭐⭐⭐</li>
+<li>Swift ⭐⭐⭐⭐</li>
+</ul>
+<h3>Q8: 能生成完整的项目吗？</h3>
+
+<strong>A</strong>:
+<p>可以，但建议<strong>分步进行</strong>：</p>
+<p>1. 先设计架构和目录结构</p>
+<p>2. 逐个模块生成代码</p>
+<p>3. 生成配置文件</p>
+<p>4. 生成测试代码</p>
+<p>5. 生成文档</p>
+
+<p>一次性生成完整项目容易出错且难以调试。</p>
+
+<h2>技术问题</h2>
+
+<h3>Q9: 遇到 Rate Limit 怎么办？</h3>
+
+<strong>A</strong>:
+<p>1. <strong>降低请求频率</strong>：添加请求间隔</p>
+<p>2. <strong>实现重试逻辑</strong>：指数退避</p>
+<p>3. <strong>升级账户</strong>：提高限额</p>
+<p>4. <strong>使用缓存</strong>：避免重复请求</p>
+
+<pre><code>import time
+<p>from openai import RateLimitError</p>
+
+<p>def make_request_with_retry(prompt, max_retries=3):</p>
+<p>    for i in range(max_retries):</p>
+<p>        try:</p>
+<p>            return client.chat.completions.create(...)</p>
+<p>        except RateLimitError:</p>
+<p>            wait_time = 2 ** i  # 指数退避</p>
+<p>            time.sleep(wait_time)</p>
+<p>    raise Exception("重试失败")</p>
+</code></pre>
+
+<h3>Q10: 如何降低 Token 使用量？</h3>
+
+<strong>A</strong>:
+<p>1. <strong>精简 prompt</strong>：去掉冗余描述</p>
+<p>2. <strong>复用上下文</strong>：避免重复发送相同内容</p>
+<p>3. <strong>选择合适模型</strong>：简单任务用 GPT-3.5</p>
+<p>4. <strong>限制输出长度</strong>：设置 max_tokens</p>
+<p>5. <strong>使用缓存</strong>：相同请求返回缓存结果</p>
+
+<h3>Q11: 可以离线使用吗？</h3>
+
+<strong>A</strong>:
+<p>不可以。OpenAI API 必须联网使用。</p>
+
+<p>离线替代方案：</p>
+<ul><li><strong>本地模型</strong>：CodeLlama、StarCoder、WizardCoder</li>
+<li><strong>本地工具</strong>：Ollama、LM Studio</li>
+<li><strong>IDE 插件</strong>：Cursor、Codeium（有离线模式）</li>
+</ul>
+<h3>Q12: 生成的代码有版权问题吗？</h3>
+
+<strong>A</strong>:
+<ul><li>OpenAI 声明用户对生成内容拥有所有权</li>
+<li>但生成的代码可能与训练数据中的代码相似</li>
+<li><strong>建议</strong>：</li>
+</ul>  - 审查生成代码的独特性
+<p>  - 避免直接用于商业产品 without 审查</p>
+<p>  - 注意第三方库的许可证</p>
+
+<h2>安全问题</h2>
+
+<h3>Q13: 生成的代码安全吗？</h3>
+
+<strong>A</strong>:
+<strong>不一定</strong>。AI 可能生成：
+<ul><li>有安全漏洞的代码（SQL 注入、XSS 等）</li>
+<li>使用过时的、不安全的 API</li>
+<li>缺少必要的输入验证</li>
+</ul>
+<strong>必须</strong>：
+<p>1. 人工审查所有生成代码</p>
+<p>2. 运行安全扫描工具</p>
+<p>3. 遵循安全编码规范</p>
+<p>4. 进行渗透测试</p>
+
+<h3>Q14: 会泄露我的代码吗？</h3>
+
+<strong>A</strong>:
+<p>根据 OpenAI 政策：</p>
+<ul><li><strong>API 用户数据</strong>：不会用于训练模型</li>
+<li><strong>企业用户</strong>：有额外的数据保护</li>
+<li><strong>建议</strong>：</li>
+</ul>  - 不要发送敏感代码（密钥、密码等）
+<p>  - 使用环境变量管理敏感信息</p>
+<p>  - 考虑企业版获得更强保护</p>
+
+<h3>Q15: 可以用 AI 写恶意代码吗？</h3>
+
+<strong>A</strong>:
+<strong>不应该也不能</strong>。
+<ul><li>OpenAI 有使用政策禁止恶意用途</li>
+<li>生成的恶意代码可能违反法律</li>
+<li>AI 会拒绝明显的恶意请求</li>
+</ul>
+<h2>最佳实践</h2>
+
+<h3>Q16: 如何将 AI 集成到开发流程？</h3>
+
+<strong>A</strong>:
+<p>推荐工作流：</p>
+<pre><code>1. 需求分析 → AI 辅助设计
+<p>2. 架构设计 → AI 生成框架</p>
+<p>3. 编码实现 → AI 生成代码片段</p>
+<p>4. 代码审查 → AI 辅助审查</p>
+<p>5. 测试编写 → AI 生成测试用例</p>
+<p>6. 文档编写 → AI 生成文档</p>
+</code></pre>
+
+<h3>Q17: 适合什么场景使用？</h3>
+
+<strong>A</strong>:
+<p>✅ <strong>推荐场景</strong>：</p>
+<ul><li>原型开发</li>
+<li>样板代码生成</li>
+<li>学习新语言/框架</li>
+<li>代码重构建议</li>
+<li>单元测试生成</li>
+<li>文档编写</li>
+<li>Debug 辅助</li>
+</ul>
+<p>❌ <strong>不推荐场景</strong>：</p>
+<ul><li>安全关键系统（无审查直接使用）</li>
+<li>完全依赖 AI 写生产代码</li>
+<li>处理敏感数据</li>
+<li>需要 100% 准确性的场景</li>
+</ul>
+<h3>Q18: 如何提高生成准确率？</h3>
+
+<strong>A</strong>:
+<p>1. <strong>详细的 prompt</strong>：越具体越好</p>
+<p>2. <strong>提供示例</strong>：Few-shot learning</p>
+<p>3. <strong>分步请求</strong>：复杂任务拆分</p>
+<p>4. <strong>指定约束</strong>：明确限制条件</p>
+<p>5. <strong>迭代优化</strong>：多轮对话改进</p>
+
+<h3>Q19: 如何处理长代码文件？</h3>
+
+<strong>A</strong>:
+<p>1. <strong>分段处理</strong>：按函数/类拆分</p>
+<p>2. <strong>提供上下文</strong>：发送相关部分</p>
+<p>3. <strong>使用文件上传</strong>：GPT-4 支持文件</p>
+<p>4. <strong>摘要 + 详情</strong>：先获取整体理解</p>
+
+<pre><code>这个文件有 1000 行，我先发前 200 行，
+<p>请分析整体结构，然后我会发送具体要修改的部分。</p>
+</code></pre>
+
+<h3>Q20: AI 会取代程序员吗？</h3>
+
+<strong>A</strong>:
+<strong>不会</strong>，但会改变工作方式：
+<ul><li>AI 是<strong>工具</strong>，不是替代品</li>
+<li>程序员价值在于：</li>
+</ul>  - 理解业务需求
+<p>  - 系统设计能力</p>
+<p>  - 代码审查和质量把控</p>
+<p>  - 解决复杂问题</p>
+<ul><li>AI 帮助程序员<strong>提高效率</strong>，专注于更有价值的工作</li>
+</ul>
+<h2>故障排查</h2>
+
+<h3>Q21: 常见错误及解决方案</h3>
+
+<p>| 错误 | 原因 | 解决方案 |</p>
+<p>|------|------|----------|</p>
+<p>| <code>Invalid API key</code> | 密钥错误或过期 | 检查密钥，重新生成 |</p>
+<p>| <code>Rate limit exceeded</code> | 请求太频繁 | 降低频率，实现重试 |</p>
+<p>| <code>Insufficient quota</code> | 余额不足 | 充值或升级 |</p>
+<p>| <code>Model not found</code> | 模型名称错误 | 检查模型名称 |</p>
+<p>| <code>Context length exceeded</code> | 输入太长 | 缩短 prompt 或分段 |</p>
+<p>| <code>Timeout</code> | 网络或服务器问题 | 重试，检查网络 |</p>
+
+<h3>Q22: 输出被截断怎么办？</h3>
+
+<strong>A</strong>:
+<p>1. <strong>增加 max_tokens</strong>：提高输出限制</p>
+<p>2. <strong>分段请求</strong>：要求分多次输出</p>
+<p>3. <strong>使用 continue</strong>：请求继续生成</p>
+
+<pre><code>请继续上面的代码，从第 50 行开始
+</code></pre>
+
+<h3>Q23: 模型不理解我的需求怎么办？</h3>
+
+<strong>A</strong>:
+<p>1. <strong>换种说法</strong>：重新组织语言</p>
+<p>2. <strong>提供示例</strong>：给出期望的输出示例</p>
+<p>3. <strong>分步引导</strong>：先确认理解再执行</p>
+<p>4. <strong>指定角色</strong>：设定专家角色</p>
+
+<pre><code>你是一位有 10 年经验的 Python 专家，请...
+</code></pre>
+
+<h2>资源推荐</h2>
+
+<h3>Q24: 学习资源推荐</h3>
+
+<strong>官方资源</strong>：
+<ul><li><a href="https://platform.openai.com/docs">OpenAI 文档</a></li>
+<li><a href="https://platform.openai.com/docs/api-reference">API 参考</a></li>
+<li><a href="https://github.com/openai/openai-cookbook">Cookbook</a></li>
+</ul>
+<strong>社区资源</strong>：
+<ul><li>Reddit: r/OpenAI</li>
+<li>Discord: OpenAI 官方社区</li>
+<li>GitHub: openai 组织</li>
+</ul>
+<strong>学习路径</strong>：
+<p>1. 阅读官方文档</p>
+<p>2. 完成 Cookbook 示例</p>
+<p>3. 从小项目开始实践</p>
+<p>4. 加入社区交流</p>
+
+<h3>Q25: 有什么好用的工具/插件？</h3>
+
+<strong>IDE 插件</strong>：
+<ul><li>GitHub Copilot</li>
+<li>Cursor</li>
+<li>Codeium</li>
+<li>Tabnine</li>
+</ul>
+<strong>CLI 工具</strong>：
+<ul><li><code>openai-cli</code></li>
+<li><code>aider</code></li>
+<li><code>gpt-engineer</code></li>
+</ul>
+<strong>在线工具</strong>：
+<ul><li>OpenAI Playground</li>
+<li>Hugging Face Spaces</li>
+</ul>
+<p>---</p>
+
+<h2>快速参考</h2>
+
+<h3>常用 Prompt 模板</h3>
+
+<pre><code><h1>代码生成</h1>
+<p>用 [语言] 实现 [功能]，要求：[具体要求]</p>
+
+<h1>Debug</h1>
+<p>以下代码出现 [问题]，错误信息：[错误]，请修复</p>
+
+<h1>代码审查</h1>
+<p>请审查以下代码的 [安全性/性能/风格]：[代码]</p>
+
+<h1>优化</h1>
+<p>优化以下代码的 [性能/可读性]：[代码]</p>
+
+<h1>测试</h1>
+<p>为以下代码生成 [单元测试/集成测试]：[代码]</p>
+</code></pre>
+
+<h3>参数推荐</h3>
+
+<pre><code><h1>代码生成</h1>
+<p>temperature = 0.2</p>
+<p>max_tokens = 2000</p>
+<p>top_p = 1.0</p>
+
+<h1>创意/设计</h1>
+<p>temperature = 0.7</p>
+<p>max_tokens = 4000</p>
+<p>top_p = 0.9</p>
+
+<h1>Debug</h1>
+<p>temperature = 0.1</p>
+<p>max_tokens = 2000</p>
+<p>presence_penalty = 0.1</p>
+</code></pre>
+
+<p>---</p>
+
+<p>*最后更新：2026-03-15*</p>
+
+        </div>
+    </div>
+    <footer>
+        <p>最后更新：2026-03-15 | 维护者：AI Publisher Agent 团队</p>
+        <p><a href="https://github.com/FreePineGo/ai-tools-docs">GitHub 仓库</a></p>
+    </footer>
+</body>
+</html>

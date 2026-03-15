@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Copilot - AI 编程助手使用指南 - AI Publisher Agent 文档中心</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background: #f6f8fa; color: #24292e; line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        header { background: #0366d6; color: white; padding: 40px 20px; text-align: center; margin-bottom: 20px; }
+        header h1 { font-size: 2em; }
+        nav { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        nav a { color: #0366d6; text-decoration: none; margin-right: 15px; }
+        nav a:hover { text-decoration: underline; }
+        .content { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .content h1 { color: #0366d6; border-bottom: 2px solid #e1e4e8; padding-bottom: 10px; margin-bottom: 20px; }
+        .content h2 { color: #0366d6; margin: 30px 0 15px; }
+        .content h3 { color: #24292e; margin: 20px 0 10px; }
+        .content p { margin: 15px 0; }
+        .content ul, .content ol { margin: 15px 0; padding-left: 30px; }
+        .content li { margin: 8px 0; }
+        .content a { color: #0366d6; text-decoration: none; }
+        .content a:hover { text-decoration: underline; }
+        .content code { background: #f6f8fa; padding: 2px 6px; border-radius: 3px; font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace; }
+        .content pre { background: #f6f8fa; padding: 20px; border-radius: 6px; overflow-x: auto; margin: 20px 0; }
+        .content pre code { background: none; padding: 0; }
+        .content table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+        .content th, .content td { border: 1px solid #e1e4e8; padding: 10px 15px; text-align: left; }
+        .content th { background: #f6f8fa; font-weight: 600; }
+        .content tr:nth-child(even) { background: #f6f8fa; }
+        footer { text-align: center; padding: 20px; color: #586069; margin-top: 40px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🤖 AI Publisher Agent 文档中心</h1>
+    </header>
+    <div class="container">
+        <nav>
+            <a href="../index.html">🏠 主页</a> |
+            <a href="README.html">📚 总索引</a> |
+            <a href="PRD.html">📋 PRD</a> |
+            <a href="guides/SELECTION.html">🎯 选择指南</a> |
+            <a href="guides/COMPARISON.html">⚖️ 对比表</a>
+        </nav>
+        <div class="content">
+<h1>GitHub Copilot - AI 编程助手使用指南</h1>
+
+<h2>工具简介</h2>
+
+<p>GitHub Copilot 是由 GitHub 和 OpenAI 联合开发的 AI 编程助手，基于 OpenAI Codex 模型构建。它能够根据上下文自动生成代码、提供代码建议、解释代码功能，并支持多种编程语言和开发环境。</p>
+
+<strong>核心优势：</strong>
+<ul><li>深度集成主流 IDE（VS Code、JetBrains、Visual Studio 等）</li>
+<li>支持 50+ 编程语言</li>
+<li>基于 GitHub 海量代码训练，理解真实项目模式</li>
+<li>企业级安全与合规支持</li>
+</ul>
+<h2>安装步骤</h2>
+
+<h3>1. 订阅 Copilot</h3>
+
+<p>1. <strong>访问 GitHub 官网</strong></p>
+<p>   - 打开 https://github.com/features/copilot</p>
+<p>   - 点击 "Sign up for Copilot"</p>
+
+<p>2. <strong>选择订阅方案</strong></p>
+<p>   - <strong>个人版</strong>：$10/月（学生免费）</p>
+<p>   - <strong>企业版</strong>：$19/用户/月</p>
+<p>   - <strong>商业版</strong>：$39/用户/月</p>
+
+<p>3. <strong>完成支付配置</strong></p>
+<p>   - 绑定支付方式</p>
+<p>   - 确认订阅</p>
+
+<h3>2. 安装 IDE 扩展</h3>
+
+#### VS Code
+
+<pre><code><h1>方法 1：通过扩展面板</h1>
+<p>1. 打开 VS Code</p>
+<p>2. 按 Ctrl+Shift+X (Windows/Linux) 或 Cmd+Shift+X (Mac)</p>
+<p>3. 搜索 "GitHub Copilot"</p>
+<p>4. 点击安装</p>
+
+<h1>方法 2：通过命令行</h1>
+<p>code --install-extension GitHub.copilot</p>
+<p>code --install-extension GitHub.copilot-chat</p>
+</code></pre>
+
+#### JetBrains IDEs (IntelliJ, PyCharm, WebStorm 等)
+
+<pre><code>1. 打开 Settings → Plugins
+<p>2. 搜索 "GitHub Copilot"</p>
+<p>3. 点击 Install</p>
+<p>4. 重启 IDE</p>
+</code></pre>
+
+#### Visual Studio
+
+<pre><code>1. 打开 Extensions → Manage Extensions
+<p>2. 搜索 "GitHub Copilot"</p>
+<p>3. 下载并安装</p>
+<p>4. 重启 Visual Studio</p>
+</code></pre>
+
+#### Neovim/Vim
+
+<pre><code><h1>使用 vim-plug</h1>
+<p>Plug 'github/copilot.vim'</p>
+
+<h1>然后执行</h1>
+<p>:source $MYVIMRC</p>
+<p>:Copilot setup</p>
+</code></pre>
+
+<h3>3. 授权登录</h3>
+
+<p>1. <strong>打开 IDE 中的 Copilot 扩展</strong></p>
+<p>2. <strong>点击 "Sign in to GitHub"</strong></p>
+<p>3. <strong>在浏览器中完成授权</strong></p>
+<p>4. <strong>返回 IDE，确认登录成功</strong></p>
+
+<h2>基本用法</h2>
+
+<h3>1. 代码补全（Code Completion）</h3>
+
+<pre><code>使用方式：
+<p>1. 开始编写代码或注释</p>
+<p>2. Copilot 会自动显示灰色建议代码</p>
+<p>3. 按 Tab 接受建议</p>
+<p>4. 按 Esc 拒绝建议</p>
+<p>5. 按 Ctrl+→ (Windows) 或 Cmd+→ (Mac) 接受部分建议</p>
+</code></pre>
+
+<h3>2. Copilot Chat</h3>
+
+<pre><code>快捷键：Ctrl+I (Windows/Linux) / Cmd+I (Mac)
+
+<p>功能：</p>
+<ul><li>在侧边栏打开聊天面板</li>
+<li>输入自然语言问题</li>
+<li>获取代码建议、解释、调试帮助</li>
+</ul></code></pre>
+
+<h3>3. 行内建议（Inline Suggestions）</h3>
+
+<pre><code>使用方式：
+<p>1. 编写代码时，Copilot 自动提供整行或整块建议</p>
+<p>2. 建议以灰色文本显示</p>
+<p>3. Tab 接受，Esc 拒绝</p>
+</code></pre>
+
+<h3>4. 命令面板</h3>
+
+<pre><code>VS Code 中：
+<ul><li>Ctrl+Shift+P → "Copilot: " 查看可用命令</li>
+</ul>
+<p>常用命令：</p>
+<ul><li>Copilot: Open Chat</li>
+<li>Copilot: Explain This</li>
+<li>Copilot: Fix This</li>
+<li>Copilot: Generate Tests</li>
+</ul></code></pre>
+
+<h2>特色功能</h2>
+
+<h3>💬 Copilot Chat</h3>
+
+<strong>智能对话助手：</strong>
+<ul><li>代码解释：选中代码，让 Copilot 解释功能</li>
+<li>代码生成：描述需求，生成完整实现</li>
+<li>代码修复：提供错误信息，获取修复方案</li>
+<li>代码优化：请求性能或可读性改进</li>
+</ul>
+<strong>聊天模式：</strong>
+<ul><li><code>@workspace</code> - 引用整个工作区</li>
+<li><code>@file</code> - 引用特定文件</li>
+<li><code>@terminal</code> - 引用终端输出</li>
+<li><code>#editor</code> - 引用当前编辑器内容</li>
+</ul>
+<h3>🎯 上下文感知补全</h3>
+
+<ul><li><strong>多文件理解</strong>：基于项目中其他文件的代码模式</li>
+<li><strong>注释驱动</strong>：根据注释描述生成代码</li>
+<li><strong>函数命名</strong>：根据函数名推断实现逻辑</li>
+<li><strong>类型推断</strong>：根据上下文推断数据类型</li>
+</ul>
+<h3>🔧 代码修复（Fix This）</h3>
+
+<pre><code>使用方式：
+<p>1. 选中报错的代码</p>
+<p>2. 右键 → "Copilot: Fix This"</p>
+<p>3. 或快捷键调用</p>
+<p>4. 查看修复建议并应用</p>
+</code></pre>
+
+<h3>📝 代码解释（Explain This）</h3>
+
+<pre><code>使用方式：
+<p>1. 选中不理解的代码</p>
+<p>2. 右键 → "Copilot: Explain This"</p>
+<p>3. 在聊天面板查看详细解释</p>
+</code></pre>
+
+<h3>🧪 测试生成</h3>
+
+<pre><code>使用方式：
+<p>1. 选中函数或类</p>
+<p>2. 在 Chat 中输入 "为这个生成测试"</p>
+<p>3. 或右键 → "Copilot: Generate Tests"</p>
+</code></pre>
+
+<h3>🌐 多语言支持</h3>
+
+<strong>官方支持的语言：</strong>
+<ul><li>Python, JavaScript, TypeScript</li>
+<li>Java, C#, C++, C</li>
+<li>Go, Ruby, PHP, Swift</li>
+<li>Rust, Kotlin, Scala</li>
+<li>Shell, SQL, HTML, CSS</li>
+<li>以及 40+ 其他语言</li>
+</ul>
+<h2>使用技巧</h2>
+
+<h3>💡 高效提示词技巧</h3>
+
+<p>1. <strong>写清晰的注释</strong></p>
+   <pre><code>   # 好的注释
+   # 计算两个日期的工作日天数，排除周末和法定节假日
+   
+   # 模糊的注释
+   # 计算日期
+   </code></pre>
+
+<p>2. <strong>使用有意义的命名</strong></p>
+   <pre><code>   // Copilot 更容易理解
+<p>   function calculateUserAge(birthDate) { }</p>
+   
+<p>   // Copilot 难以推断</p>
+<p>   function calc(a) { }</p>
+   </code></pre>
+
+<p>3. <strong>提供类型提示</strong></p>
+   <pre><code>   // 明确的类型帮助 Copilot 生成准确代码
+<p>   function getUser(id: string): Promise<User | null> { }</p>
+   </code></pre>
+
+<h3>🎯 最佳实践</h3>
+
+<p>1. <strong>保持代码上下文清晰</strong></p>
+<p>   - 在相关文件附近工作</p>
+<p>   - 保持导入语句完整</p>
+<p>   - 使用一致的代码风格</p>
+
+<p>2. <strong>迭代式开发</strong></p>
+<p>   - 接受部分建议，逐步完善</p>
+<p>   - 不要一次性接受大段代码</p>
+<p>   - 理解每处修改</p>
+
+<p>3. <strong>善用 Chat 面板</strong></p>
+<p>   - 复杂问题用 Chat 而非补全</p>
+<p>   - 使用 @ 引用提供上下文</p>
+<p>   - 保存有用的对话记录</p>
+
+<p>4. <strong>代码审查</strong></p>
+<p>   - 始终审查 Copilot 生成的代码</p>
+<p>   - 检查潜在的安全问题</p>
+<p>   - 验证边界情况处理</p>
+
+<h3>⚡ 快捷键速查</h3>
+
+<p>| 操作 | Windows/Linux | Mac | 说明 |</p>
+<p>|------|---------------|-----|------|</p>
+<p>| 接受建议 | Tab | Tab | 接受完整建议 |</p>
+<p>| 拒绝建议 | Esc | Esc | 拒绝建议 |</p>
+<p>| 接受部分 | Ctrl+→ | Cmd+→ | 逐词接受 |</p>
+<p>| 打开 Chat | Ctrl+I | Cmd+I | 打开聊天面板 |</p>
+<p>| 快速修复 | Ctrl+I | Cmd+I | 选中代码后 |</p>
+<p>| 解释代码 | 右键菜单 | 右键菜单 | Explain This |</p>
+
+<h3>🔧 配置建议</h3>
+
+<pre><code>// VS Code settings.json
+<p>{</p>
+<p>  "github.copilot.enable": {</p>
+<p>    "*": true,</p>
+<p>    "plaintext": false,</p>
+<p>    "markdown": false,</p>
+<p>    "scminput": false</p>
+<p>  },</p>
+<p>  "github.copilot.editor.enableAutoCompletions": true,</p>
+<p>  "github.copilot.chat.codeGeneration.enabled": true,</p>
+<p>  "github.copilot.advanced": {</p>
+<p>    "debug.testOverride": true</p>
+<p>  }</p>
+<p>}</p>
+</code></pre>
+
+<h3>🚀 进阶用法</h3>
+
+<p>1. <strong>模板代码生成</strong></p>
+   <pre><code>   在 Chat 中输入：
+<p>   "生成一个 Express.js 的 CRUD API 模板，包含用户模型"</p>
+   </code></pre>
+
+<p>2. <strong>代码转换</strong></p>
+   <pre><code>   选中代码后在 Chat 中输入：
+<p>   "将这段 Python 代码转换为 TypeScript"</p>
+   </code></pre>
+
+<p>3. <strong>文档生成</strong></p>
+   <pre><code>   选中函数后在 Chat 中输入：
+<p>   "为这个函数生成 JSDoc 注释"</p>
+   </code></pre>
+
+<p>4. <strong>正则表达式生成</strong></p>
+   <pre><code>   在 Chat 中输入：
+<p>   "生成一个匹配邮箱地址的正则表达式"</p>
+   </code></pre>
+
+<p>5. <strong>SQL 查询生成</strong></p>
+   <pre><code>   在 Chat 中输入：
+<p>   "编写 SQL 查询，获取过去 30 天订单量前 10 的用户"</p>
+   </code></pre>
+
+<h3>🛡️ 安全与隐私</h3>
+
+<p>1. <strong>代码隐私</strong></p>
+<p>   - Copilot 不会将你的代码用于训练（企业版）</p>
+<p>   - 敏感代码建议使用本地模型</p>
+<p>   - 注意 API Key 等敏感信息</p>
+
+<p>2. <strong>许可证合规</strong></p>
+<p>   - Copilot 可能生成与开源代码相似的片段</p>
+<p>   - 企业版提供许可证合规检查</p>
+<p>   - 重要项目建议进行代码审查</p>
+
+<p>3. <strong>安全建议</strong></p>
+<p>   - 不生成硬编码的密钥</p>
+<p>   - 检查生成的认证/授权逻辑</p>
+<p>   - 验证输入验证和输出编码</p>
+
+<p>---</p>
+
+<strong>官方资源：</strong>
+<ul><li>官网：https://github.com/features/copilot</li>
+<li>文档：https://docs.github.com/en/copilot</li>
+<li>定价：https://github.com/pricing</li>
+<li>企业版：https://github.com/features/copilot/enterprise</li>
+</ul>
+        </div>
+    </div>
+    <footer>
+        <p>最后更新：2026-03-15 | 维护者：AI Publisher Agent 团队</p>
+        <p><a href="https://github.com/FreePineGo/ai-tools-docs">GitHub 仓库</a></p>
+    </footer>
+</body>
+</html>

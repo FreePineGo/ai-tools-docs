@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codex / OpenAI 代码模型使用指南 - AI Publisher Agent 文档中心</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background: #f6f8fa; color: #24292e; line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        header { background: #0366d6; color: white; padding: 40px 20px; text-align: center; margin-bottom: 20px; }
+        header h1 { font-size: 2em; }
+        nav { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        nav a { color: #0366d6; text-decoration: none; margin-right: 15px; }
+        nav a:hover { text-decoration: underline; }
+        .content { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .content h1 { color: #0366d6; border-bottom: 2px solid #e1e4e8; padding-bottom: 10px; margin-bottom: 20px; }
+        .content h2 { color: #0366d6; margin: 30px 0 15px; }
+        .content h3 { color: #24292e; margin: 20px 0 10px; }
+        .content p { margin: 15px 0; }
+        .content ul, .content ol { margin: 15px 0; padding-left: 30px; }
+        .content li { margin: 8px 0; }
+        .content a { color: #0366d6; text-decoration: none; }
+        .content a:hover { text-decoration: underline; }
+        .content code { background: #f6f8fa; padding: 2px 6px; border-radius: 3px; font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace; }
+        .content pre { background: #f6f8fa; padding: 20px; border-radius: 6px; overflow-x: auto; margin: 20px 0; }
+        .content pre code { background: none; padding: 0; }
+        .content table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+        .content th, .content td { border: 1px solid #e1e4e8; padding: 10px 15px; text-align: left; }
+        .content th { background: #f6f8fa; font-weight: 600; }
+        .content tr:nth-child(even) { background: #f6f8fa; }
+        footer { text-align: center; padding: 20px; color: #586069; margin-top: 40px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🤖 AI Publisher Agent 文档中心</h1>
+    </header>
+    <div class="container">
+        <nav>
+            <a href="../index.html">🏠 主页</a> |
+            <a href="README.html">📚 总索引</a> |
+            <a href="PRD.html">📋 PRD</a> |
+            <a href="guides/SELECTION.html">🎯 选择指南</a> |
+            <a href="guides/COMPARISON.html">⚖️ 对比表</a>
+        </nav>
+        <div class="content">
+<h1>Codex / OpenAI 代码模型使用指南</h1>
+
+<h2>什么是 Codex？</h2>
+
+<p>Codex 是 OpenAI 开发的 AI 代码生成模型，基于 GPT 架构专门针对代码理解和生成进行了优化。它能够将自然语言描述转换为可执行的代码，支持多种编程语言。</p>
+
+<p>> <strong>注意</strong>: OpenAI 已于 2023 年停止 Codex 的独立 API 服务，其功能已整合到 GPT-4 和 GPT-4 Turbo 模型中。本文档同时涵盖 Codex 历史用法和当前 GPT-4 代码能力的最佳实践。</p>
+
+<h2>核心能力</h2>
+
+<ul><li><strong>代码生成</strong>: 根据自然语言描述生成代码</li>
+<li><strong>代码补全</strong>: 自动完成代码片段</li>
+<li><strong>代码翻译</strong>: 在不同编程语言之间转换代码</li>
+<li><strong>代码解释</strong>: 解释现有代码的功能</li>
+<li><strong>Bug 修复</strong>: 识别并修复代码中的错误</li>
+<li><strong>测试生成</strong>: 自动生成单元测试</li>
+</ul>
+<h2>支持的编程语言</h2>
+
+<p>Codex/GPT-4 支持超过 50 种编程语言，包括但不限于：</p>
+
+<p>| 语言 | 支持程度 |</p>
+<p>|------|----------|</p>
+<p>| Python | ⭐⭐⭐⭐⭐ |</p>
+<p>| JavaScript/TypeScript | ⭐⭐⭐⭐⭐ |</p>
+<p>| Java | ⭐⭐⭐⭐⭐ |</p>
+<p>| C/C++ | ⭐⭐⭐⭐⭐ |</p>
+<p>| Go | ⭐⭐⭐⭐⭐ |</p>
+<p>| Rust | ⭐⭐⭐⭐ |</p>
+<p>| SQL | ⭐⭐⭐⭐⭐ |</p>
+<p>| HTML/CSS | ⭐⭐⭐⭐⭐ |</p>
+<p>| Shell/Bash | ⭐⭐⭐⭐ |</p>
+<p>| PHP | ⭐⭐⭐⭐ |</p>
+<p>| Ruby | ⭐⭐⭐⭐ |</p>
+<p>| Swift | ⭐⭐⭐⭐ |</p>
+
+<h2>快速开始</h2>
+
+<h3>1. 获取 API 密钥</h3>
+
+<p>1. 访问 <a href="https://openai.com/">OpenAI 官网</a></p>
+<p>2. 注册/登录账户</p>
+<p>3. 进入 <a href="https://platform.openai.com/api-keys">API Keys 页面</a></p>
+<p>4. 创建新的 API 密钥</p>
+
+<h3>2. 安装依赖</h3>
+
+<pre><code><h1>Python</h1>
+<p>pip install openai</p>
+
+<h1>Node.js</h1>
+<p>npm install openai</p>
+</code></pre>
+
+<h3>3. 基本使用</h3>
+
+<pre><code>from openai import OpenAI
+
+<p>client = OpenAI(api_key="your-api-key")</p>
+
+<p>response = client.chat.completions.create(</p>
+<p>    model="gpt-4",</p>
+<p>    messages=[</p>
+<p>        {"role": "user", "content": "写一个 Python 函数计算斐波那契数列"}</p>
+<p>    ]</p>
+<p>)</p>
+
+<p>print(response.choices[0].message.content)</p>
+</code></pre>
+
+<h2>文档结构</h2>
+
+<ul><li><a href="./API_GUIDE.md">API_GUIDE.md</a> - 详细的 API 使用指南</li>
+<li><a href="./EXAMPLES.md">EXAMPLES.md</a> - 丰富的代码示例</li>
+<li><a href="./PROMPTS.md">PROMPTS.md</a> - Prompt 编写技巧</li>
+<li><a href="./FAQ.md">FAQ.md</a> - 常见问题解答</li>
+</ul>
+<h2>最佳实践概览</h2>
+
+<p>1. <strong>明确具体</strong>: 描述越详细，结果越准确</p>
+<p>2. <strong>分步请求</strong>: 复杂任务拆分成多个步骤</p>
+<p>3. <strong>提供上下文</strong>: 包含相关代码和背景信息</p>
+<p>4. <strong>验证输出</strong>: 始终审查和测试生成的代码</p>
+<p>5. <strong>迭代优化</strong>: 根据结果调整 prompt</p>
+
+<h2>注意事项</h2>
+
+<p>⚠️ <strong>安全提醒</strong>:</p>
+<ul><li>不要将 API 密钥硬编码在代码中</li>
+<li>生成的代码可能存在安全漏洞，需仔细审查</li>
+<li>不要用于生成恶意代码或绕过安全措施</li>
+<li>注意代码的许可证和版权问题</li>
+</ul>
+<p>⚠️ <strong>局限性</strong>:</p>
+<ul><li>可能生成看似正确但实际错误的代码</li>
+<li>对最新库版本的支持可能滞后</li>
+<li>复杂逻辑可能需要多次迭代</li>
+<li>无法访问外部资源或执行代码</li>
+</ul>
+<p>---</p>
+
+<p>*最后更新：2026-03-15*</p>
+
+        </div>
+    </div>
+    <footer>
+        <p>最后更新：2026-03-15 | 维护者：AI Publisher Agent 团队</p>
+        <p><a href="https://github.com/FreePineGo/ai-tools-docs">GitHub 仓库</a></p>
+    </footer>
+</body>
+</html>

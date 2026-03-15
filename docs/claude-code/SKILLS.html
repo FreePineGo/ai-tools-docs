@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude Code Skills ä½¿ç¨æå - AI Publisher Agent 文档中心</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background: #f6f8fa; color: #24292e; line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        header { background: #0366d6; color: white; padding: 40px 20px; text-align: center; margin-bottom: 20px; }
+        header h1 { font-size: 2em; }
+        nav { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        nav a { color: #0366d6; text-decoration: none; margin-right: 15px; }
+        nav a:hover { text-decoration: underline; }
+        .content { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .content h1 { color: #0366d6; border-bottom: 2px solid #e1e4e8; padding-bottom: 10px; margin-bottom: 20px; }
+        .content h2 { color: #0366d6; margin: 30px 0 15px; }
+        .content h3 { color: #24292e; margin: 20px 0 10px; }
+        .content p { margin: 15px 0; }
+        .content ul, .content ol { margin: 15px 0; padding-left: 30px; }
+        .content li { margin: 8px 0; }
+        .content a { color: #0366d6; text-decoration: none; }
+        .content a:hover { text-decoration: underline; }
+        .content code { background: #f6f8fa; padding: 2px 6px; border-radius: 3px; font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace; }
+        .content pre { background: #f6f8fa; padding: 20px; border-radius: 6px; overflow-x: auto; margin: 20px 0; }
+        .content pre code { background: none; padding: 0; }
+        .content table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+        .content th, .content td { border: 1px solid #e1e4e8; padding: 10px 15px; text-align: left; }
+        .content th { background: #f6f8fa; font-weight: 600; }
+        .content tr:nth-child(even) { background: #f6f8fa; }
+        footer { text-align: center; padding: 20px; color: #586069; margin-top: 40px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🤖 AI Publisher Agent 文档中心</h1>
+    </header>
+    <div class="container">
+        <nav>
+            <a href="../index.html">🏠 主页</a> |
+            <a href="README.html">📚 总索引</a> |
+            <a href="PRD.html">📋 PRD</a> |
+            <a href="guides/SELECTION.html">🎯 选择指南</a> |
+            <a href="guides/COMPARISON.html">⚖️ 对比表</a>
+        </nav>
+        <div class="content">
+<h1>Claude Code Skills ä½¿ç¨æå</h1>
+
+<h2>ä»ä¹æ¯ Skills</h2>
+
+<p>Skills æ?Claude Code çæ©å±è½åæ¨¡åï¼åè®¸ç¨æ·èªå®ä¹åæ©å± Claude çåè½ãéè¿ Skillsï¼ä½ å¯ä»¥ï¼?</p>
+<ul><li>æ·»å ç¹å®é¢åçå·¥ä½æµ</li>
+<li>éæå¤é¨å·¥å·åæå?- åå»ºå¯å¤ç¨çæä½æ¨¡æ¿</li>
+<li>èªå¨åéå¤ä»»å?</li>
+</ul><h2>Skills æ¶æ</h2>
+
+<h3>Skill ç»æ</h3>
+
+<p>æ¯ä¸ª Skill åå«ä»¥ä¸æ ¸å¿æä»¶ï¼?</p>
+<p>``<code>text</code>nskill-name/</p>
+<p>âââ SKILL.md          # Skill æè¿°ååæ°æ®</p>
+<p>âââ index.js          # ä¸»è¦å®ç°</p>
+<p>âââ prompts/          # æç¤ºè¯æ¨¡æ?âââ scripts/          # è¾å©èæ¬</p>
+<p>âââ tests/            # æµè¯æä»¶</p>
+<pre><code>
+<h3>SKILL.md æ ¼å¼</h3>
+
+</code></pre>markdown
+<h1>Skill Name</h1>
+
+<h2>Description</h2>
+<p>ç®ç­æè¿?Skill çåè?</p>
+<h2>Triggers</h2>
+<p>è§¦åæ¡ä»¶ï¼å³é®è¯ãå½ä»¤ç­ï¼?</p>
+<h2>Parameters</h2>
+<p>æéåæ°</p>
+
+<h2>Examples</h2>
+<p>ä½¿ç¨ç¤ºä¾</p>
+
+<h2>Dependencies</h2>
+<p>å¤é¨ä¾èµ</p>
+<pre><code>
+<h2>åç½® Skills</h2>
+
+<h3>1. coding-agent</h3>
+
+<p>**ç¨é?*: ä»£ç å¼ååå®¡æ¥</p>
+
+<p>**è§¦åè¯?*: <code>coding</code>, <code>develop</code>, <code>implement</code>, <code>review</code></p>
+
+<strong>ç¤ºä¾</strong>:
+</code></pre>
+<p>ä½¿ç¨ coding-agent åå»ºä¸ä¸?REST API</p>
+<p>è¯·å®¡æ¥è¿ä¸?Pull Request</p>
+<pre><code>
+<strong>åè½</strong>:
+<ul><li>ä»£ç çæ</li>
+<li>PR å®¡æ¥</li>
+<li>éæå»ºè®®</li>
+<li>æµè¯ç¼å</li>
+</ul>
+<h3>2. web-search</h3>
+
+<p>**ç¨é?*: ç½ç»æç´¢åä¿¡æ¯æ£ç´?</p>
+<p>**è§¦åè¯?*: <code>search</code>, <code>find</code>, <code>lookup</code></p>
+
+<strong>ç¤ºä¾</strong>:
+</code></pre>
+<p>æç´¢ææ°ç React æä½³å®è·?æ¥æ¾ TypeScript 5.0 çæ°ç¹æ?<pre><code></p>
+<strong>åè½</strong>:
+<ul><li>å®æ¶ç½ç»æç´¢</li>
+<li>ä¿¡æ¯èå</li>
+<li>æ¥æºå¼ç¨</li>
+</ul>
+<h3>3. file-manager</h3>
+
+<p>**ç¨é?*: é«çº§æä»¶æä½</p>
+
+<p>**è§¦åè¯?*: <code>organize</code>, <code>manage files</code>, <code>batch</code></p>
+
+<strong>ç¤ºä¾</strong>:
+</code></pre>
+<p>æ´ç downloads æä»¶å¤?æ¹ééå½åå¾çæä»?<pre><code></p>
+<strong>åè½</strong>:
+<ul><li>æ¹éæä½</li>
+<li>æä»¶æ´ç</li>
+<li>æºè½åç±»</li>
+</ul>
+<h3>4. git-helper</h3>
+
+<p>**ç¨é?*: Git å·¥ä½æµè¾å?</p>
+<p>**è§¦åè¯?*: <code>git</code>, <code>commit</code>, <code>branch</code>, <code>merge</code></p>
+
+<strong>ç¤ºä¾</strong>:
+</code></pre>
+<p>å¸®æè§£å³è¿ä¸ªåå¹¶å²çª</p>
+<p>åå»º release åæ¯å¹¶ææ ç­¾</p>
+<pre><code>
+<strong>åè½</strong>:
+<ul><li>å²çªè§£å³</li>
+<li>åæ¯ç®¡ç</li>
+<li>æäº¤åå²åæ</li>
+</ul>
+<h2>èªå®ä¹?Skills</h2>
+
+<h3>åå»ºæ?Skill</h3>
+
+#### æ­¥éª¤ 1: åå»ºç®å½ç»æ
+
+</code></pre>bash
+<p>mkdir -p skills/my-skill/{prompts,scripts,tests}</p>
+<pre><code>
+#### æ­¥éª¤ 2: ç¼å SKILL.md
+
+</code></pre>markdown
+<h1>My Custom Skill</h1>
+
+<h2>Description</h2>
+<p>è¿ä¸ª Skill ç¨äºå¤çç¹å®ä»»å¡</p>
+
+<h2>Triggers</h2>
+<ul><li>my-skill</li>
+<li>custom-task</li>
+</ul>
+<h2>Parameters</h2>
+<ul><li>param1: æè¿°</li>
+<li>param2: æè¿°</li>
+</ul>
+<h2>Examples</h2>
+<p>ä½¿ç¨ my-skill å¤çè¿ä¸ªæä»¶</p>
+
+<h2>Dependencies</h2>
+<ul><li>node >= 18</li>
+<li>some-package</li>
+</ul><pre><code>
+#### æ­¥éª¤ 3: å®ç°ä¸»è¦é»è¾
+
+</code></pre>javascript
+<p>// skills/my-skill/index.js</p>
+<p>module.exports = {</p>
+<p>  name: 'my-skill',</p>
+<p>  triggers: ['my-skill', 'custom-task'],</p>
+  
+<p>  async execute(params, context) {</p>
+<p>    // å®ç°é»è¾</p>
+<p>    const result = await doSomething(params);</p>
+<p>    return result;</p>
+<p>  }</p>
+<p>};</p>
+<pre><code>
+#### æ­¥éª¤ 4: æ³¨å Skill
+
+<p>å¨éç½®æä»¶ä¸­æ·»å ï¼?</p>
+</code></pre>json
+<p>{</p>
+<p>  "skills": [</p>
+<p>    {</p>
+<p>      "name": "my-skill",</p>
+<p>      "path": "./skills/my-skill",</p>
+<p>      "enabled": true</p>
+<p>    }</p>
+<p>  ]</p>
+<p>}</p>
+<pre><code>
+<h3>ä½¿ç¨ Skill æ¨¡æ¿</h3>
+
+#### å¿«éåå»ºæ¨¡æ?
+</code></pre>bash
+<h1>ä½¿ç¨æ¨¡æ¿åå»º</h1>
+<p>claude --create-skill my-new-skill</p>
+
+<h1>ææå¨åå»?mkdir -p my-new-skill</h1>
+<p>cd my-new-skill</p>
+<pre><code>
+#### æ¨¡æ¿æä»¶
+
+<strong>SKILL.md æ¨¡æ¿</strong>:
+</code></pre>markdown
+<h1>{{skill-name}}</h1>
+
+<h2>Description</h2>
+<p>{{description}}</p>
+
+<h2>Triggers</h2>
+<p>{{triggers}}</p>
+
+<h2>Parameters</h2>
+<p>{{parameters}}</p>
+
+<h2>Examples</h2>
+<p>{{examples}}</p>
+<pre><code>
+<strong>index.js æ¨¡æ¿</strong>:
+</code></pre>javascript
+<p>module.exports = {</p>
+<p>  name: '{{skill-name}}',</p>
+<p>  version: '1.0.0',</p>
+  
+<p>  async execute(params, context) {</p>
+<p>    // TODO: å®ç°é»è¾</p>
+<p>  }</p>
+<p>};</p>
+<pre><code>
+<h2>Skills ä½¿ç¨æå·?</h2>
+<h3>æå·?1: ç»å Skills</h3>
+
+</code></pre>
+<p>ä½¿ç¨ coding-agent å?web-search ä¸èµ?åæç´¢æä½³å®è·µï¼ç¶åå®ç°ä»£ç </p>
+<pre><code>
+<h3>æå·?2: åæ°ä¼ é?</h3>
+</code></pre>
+<p>ä½¿ç¨ file-manager æ´çæä»¶</p>
+<p>ç®æ ç®å½ï¼?/organized</p>
+<p>åç±»è§åï¼ææ¥æ</p>
+<pre><code>
+<h3>æå·?3: æ¡ä»¶æ§è¡</h3>
+
+</code></pre>
+<p>å¦ææµè¯éè¿ï¼ä½¿ç?deploy-skill é¨ç½²</p>
+<p>å¦åï¼ä½¿ç?debug-skill åæé®é¢</p>
+<pre><code>
+<h3>æå·?4: é¾å¼è°ç¨</h3>
+
+</code></pre>
+<p>1. ä½¿ç¨ search-skill æ¥æ¾èµæ</p>
+<p>2. ä½¿ç¨ coding-skill å®ç°åè½</p>
+<p>3. ä½¿ç¨ test-skill éªè¯</p>
+<p>4. ä½¿ç¨ git-skill æäº¤</p>
+<pre><code>
+<h2>è°è¯ Skills</h2>
+
+<h3>å¯ç¨è°è¯æ¨¡å¼</h3>
+
+</code></pre>bash
+<p>claude --debug --skill my-skill</p>
+<pre><code>
+<h3>æ¥çæ¥å¿</h3>
+
+</code></pre>bash
+<h1>å®æ¶æ¥å¿</h1>
+<p>tail -f ~/.claude/logs/skill.log</p>
+
+<h1>è¿æ»¤ç¹å® Skill</h1>
+<p>grep "my-skill" ~/.claude/logs/skill.log</p>
+<pre><code>
+<h3>å¸¸è§é®é¢</h3>
+
+<p>| é®é¢ | è§£å³æ¹æ¡ |</p>
+<p>|------|----------|</p>
+<p>| Skill æªå è½?| æ£æ¥éç½®æä»¶è·¯å¾?|</p>
+<p>| è§¦åè¯ä¸å¹é | ç¡®è®¤ triggers å®ä¹ |</p>
+<p>| åæ°éè¯¯ | éªè¯åæ°æ ¼å¼ |</p>
+<p>| ä¾èµç¼ºå¤± | å®è£æéå?|</p>
+
+<h2>åäº« Skills</h2>
+
+<h3>æå Skill</h3>
+
+</code></pre>bash
+<h1>åå»ºåç¼©å?tar -czf my-skill.tar.gz skills/my-skill/</h1>
+
+<h1>æåå»?npm å?cd skills/my-skill</h1>
+<p>npm pack</p>
+<pre><code>
+<h3>åå¸å°ä»åº?</h3>
+</code></pre>bash
+<h1>æ¨éå° Git ä»åº</h1>
+<p>git add skills/my-skill</p>
+<p>git commit -m "Add my-skill"</p>
+<p>git push</p>
+
+<h1>æåå¸å° npm</h1>
+<p>npm publish</p>
+<pre><code>
+<h3>å¯¼å¥ä»äºº Skills</h3>
+
+</code></pre>bash
+<h1>ä»?URL å®è£</h1>
+<p>claude --install-skill https://github.com/user/skill</p>
+
+<h1>ä»æ¬å°å®è£?claude --install-skill ./path/to/skill</h1>
+
+<h1>ä»?npm å®è£</h1>
+<p>claude --install-skill @scope/skill-name</p>
+<pre><code>
+<h2>æä½³å®è·?</h2>
+<h3>è®¾è®¡åå</h3>
+
+<p>1. <strong>åä¸èè´£</strong>: æ¯ä¸ª Skill åªåä¸ä»¶äº</p>
+<p>2. <strong>æç¡®æ¥å£</strong>: æ¸æ°çè¾å¥è¾åºå®ä¹?3. <strong>éè¯¯å¤ç</strong>: ä¼éçéè¯¯å¤ç?4. <strong>ææ¡£å®æ´</strong>: è¯¦ç»çä½¿ç¨è¯´æ?</p>
+<h3>å½åè§è</h3>
+
+</code></pre>
+<p>â?å¥½çå½å:</p>
+<ul><li>git-helper</li>
+<li>code-formatter</li>
+<li>test-runner</li>
+</ul>
+<p>â?é¿åçå½å?</p>
+<ul><li>helper</li>
+<li>tool</li>
+<li>my-skill-1</li>
+</ul><pre><code>
+<h3>çæ¬ç®¡ç</h3>
+
+</code></pre>markdown
+<h2>Changelog</h2>
+
+<h3>v1.0.0</h3>
+<ul><li>åå§çæ¬</li>
+<li>æ¯æåºæ¬åè½</li>
+</ul>
+<h3>v1.1.0</h3>
+<ul><li>æ·»å æ°ç¹æ?- æ§è½ä¼å</li>
+</ul>```
+
+<p>---</p>
+
+<strong>æç¤º</strong>: å®ææ£æ¥åæ´æ° Skillsï¼ç¡®ä¿ä¸ææ°çæ¬å¼å®¹ã?
+        </div>
+    </div>
+    <footer>
+        <p>最后更新：2026-03-15 | 维护者：AI Publisher Agent 团队</p>
+        <p><a href="https://github.com/FreePineGo/ai-tools-docs">GitHub 仓库</a></p>
+    </footer>
+</body>
+</html>

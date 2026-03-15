@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenClaw ä½¿ç¨ææ¡£ - AI Publisher Agent 文档中心</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background: #f6f8fa; color: #24292e; line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        header { background: #0366d6; color: white; padding: 40px 20px; text-align: center; margin-bottom: 20px; }
+        header h1 { font-size: 2em; }
+        nav { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        nav a { color: #0366d6; text-decoration: none; margin-right: 15px; }
+        nav a:hover { text-decoration: underline; }
+        .content { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .content h1 { color: #0366d6; border-bottom: 2px solid #e1e4e8; padding-bottom: 10px; margin-bottom: 20px; }
+        .content h2 { color: #0366d6; margin: 30px 0 15px; }
+        .content h3 { color: #24292e; margin: 20px 0 10px; }
+        .content p { margin: 15px 0; }
+        .content ul, .content ol { margin: 15px 0; padding-left: 30px; }
+        .content li { margin: 8px 0; }
+        .content a { color: #0366d6; text-decoration: none; }
+        .content a:hover { text-decoration: underline; }
+        .content code { background: #f6f8fa; padding: 2px 6px; border-radius: 3px; font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace; }
+        .content pre { background: #f6f8fa; padding: 20px; border-radius: 6px; overflow-x: auto; margin: 20px 0; }
+        .content pre code { background: none; padding: 0; }
+        .content table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+        .content th, .content td { border: 1px solid #e1e4e8; padding: 10px 15px; text-align: left; }
+        .content th { background: #f6f8fa; font-weight: 600; }
+        .content tr:nth-child(even) { background: #f6f8fa; }
+        footer { text-align: center; padding: 20px; color: #586069; margin-top: 40px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🤖 AI Publisher Agent 文档中心</h1>
+    </header>
+    <div class="container">
+        <nav>
+            <a href="../index.html">🏠 主页</a> |
+            <a href="README.html">📚 总索引</a> |
+            <a href="PRD.html">📋 PRD</a> |
+            <a href="guides/SELECTION.html">🎯 选择指南</a> |
+            <a href="guides/COMPARISON.html">⚖️ 对比表</a>
+        </nav>
+        <div class="content">
+<h1>OpenClaw ä½¿ç¨ææ¡£</h1>
+
+<p>> ä½ ç AI å©æè¿è¡å¹³å°</p>
+
+<p>OpenClaw æ¯ä¸ä¸ªå¼ºå¤§ç AI å©ææ¡æ¶ï¼è®©ä½ è½å¤åå»ºãç®¡çåé¨ç½²ä¸ªæ§åç?AI å©æãå®æ¯æå¤ç§ AI æ¨¡åãä¸°å¯çå·¥å·éãä»¥åçµæ´»çæè½ç³»ç»ã?</p>
+<h2>ð ææ¡£å¯¼èª</h2>
+
+<ul><li><a href="INSTALL.md">å®è£æå</a> - è¯¦ç»çå®è£æ­¥éª?- <a href="QUICKSTART.md">å¿«éå¼å§</a> - 5 åéä¸æ</li>
+<li><a href="COMMANDS.md">å½ä»¤åè</a> - å®æ´å½ä»¤åè¡¨</li>
+<li><a href="CONFIG.md">éç½®è¯´æ</a> - éç½®éé¡¹è¯¦è§£</li>
+<li><a href="AGENT_DEV.md">Agent å¼å</a> - å¼åèªå®ä¹ Agent</li>
+<li><a href="FAQ.md">å¸¸è§é®é¢</a> - æéæé¤</li>
+</ul>
+<h2>â?æ ¸å¿ç¹æ?</h2>
+<h3>ð¤ å¤æ¨¡åæ¯æ?- æ¯æä¸»æµ AI æ¨¡åï¼QwenãClaudeãGPT ç­ï¼</h3>
+<ul><li>çµæ´»åæ¢æ¨¡åæä¾å?- æ¬å°æ¨¡åé¨ç½²éé¡¹</li>
+</ul>
+<h3>ð ï¸?ä¸°å¯å·¥å·é?- æä»¶æä½ï¼è¯»/å?ç¼è¾ï¼?- ç½ç»æç´¢åç½é¡µæå?- æµè§å¨èªå¨å</h3>
+<ul><li>æ¶æ¯åéï¼DiscordãTelegram ç­ï¼</li>
+<li>Feishu/é£ä¹¦éæ</li>
+<li>è¯­é³åæï¼TTSï¼?</li>
+</ul><h3>ð¯ æè½ç³»ç»?- æ¨¡ååæè½è®¾è®?- ç¤¾åºæè½å¸åºï¼ClawHubï¼?- èªå®ä¹æè½å¼å?- æè½ç­å è½½</h3>
+
+<h3>ð æä¹åè®°å¿?- é¿æè®°å¿å­å¨</h3>
+<ul><li>ä¼è¯ä¸ä¸æç®¡ç?- è®°å¿èªå¨æ´ç</li>
+</ul>
+<h3>ð å®å¨ä¼å</h3>
+<ul><li>å½ä»¤æ§è¡å®¡æ¹</li>
+<li>æææä½ç¡®è®¤</li>
+<li>æéåçº§ç®¡ç</li>
+</ul>
+<h2>ðï¸?æ¶ææ¦è§</h2>
+
+<p>``<code>text</code>nOpenClaw</p>
+<p>âââ Gateway (ç½å³æå¡)</p>
+<p>âââ Agents (AI å©æ)</p>
+<p>âââ Skills (æè½æ¨¡å?</p>
+<p>âââ Tools (å·¥å·é?</p>
+<p>âââ Workspace (å·¥ä½ç©ºé´)</p>
+<pre><code>
+<h2>ð å¿«éé¢è§?</h2>
+</code></pre>bash
+<h1>å®è£ OpenClaw</h1>
+<p>npm install -g openclaw</p>
+
+<h1>å¯å¨ç½å³</h1>
+<p>openclaw gateway start</p>
+
+<h1>åå»ºæ?Agent</h1>
+<p>openclaw agent create my-assistant</p>
+
+<h1>è¿è¡ Agent</h1>
+<p>openclaw agent run my-assistant</p>
+<p>```</p>
+
+<h2>ð± æ¯æå¹³å°</h2>
+
+<ul><li>Windows 10/11</li>
+<li>macOS 10.15+</li>
+<li>Linux (Ubuntu 20.04+, Debian 10+)</li>
+<li>Raspberry Pi 4+</li>
+</ul>
+<h2>ð éææå¡</h2>
+
+<ul><li><strong>æ¶æ¯å¹³å°</strong>: Discord, Telegram, WhatsApp, Feishu</li>
+<li>**äºæå?*: Feishu Docs, Feishu Drive, Feishu Wiki</li>
+<li><strong>AI æ¨¡å</strong>: ç¾ç¼ (Qwen), Anthropic (Claude), OpenAI (GPT)</li>
+<li>**æµè§å?*: Chrome, Firefox, Edge</li>
+</ul>
+<h2>ð ç³»ç»è¦æ±</h2>
+
+<p>| ç»ä»¶ | æä½è¦æ±?| æ¨èéç½® |</p>
+<p>|------|---------|---------|</p>
+<p>| CPU | 2 æ ¸å¿ | 4 æ ¸å¿+ |</p>
+<p>| åå­ | 2GB | 8GB+ |</p>
+<p>| å­å¨ | 500MB | 2GB+ |</p>
+<p>| Node.js | v18+ | v20+ |</p>
+
+<h2>ð¤ ç¤¾åºèµæº</h2>
+
+<ul><li><a href="https://clawhub.com">ClawHub æè½å¸åº</a> - åç°åå®è£ç¤¾åºæè?- <a href="https://github.com/openclaw">GitHub ä»åº</a> - æºä»£ç å Issue è¿½è¸ª</li>
+<li><a href="https://discord.gg/openclaw">Discord ç¤¾åº</a> - äº¤æµåå¸®å?</li>
+</ul><h2>ð è®¸å¯è¯?</h2>
+<p>MIT License - è¯¦è§ LICENSE æä»¶</p>
+
+<p>---</p>
+
+<p>**å¼å§ä½¿ç?*: æ¥ç <a href="INSTALL.md">å®è£æå</a> å¼å§ä½ ç?OpenClaw ä¹æï¼?</p>
+        </div>
+    </div>
+    <footer>
+        <p>最后更新：2026-03-15 | 维护者：AI Publisher Agent 团队</p>
+        <p><a href="https://github.com/FreePineGo/ai-tools-docs">GitHub 仓库</a></p>
+    </footer>
+</body>
+</html>

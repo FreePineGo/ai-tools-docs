@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenClaw 配置说明 - AI Publisher Agent 文档中心</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background: #f6f8fa; color: #24292e; line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        header { background: #0366d6; color: white; padding: 40px 20px; text-align: center; margin-bottom: 20px; }
+        header h1 { font-size: 2em; }
+        nav { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        nav a { color: #0366d6; text-decoration: none; margin-right: 15px; }
+        nav a:hover { text-decoration: underline; }
+        .content { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .content h1 { color: #0366d6; border-bottom: 2px solid #e1e4e8; padding-bottom: 10px; margin-bottom: 20px; }
+        .content h2 { color: #0366d6; margin: 30px 0 15px; }
+        .content h3 { color: #24292e; margin: 20px 0 10px; }
+        .content p { margin: 15px 0; }
+        .content ul, .content ol { margin: 15px 0; padding-left: 30px; }
+        .content li { margin: 8px 0; }
+        .content a { color: #0366d6; text-decoration: none; }
+        .content a:hover { text-decoration: underline; }
+        .content code { background: #f6f8fa; padding: 2px 6px; border-radius: 3px; font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace; }
+        .content pre { background: #f6f8fa; padding: 20px; border-radius: 6px; overflow-x: auto; margin: 20px 0; }
+        .content pre code { background: none; padding: 0; }
+        .content table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+        .content th, .content td { border: 1px solid #e1e4e8; padding: 10px 15px; text-align: left; }
+        .content th { background: #f6f8fa; font-weight: 600; }
+        .content tr:nth-child(even) { background: #f6f8fa; }
+        footer { text-align: center; padding: 20px; color: #586069; margin-top: 40px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🤖 AI Publisher Agent 文档中心</h1>
+    </header>
+    <div class="container">
+        <nav>
+            <a href="../index.html">🏠 主页</a> |
+            <a href="README.html">📚 总索引</a> |
+            <a href="PRD.html">📋 PRD</a> |
+            <a href="guides/SELECTION.html">🎯 选择指南</a> |
+            <a href="guides/COMPARISON.html">⚖️ 对比表</a>
+        </nav>
+        <div class="content">
+<h1>OpenClaw 配置说明</h1>
+
+<p>详细的配置选项和最佳实践。</p>
+
+<h2>📁 配置文件位置</h2>
+
+<pre><code>~/.openclaw/
+<p>├── config.json          # 主配置文件</p>
+<p>├── agents/              # Agent 配置</p>
+<p>├── skills/              # 技能配置</p>
+<p>├── memory/              # 记忆存储</p>
+<p>└── logs/                # 日志文件</p>
+</code></pre>
+
+<h2>🔧 主配置文件</h2>
+
+<h3>config.json 结构</h3>
+
+<pre><code>{
+<p>  "version": "1.0",</p>
+<p>  "gateway": {</p>
+<p>    "port": 3000,</p>
+<p>    "host": "localhost",</p>
+<p>    "cors": true,</p>
+<p>    "ssl": false</p>
+<p>  },</p>
+<p>  "models": {</p>
+<p>    "default": "qwen",</p>
+<p>    "fallback": "anthropic",</p>
+<p>    "providers": {</p>
+<p>      "qwen": {</p>
+<p>        "apiKey": "${QWEN_API_KEY}",</p>
+<p>        "endpoint": "https://dashscope.aliyuncs.com",</p>
+<p>        "model": "qwen-plus",</p>
+<p>        "maxTokens": 4096,</p>
+<p>        "temperature": 0.7</p>
+<p>      },</p>
+<p>      "anthropic": {</p>
+<p>        "apiKey": "${ANTHROPIC_API_KEY}",</p>
+<p>        "model": "claude-3-sonnet-20240229",</p>
+<p>        "maxTokens": 4096</p>
+<p>      },</p>
+<p>      "openai": {</p>
+<p>        "apiKey": "${OPENAI_API_KEY}",</p>
+<p>        "model": "gpt-4-turbo",</p>
+<p>        "maxTokens": 4096</p>
+<p>      }</p>
+<p>    }</p>
+<p>  },</p>
+<p>  "agents": {</p>
+<p>    "defaultMemory": true,</p>
+<p>    "autoSave": true,</p>
+<p>    "maxContextLength": 8192</p>
+<p>  },</p>
+<p>  "skills": {</p>
+<p>    "autoUpdate": false,</p>
+<p>    "clawhub": {</p>
+<p>      "enabled": true,</p>
+<p>      "registry": "https://clawhub.com"</p>
+<p>    }</p>
+<p>  },</p>
+<p>  "tools": {</p>
+<p>    "browser": {</p>
+<p>      "enabled": true,</p>
+<p>      "headless": true,</p>
+<p>      "timeout": 30000</p>
+<p>    },</p>
+<p>    "webSearch": {</p>
+<p>      "enabled": true,</p>
+<p>      "provider": "brave",</p>
+<p>      "apiKey": "${BRAVE_API_KEY}"</p>
+<p>    },</p>
+<p>    "message": {</p>
+<p>      "enabled": true,</p>
+<p>      "platforms": ["discord", "telegram"]</p>
+<p>    }</p>
+<p>  },</p>
+<p>  "security": {</p>
+<p>    "requireApproval": ["exec", "message"],</p>
+<p>    "allowlist": ["read", "write", "web_search"],</p>
+<p>    "rateLimit": {</p>
+<p>      "enabled": true,</p>
+<p>      "requestsPerMinute": 60</p>
+<p>    }</p>
+<p>  },</p>
+<p>  "logging": {</p>
+<p>    "level": "info",</p>
+<p>    "format": "json",</p>
+<p>    "output": "file",</p>
+<p>    "maxFiles": 10,</p>
+<p>    "maxSize": "10MB"</p>
+<p>  },</p>
+<p>  "workspace": {</p>
+<p>    "path": "~/openclaw-workspace",</p>
+<p>    "autoCreate": true</p>
+<p>  }</p>
+<p>}</p>
+</code></pre>
+
+<h2>🤖 模型配置</h2>
+
+<h3>基础配置</h3>
+
+<pre><code>{
+<p>  "models": {</p>
+<p>    "default": "qwen",</p>
+<p>    "providers": {</p>
+<p>      "qwen": {</p>
+<p>        "apiKey": "sk-xxx",</p>
+<p>        "endpoint": "https://dashscope.aliyuncs.com",</p>
+<p>        "model": "qwen-plus",</p>
+<p>        "maxTokens": 4096,</p>
+<p>        "temperature": 0.7,</p>
+<p>        "topP": 0.9,</p>
+<p>        "frequencyPenalty": 0.5,</p>
+<p>        "presencePenalty": 0.5,</p>
+<p>        "timeout": 30000,</p>
+<p>        "retryAttempts": 3</p>
+<p>      }</p>
+<p>    }</p>
+<p>  }</p>
+<p>}</p>
+</code></pre>
+
+<h3>多模型配置</h3>
+
+<pre><code>{
+<p>  "models": {</p>
+<p>    "default": "qwen",</p>
+<p>    "fallback": "anthropic",</p>
+<p>    "routing": {</p>
+<p>      "coding": "qwen",</p>
+<p>      "creative": "anthropic",</p>
+<p>      "analysis": "openai"</p>
+<p>    },</p>
+<p>    "providers": {</p>
+<p>      "qwen": {</p>
+<p>        "apiKey": "${QWEN_API_KEY}",</p>
+<p>        "model": "qwen-plus"</p>
+<p>      },</p>
+<p>      "anthropic": {</p>
+<p>        "apiKey": "${ANTHROPIC_API_KEY}",</p>
+<p>        "model": "claude-3-sonnet-20240229"</p>
+<p>      },</p>
+<p>      "openai": {</p>
+<p>        "apiKey": "${OPENAI_API_KEY}",</p>
+<p>        "model": "gpt-4-turbo"</p>
+<p>      }</p>
+<p>    }</p>
+<p>  }</p>
+<p>}</p>
+</code></pre>
+
+<h3>模型参数说明</h3>
+
+<p>| 参数 | 说明 | 推荐值 |</p>
+<p>|------|------|--------|</p>
+<p>| <code>temperature</code> | 创造性（0-1） | 0.7 |</p>
+<p>| <code>topP</code> | 采样概率（0-1） | 0.9 |</p>
+<p>| <code>maxTokens</code> | 最大 token 数 | 4096 |</p>
+<p>| <code>timeout</code> | 超时时间（ms） | 30000 |</p>
+<p>| <code>retryAttempts</code> | 重试次数 | 3 |</p>
+<p>| <code>frequencyPenalty</code> | 频率惩罚 | 0.5 |</p>
+<p>| <code>presencePenalty</code> | 存在惩罚 | 0.5 |</p>
+
+<h2>🛠️ 工具配置</h2>
+
+<h3>浏览器工具</h3>
+
+<pre><code>{
+<p>  "tools": {</p>
+<p>    "browser": {</p>
+<p>      "enabled": true,</p>
+<p>      "headless": true,</p>
+<p>      "timeout": 30000,</p>
+<p>      "proxy": null,</p>
+<p>      "userDataDir": "~/.openclaw/browser-data",</p>
+<p>      "extensions": [],</p>
+<p>      "preferences": {</p>
+<p>        "defaultViewport": {</p>
+<p>          "width": 1920,</p>
+<p>          "height": 1080</p>
+<p>        }</p>
+<p>      }</p>
+<p>    }</p>
+<p>  }</p>
+<p>}</p>
+</code></pre>
+
+<h3>网络搜索</h3>
+
+<pre><code>{
+<p>  "tools": {</p>
+<p>    "webSearch": {</p>
+<p>      "enabled": true,</p>
+<p>      "provider": "brave",</p>
+<p>      "apiKey": "${BRAVE_API_KEY}",</p>
+<p>      "maxResults": 10,</p>
+<p>      "safeSearch": true,</p>
+<p>      "country": "US",</p>
+<p>      "language": "en"</p>
+<p>    }</p>
+<p>  }</p>
+<p>}</p>
+</code></pre>
+
+<h3>消息工具</h3>
+
+<pre><code>{
+<p>  "tools": {</p>
+<p>    "message": {</p>
+<p>      "enabled": true,</p>
+<p>      "platforms": {</p>
+<p>        "discord": {</p>
+<p>          "enabled": true,</p>
+<p>          "token": "${DISCORD_TOKEN}",</p>
+<p>          "guildId": "xxx",</p>
+<p>          "channels": ["general", "bot-commands"]</p>
+<p>        },</p>
+<p>        "telegram": {</p>
+<p>          "enabled": true,</p>
+<p>          "token": "${TELEGRAM_TOKEN}",</p>
+<p>          "allowedUsers": ["username1", "username2"]</p>
+<p>        },</p>
+<p>        "feishu": {</p>
+<p>          "enabled": true,</p>
+<p>          "appId": "${FEISHU_APP_ID}",</p>
+<p>          "appSecret": "${FEISHU_APP_SECRET}",</p>
+<p>          "encryptKey": "${FEISHU_ENCRYPT_KEY}"</p>
+<p>        }</p>
+<p>      }</p>
+<p>    }</p>
+<p>  }</p>
+<p>}</p>
+</code></pre>
+
+<h3>Feishu 集成</h3>
+
+<pre><code>{
+<p>  "tools": {</p>
+<p>    "feishu": {</p>
+<p>      "enabled": true,</p>
+<p>      "appId": "cli_xxx",</p>
+<p>      "appSecret": "xxx",</p>
+<p>      "encryptKey": "xxx",</p>
+<p>      "verificationToken": "xxx",</p>
+<p>      "botName": "OpenClaw Bot",</p>
+<p>      "permissions": {</p>
+<p>        "docs": true,</p>
+<p>        "drive": true,</p>
+<p>        "wiki": true,</p>
+<p>        "chat": true,</p>
+<p>        "bitable": true</p>
+<p>      }</p>
+<p>    }</p>
+<p>  }</p>
+<p>}</p>
+</code></pre>
+
+<h2>🔒 安全配置</h2>
+
+<h3>权限控制</h3>
+
+<pre><code>{
+<p>  "security": {</p>
+<p>    "requireApproval": [</p>
+<p>      "exec",</p>
+<p>      "message.send",</p>
+<p>      "browser.navigate",</p>
+<p>      "file.delete"</p>
+<p>    ],</p>
+<p>    "allowlist": [</p>
+<p>      "read",</p>
+<p>      "write",</p>
+<p>      "web_search",</p>
+<p>      "web_fetch"</p>
+<p>    ],</p>
+<p>    "denylist": [</p>
+<p>      "exec.sudo",</p>
+<p>      "file.delete_recursive"</p>
+<p>    ],</p>
+<p>    "rateLimit": {</p>
+<p>      "enabled": true,</p>
+<p>      "requestsPerMinute": 60,</p>
+<p>      "requestsPerHour": 1000</p>
+<p>    },</p>
+<p>    "ipWhitelist": [</p>
+<p>      "127.0.0.1",</p>
+<p>      "192.168.1.0/24"</p>
+<p>    ]</p>
+<p>  }</p>
+<p>}</p>
+</code></pre>
+
+<h3>SSL/TLS 配置</h3>
+
+<pre><code>{
+<p>  "gateway": {</p>
+<p>    "ssl": true,</p>
+<p>    "sslOptions": {</p>
+<p>      "key": "/path/to/private.key",</p>
+<p>      "cert": "/path/to/certificate.crt",</p>
+<p>      "ca": "/path/to/ca.crt"</p>
+<p>    },</p>
+<p>    "redirectHttp": true,</p>
+<p>    "minTlsVersion": "TLSv1.2"</p>
+<p>  }</p>
+<p>}</p>
+</code></pre>
+
+<h2>📝 Agent 配置</h2>
+
+<h3>Agent 基础配置</h3>
+
+<pre><code>{
+<p>  "agents": {</p>
+<p>    "defaultMemory": true,</p>
+<p>    "autoSave": true,</p>
+<p>    "maxContextLength": 8192,</p>
+<p>    "sessionTimeout": 3600,</p>
+<p>    "maxConcurrent": 5,</p>
+<p>    "defaultSkills": [</p>
+<p>      "file-ops",</p>
+<p>      "web-search",</p>
+<p>      "browser"</p>
+<p>    ]</p>
+<p>  }</p>
+<p>}</p>
+</code></pre>
+
+<h3>Agent 个性化</h3>
+
+<p>每个 Agent 有自己的配置文件：</p>
+
+<pre><code>{
+<p>  "name": "my-assistant",</p>
+<p>  "model": "qwen",</p>
+<p>  "personality": {</p>
+<p>    "name": "小助手",</p>
+<p>    "tone": "friendly",</p>
+<p>    "language": "zh-CN"</p>
+<p>  },</p>
+<p>  "capabilities": [</p>
+<p>    "coding",</p>
+<p>    "writing",</p>
+<p>    "analysis"</p>
+<p>  ],</p>
+<p>  "restrictions": {</p>
+<p>    "maxTokensPerRequest": 4096,</p>
+<p>    "allowedDomains": ["github.com", "stackoverflow.com"]</p>
+<p>  },</p>
+<p>  "memory": {</p>
+<p>    "enabled": true,</p>
+<p>    "maxSize": 1000,</p>
+<p>    "persistence": true</p>
+<p>  }</p>
+<p>}</p>
+</code></pre>
+
+<h2>🎯 技能配置</h2>
+
+<h3>技能管理</h3>
+
+<pre><code>{
+<p>  "skills": {</p>
+<p>    "autoUpdate": false,</p>
+<p>    "autoEnable": true,</p>
+<p>    "clawhub": {</p>
+<p>      "enabled": true,</p>
+<p>      "registry": "https://clawhub.com",</p>
+<p>      "autoSync": false,</p>
+<p>      "syncInterval": 86400</p>
+<p>    },</p>
+<p>    "installed": [</p>
+<p>      {</p>
+<p>        "name": "weather",</p>
+<p>        "version": "1.2.0",</p>
+<p>        "enabled": true,</p>
+<p>        "config": {</p>
+<p>          "apiKey": "${WEATHER_API_KEY}",</p>
+<p>          "units": "metric"</p>
+<p>        }</p>
+<p>      },</p>
+<p>      {</p>
+<p>        "name": "github-tools",</p>
+<p>        "version": "2.0.1",</p>
+<p>        "enabled": true,</p>
+<p>        "config": {</p>
+<p>          "token": "${GITHUB_TOKEN}"</p>
+<p>        }</p>
+<p>      }</p>
+<p>    ]</p>
+<p>  }</p>
+<p>}</p>
+</code></pre>
+
+<h2>📊 日志配置</h2>
+
+<h3>日志级别</h3>
+
+<pre><code>{
+<p>  "logging": {</p>
+<p>    "level": "info",</p>
+<p>    "format": "json",</p>
+<p>    "output": "file",</p>
+<p>    "maxFiles": 10,</p>
+<p>    "maxSize": "10MB",</p>
+<p>    "compress": true,</p>
+<p>    "timestamp": true,</p>
+<p>    "colors": false</p>
+<p>  }</p>
+<p>}</p>
+</code></pre>
+
+<h3>日志级别说明</h3>
+
+<p>| 级别 | 说明 | 使用场景 |</p>
+<p>|------|------|---------|</p>
+<p>| <code>error</code> | 错误信息 | 生产环境 |</p>
+<p>| <code>warn</code> | 警告信息 | 生产环境 |</p>
+<p>| <code>info</code> | 一般信息 | 默认 |</p>
+<p>| <code>debug</code> | 调试信息 | 开发环境 |</p>
+<p>| <code>trace</code> | 详细追踪 | 深度调试 |</p>
+
+<h2>🌐 网络配置</h2>
+
+<h3>代理配置</h3>
+
+<pre><code>{
+<p>  "network": {</p>
+<p>    "proxy": {</p>
+<p>      "enabled": true,</p>
+<p>      "http": "http://proxy.example.com:8080",</p>
+<p>      "https": "http://proxy.example.com:8080",</p>
+<p>      "noProxy": ["localhost", "127.0.0.1"]</p>
+<p>    },</p>
+<p>    "dns": {</p>
+<p>      "servers": ["8.8.8.8", "8.8.4.4"]</p>
+<p>    },</p>
+<p>    "timeout": {</p>
+<p>      "connect": 10000,</p>
+<p>      "read": 30000,</p>
+<p>      "write": 30000</p>
+<p>    }</p>
+<p>  }</p>
+<p>}</p>
+</code></pre>
+
+<h2>💾 存储配置</h2>
+
+<h3>本地存储</h3>
+
+<pre><code>{
+<p>  "storage": {</p>
+<p>    "type": "local",</p>
+<p>    "path": "~/.openclaw/data",</p>
+<p>    "maxSize": "1GB",</p>
+<p>    "cleanup": {</p>
+<p>      "enabled": true,</p>
+<p>      "interval": 86400,</p>
+<p>      "maxAge": 2592000</p>
+<p>    }</p>
+<p>  }</p>
+<p>}</p>
+</code></pre>
+
+<h3>远程存储</h3>
+
+<pre><code>{
+<p>  "storage": {</p>
+<p>    "type": "s3",</p>
+<p>    "bucket": "openclaw-data",</p>
+<p>    "region": "us-east-1",</p>
+<p>    "accessKeyId": "${AWS_ACCESS_KEY}",</p>
+<p>    "secretAccessKey": "${AWS_SECRET_KEY}",</p>
+<p>    "prefix": "openclaw/"</p>
+<p>  }</p>
+<p>}</p>
+</code></pre>
+
+<h2>🔔 通知配置</h2>
+
+<pre><code>{
+<p>  "notifications": {</p>
+<p>    "enabled": true,</p>
+<p>    "channels": {</p>
+<p>      "email": {</p>
+<p>        "enabled": false,</p>
+<p>        "smtp": {</p>
+<p>          "host": "smtp.example.com",</p>
+<p>          "port": 587,</p>
+<p>          "user": "${SMTP_USER}",</p>
+<p>          "password": "${SMTP_PASSWORD}"</p>
+<p>        },</p>
+<p>        "recipients": ["admin@example.com"]</p>
+<p>      },</p>
+<p>      "webhook": {</p>
+<p>        "enabled": true,</p>
+<p>        "url": "${WEBHOOK_URL}",</p>
+<p>        "events": ["error", "warning"]</p>
+<p>      }</p>
+<p>    }</p>
+<p>  }</p>
+<p>}</p>
+</code></pre>
+
+<h2>🎛️ 环境变量</h2>
+
+<p>使用环境变量管理敏感信息：</p>
+
+<pre><code><h1>.env 文件</h1>
+<p>QWEN_API_KEY=sk-xxx</p>
+<p>ANTHROPIC_API_KEY=sk-ant-xxx</p>
+<p>OPENAI_API_KEY=sk-proj-xxx</p>
+<p>DISCORD_TOKEN=xxx</p>
+<p>TELEGRAM_TOKEN=xxx</p>
+<p>FEISHU_APP_ID=cli_xxx</p>
+<p>FEISHU_APP_SECRET=xxx</p>
+<p>BRAVE_API_KEY=xxx</p>
+<p>AWS_ACCESS_KEY=xxx</p>
+<p>AWS_SECRET_KEY=xxx</p>
+</code></pre>
+
+<p>在配置中引用：</p>
+
+<pre><code>{
+<p>  "models": {</p>
+<p>    "providers": {</p>
+<p>      "qwen": {</p>
+<p>        "apiKey": "${QWEN_API_KEY}"</p>
+<p>      }</p>
+<p>    }</p>
+<p>  }</p>
+<p>}</p>
+</code></pre>
+
+<h2>✅ 配置验证</h2>
+
+<pre><code><h1>验证配置文件</h1>
+<p>openclaw config validate</p>
+
+<h1>检查配置问题</h1>
+<p>openclaw doctor</p>
+
+<h1>测试模型连接</h1>
+<p>openclaw test-model qwen</p>
+</code></pre>
+
+<h2>📋 配置模板</h2>
+
+<h3>开发环境</h3>
+
+<pre><code>{
+<p>  "gateway": {</p>
+<p>    "port": 3000,</p>
+<p>    "host": "localhost"</p>
+<p>  },</p>
+<p>  "logging": {</p>
+<p>    "level": "debug"</p>
+<p>  },</p>
+<p>  "security": {</p>
+<p>    "requireApproval": []</p>
+<p>  }</p>
+<p>}</p>
+</code></pre>
+
+<h3>生产环境</h3>
+
+<pre><code>{
+<p>  "gateway": {</p>
+<p>    "port": 443,</p>
+<p>    "ssl": true</p>
+<p>  },</p>
+<p>  "logging": {</p>
+<p>    "level": "warn"</p>
+<p>  },</p>
+<p>  "security": {</p>
+<p>    "requireApproval": ["exec", "message.send"],</p>
+<p>    "rateLimit": {</p>
+<p>      "enabled": true,</p>
+<p>      "requestsPerMinute": 30</p>
+<p>    }</p>
+<p>  }</p>
+<p>}</p>
+</code></pre>
+
+<p>---</p>
+
+<strong>提示</strong>: 修改配置后重启 Gateway 使更改生效：<code>openclaw gateway restart</code>
+
+        </div>
+    </div>
+    <footer>
+        <p>最后更新：2026-03-15 | 维护者：AI Publisher Agent 团队</p>
+        <p><a href="https://github.com/FreePineGo/ai-tools-docs">GitHub 仓库</a></p>
+    </footer>
+</body>
+</html>

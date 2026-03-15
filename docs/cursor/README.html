@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursor - AI 代码编辑器使用指南 - AI Publisher Agent 文档中心</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background: #f6f8fa; color: #24292e; line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        header { background: #0366d6; color: white; padding: 40px 20px; text-align: center; margin-bottom: 20px; }
+        header h1 { font-size: 2em; }
+        nav { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        nav a { color: #0366d6; text-decoration: none; margin-right: 15px; }
+        nav a:hover { text-decoration: underline; }
+        .content { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .content h1 { color: #0366d6; border-bottom: 2px solid #e1e4e8; padding-bottom: 10px; margin-bottom: 20px; }
+        .content h2 { color: #0366d6; margin: 30px 0 15px; }
+        .content h3 { color: #24292e; margin: 20px 0 10px; }
+        .content p { margin: 15px 0; }
+        .content ul, .content ol { margin: 15px 0; padding-left: 30px; }
+        .content li { margin: 8px 0; }
+        .content a { color: #0366d6; text-decoration: none; }
+        .content a:hover { text-decoration: underline; }
+        .content code { background: #f6f8fa; padding: 2px 6px; border-radius: 3px; font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace; }
+        .content pre { background: #f6f8fa; padding: 20px; border-radius: 6px; overflow-x: auto; margin: 20px 0; }
+        .content pre code { background: none; padding: 0; }
+        .content table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+        .content th, .content td { border: 1px solid #e1e4e8; padding: 10px 15px; text-align: left; }
+        .content th { background: #f6f8fa; font-weight: 600; }
+        .content tr:nth-child(even) { background: #f6f8fa; }
+        footer { text-align: center; padding: 20px; color: #586069; margin-top: 40px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🤖 AI Publisher Agent 文档中心</h1>
+    </header>
+    <div class="container">
+        <nav>
+            <a href="../index.html">🏠 主页</a> |
+            <a href="README.html">📚 总索引</a> |
+            <a href="PRD.html">📋 PRD</a> |
+            <a href="guides/SELECTION.html">🎯 选择指南</a> |
+            <a href="guides/COMPARISON.html">⚖️ 对比表</a>
+        </nav>
+        <div class="content">
+<h1>Cursor - AI 代码编辑器使用指南</h1>
+
+<h2>工具简介</h2>
+
+<p>Cursor 是一款基于 VS Code 构建的 AI 原生代码编辑器，将 AI 深度集成到开发工作流中。它支持多种大语言模型（包括 GPT-4、Claude 等），能够理解整个代码库的上下文，提供智能的代码生成、编辑和调试功能。</p>
+
+<strong>核心优势：</strong>
+<ul><li>基于 VS Code，兼容所有 VS Code 扩展</li>
+<li>深度代码库理解，支持跨文件上下文</li>
+<li>自然的对话式编程体验</li>
+<li>支持多种 AI 模型切换</li>
+</ul>
+<h2>安装步骤</h2>
+
+<h3>Windows/macOS/Linux</h3>
+
+<p>1. <strong>访问官网下载</strong></p>
+<p>   - 打开 https://cursor.sh</p>
+<p>   - 点击 "Download" 按钮</p>
+<p>   - 选择对应操作系统的版本</p>
+
+<p>2. <strong>安装应用</strong></p>
+<p>   - Windows：运行下载的 <code>.exe</code> 安装程序</p>
+<p>   - macOS：将 Cursor 拖拽到 Applications 文件夹</p>
+<p>   - Linux：下载 <code>.AppImage</code> 或使用包管理器</p>
+
+<p>3. <strong>首次启动配置</strong></p>
+<p>   - 启动 Cursor</p>
+<p>   - 使用 GitHub 或邮箱账号登录</p>
+<p>   - 导入 VS Code 设置和扩展（可选）</p>
+
+<p>4. <strong>API Key 配置（可选）</strong></p>
+<p>   - 打开设置（<code>Ctrl+,</code> 或 <code>Cmd+,</code>）</p>
+<p>   - 进入 "AI" 或 "General" 设置</p>
+<p>   - 添加自己的 API Key 以获得更高配额</p>
+
+<h2>基本用法</h2>
+
+<h3>1. AI 聊天（Chat）</h3>
+
+<pre><code>快捷键：Ctrl+L (Windows/Linux) / Cmd+L (Mac)
+</code></pre>
+
+<ul><li>在侧边栏打开聊天面板</li>
+<li>输入自然语言描述需求</li>
+<li>AI 会生成代码或解答问题</li>
+<li>支持引用特定文件：<code>@filename</code></li>
+</ul>
+<h3>2. 行内编辑（Inline Edit）</h3>
+
+<pre><code>快捷键：Ctrl+K (Windows/Linux) / Cmd+K (Mac)
+</code></pre>
+
+<ul><li>选中需要修改的代码</li>
+<li>按下快捷键，输入修改指令</li>
+<li>AI 直接在原位置生成修改后的代码</li>
+<li>支持 diff 预览和接受/拒绝</li>
+</ul>
+<h3>3. 代码生成（Generate）</h3>
+
+<pre><code>快捷键：Ctrl+I (Windows/Linux) / Cmd+I (Mac)
+</code></pre>
+
+<ul><li>在空白处或注释后使用</li>
+<li>描述需要生成的代码功能</li>
+<li>AI 自动补全完整实现</li>
+</ul>
+<h3>4. 命令面板（Command）</h3>
+
+<pre><code>快捷键：Ctrl+Shift+P (Windows/Linux) / Cmd+Shift+P (Mac)
+</code></pre>
+
+<ul><li>输入 "Cursor" 相关命令</li>
+<li>快速访问 AI 功能</li>
+<li>如："Cursor: Focus on Chat"</li>
+</ul>
+<h2>特色功能</h2>
+
+<h3>🧠 代码库理解（Codebase Understanding）</h3>
+
+<ul><li><strong>自动索引</strong>：Cursor 自动索引整个项目</li>
+<li><strong>智能检索</strong>：AI 能理解跨文件的代码关系</li>
+<li><strong>上下文感知</strong>：回答问题时自动引用相关文件</li>
+</ul>
+<h3>🔍 智能搜索（Semantic Search）</h3>
+
+<ul><li>使用自然语言搜索代码</li>
+<li>例如："查找处理用户登录的函数"</li>
+<li>比传统文本搜索更准确</li>
+</ul>
+<h3>🤖 多模型支持</h3>
+
+<ul><li><strong>Cursor Fast</strong>：快速响应，适合简单任务</li>
+<li><strong>GPT-4</strong>：强大的通用能力</li>
+<li><strong>Claude 3.5 Sonnet</strong>：优秀的代码理解</li>
+<li><strong>自定义模型</strong>：支持配置自己的 API</li>
+</ul>
+<h3>📝 Tab 自动补全</h3>
+
+<ul><li>智能代码补全，超越传统 Intellisense</li>
+<li>根据上下文预测整行或整块代码</li>
+<li>按 <code>Tab</code> 接受建议</li>
+</ul>
+<h3>🐛 智能调试</h3>
+
+<ul><li>自动分析错误信息</li>
+<li>提供修复建议</li>
+<li>支持一键应用修复</li>
+</ul>
+<h2>使用技巧</h2>
+
+<h3>💡 高效提示词技巧</h3>
+
+<p>1. <strong>具体明确</strong></p>
+   <pre><code>   ❌ "修复这个 bug"
+<p>   ✅ "修复第 45 行的空指针异常，当 userInput 为 null 时"</p>
+   </code></pre>
+
+<p>2. <strong>提供上下文</strong></p>
+   <pre><code>   @utils/auth.ts 帮我添加 JWT 验证逻辑
+   </code></pre>
+
+<p>3. <strong>分步请求</strong></p>
+   <pre><code>   第一步：创建用户模型
+<p>   第二步：添加验证规则</p>
+<p>   第三步：编写测试用例</p>
+   </code></pre>
+
+<h3>🎯 最佳实践</h3>
+
+<p>1. <strong>使用 @ 引用文件</strong></p>
+<p>   - 在聊天中输入 <code>@</code> 可快速引用文件</p>
+<p>   - 帮助 AI 理解具体上下文</p>
+
+<p>2. <strong>利用 Composer 功能</strong></p>
+<p>   - 多文件编辑时，使用 Composer 模式</p>
+<p>   - AI 会协调多个文件的修改</p>
+
+<p>3. <strong>Review AI 代码</strong></p>
+<p>   - 始终审查 AI 生成的代码</p>
+<p>   - 理解每处修改的意图</p>
+<p>   - 确保符合项目规范</p>
+
+<p>4. <strong>合理使用配额</strong></p>
+<p>   - 简单任务用 Fast 模型</p>
+<p>   - 复杂任务用 GPT-4/Claude</p>
+<p>   - 关注配额使用情况</p>
+
+<h3>⚡ 快捷操作</h3>
+
+<p>| 操作 | 快捷键 | 说明 |</p>
+<p>|------|--------|------|</p>
+<p>| 打开聊天 | Ctrl/Cmd + L | 打开 AI 聊天面板 |</p>
+<p>| 行内编辑 | Ctrl/Cmd + K | 选中代码后编辑 |</p>
+<p>| 代码生成 | Ctrl/Cmd + I | 在光标处生成代码 |</p>
+<p>| 接受建议 | Tab | 接受自动补全 |</p>
+<p>| 拒绝建议 | Esc | 拒绝自动补全 |</p>
+<p>| 切换模型 | Ctrl/Cmd + Shift + M | 切换 AI 模型 |</p>
+
+<h3>🔧 配置建议</h3>
+
+<pre><code>// settings.json 推荐配置
+<p>{</p>
+<p>  "cursor.ai.enabled": true,</p>
+<p>  "cursor.tabAutocomplete": true,</p>
+<p>  "cursor.quickActions.enabled": true,</p>
+<p>  "cursor.indexing.enabled": true,</p>
+<p>  "cursor.indexing.ignore": ["node_modules", "dist", ".git"]</p>
+<p>}</p>
+</code></pre>
+
+<h3>🚀 进阶用法</h3>
+
+<p>1. <strong>批量重构</strong></p>
+<p>   - 描述重构目标，让 AI 列出所有需要修改的文件</p>
+<p>   - 使用 Composer 一次性应用修改</p>
+
+<p>2. <strong>代码审查</strong></p>
+<p>   - 选中代码，让 AI 提供改进建议</p>
+<p>   - 询问潜在的性能问题或安全隐患</p>
+
+<p>3. <strong>文档生成</strong></p>
+<p>   - 让 AI 根据代码生成注释和文档</p>
+<p>   - 自动生成 README 或 API 文档</p>
+
+<p>4. <strong>测试编写</strong></p>
+<p>   - 提供函数代码，让 AI 生成测试用例</p>
+<p>   - 覆盖边界情况和错误场景</p>
+
+<p>---</p>
+
+<strong>官方资源：</strong>
+<ul><li>官网：https://cursor.sh</li>
+<li>文档：https://docs.cursor.com</li>
+<li>社区：https://forum.cursor.com</li>
+</ul>
+        </div>
+    </div>
+    <footer>
+        <p>最后更新：2026-03-15 | 维护者：AI Publisher Agent 团队</p>
+        <p><a href="https://github.com/FreePineGo/ai-tools-docs">GitHub 仓库</a></p>
+    </footer>
+</body>
+</html>

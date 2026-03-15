@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenClaw 命令参考 - AI Publisher Agent 文档中心</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background: #f6f8fa; color: #24292e; line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        header { background: #0366d6; color: white; padding: 40px 20px; text-align: center; margin-bottom: 20px; }
+        header h1 { font-size: 2em; }
+        nav { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        nav a { color: #0366d6; text-decoration: none; margin-right: 15px; }
+        nav a:hover { text-decoration: underline; }
+        .content { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .content h1 { color: #0366d6; border-bottom: 2px solid #e1e4e8; padding-bottom: 10px; margin-bottom: 20px; }
+        .content h2 { color: #0366d6; margin: 30px 0 15px; }
+        .content h3 { color: #24292e; margin: 20px 0 10px; }
+        .content p { margin: 15px 0; }
+        .content ul, .content ol { margin: 15px 0; padding-left: 30px; }
+        .content li { margin: 8px 0; }
+        .content a { color: #0366d6; text-decoration: none; }
+        .content a:hover { text-decoration: underline; }
+        .content code { background: #f6f8fa; padding: 2px 6px; border-radius: 3px; font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace; }
+        .content pre { background: #f6f8fa; padding: 20px; border-radius: 6px; overflow-x: auto; margin: 20px 0; }
+        .content pre code { background: none; padding: 0; }
+        .content table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+        .content th, .content td { border: 1px solid #e1e4e8; padding: 10px 15px; text-align: left; }
+        .content th { background: #f6f8fa; font-weight: 600; }
+        .content tr:nth-child(even) { background: #f6f8fa; }
+        footer { text-align: center; padding: 20px; color: #586069; margin-top: 40px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🤖 AI Publisher Agent 文档中心</h1>
+    </header>
+    <div class="container">
+        <nav>
+            <a href="../index.html">🏠 主页</a> |
+            <a href="README.html">📚 总索引</a> |
+            <a href="PRD.html">📋 PRD</a> |
+            <a href="guides/SELECTION.html">🎯 选择指南</a> |
+            <a href="guides/COMPARISON.html">⚖️ 对比表</a>
+        </nav>
+        <div class="content">
+<h1>OpenClaw 命令参考</h1>
+
+<p>完整的 OpenClaw 命令列表和使用示例。</p>
+
+<h2>📑 目录</h2>
+
+<ul><li><a href="#全局命令">全局命令</a></li>
+<li><a href="#gateway-命令">Gateway 命令</a></li>
+<li><a href="#agent-命令">Agent 命令</a></li>
+<li><a href="#文件命令">文件命令</a></li>
+<li><a href="#网络命令">网络命令</a></li>
+<li><a href="#浏览器命令">浏览器命令</a></li>
+<li><a href="#消息命令">消息命令</a></li>
+<li><a href="#技能命令">技能命令</a></li>
+<li><a href="#记忆命令">记忆命令</a></li>
+<li><a href="#系统命令">系统命令</a></li>
+</ul>
+<p>---</p>
+
+<h2>全局命令</h2>
+
+<h3><code>openclaw --version</code></h3>
+
+<p>显示 OpenClaw 版本号。</p>
+
+<pre><code>openclaw --version
+<h1>输出：1.0.0</h1>
+</code></pre>
+
+<h3><code>openclaw --help</code></h3>
+
+<p>显示帮助信息。</p>
+
+<pre><code>openclaw --help
+<p>openclaw -h</p>
+</code></pre>
+
+<h3><code>openclaw help [command]</code></h3>
+
+<p>显示特定命令的帮助。</p>
+
+<pre><code>openclaw help gateway
+<p>openclaw help agent create</p>
+</code></pre>
+
+<h3><code>openclaw init</code></h3>
+
+<p>初始化新的工作空间。</p>
+
+<pre><code>openclaw init
+<p>openclaw init --name my-workspace</p>
+<p>openclaw init --template default</p>
+</code></pre>
+
+<h3><code>openclaw config</code></h3>
+
+<p>管理配置文件。</p>
+
+<pre><code>openclaw config view          # 查看配置
+<p>openclaw config edit          # 编辑配置</p>
+<p>openclaw config reset         # 重置配置</p>
+<p>openclaw config validate      # 验证配置</p>
+</code></pre>
+
+<p>---</p>
+
+<h2>Gateway 命令</h2>
+
+<h3><code>openclaw gateway start</code></h3>
+
+<p>启动 Gateway 服务。</p>
+
+<pre><code>openclaw gateway start
+<p>openclaw gateway start --port 3001</p>
+<p>openclaw gateway start --host 0.0.0.0</p>
+<p>openclaw gateway start --daemon  # 后台运行</p>
+</code></pre>
+
+<strong>选项</strong>:
+<ul><li><code>--port, -p</code>: 端口号（默认：3000）</li>
+<li><code>--host, -h</code>: 绑定地址（默认：localhost）</li>
+<li><code>--daemon, -d</code>: 后台运行</li>
+<li><code>--verbose, -v</code>: 详细日志</li>
+</ul>
+<h3><code>openclaw gateway stop</code></h3>
+
+<p>停止 Gateway 服务。</p>
+
+<pre><code>openclaw gateway stop
+<p>openclaw gateway stop --force</p>
+</code></pre>
+
+<h3><code>openclaw gateway restart</code></h3>
+
+<p>重启 Gateway 服务。</p>
+
+<pre><code>openclaw gateway restart
+<p>openclaw gateway restart --graceful</p>
+</code></pre>
+
+<h3><code>openclaw gateway status</code></h3>
+
+<p>查看 Gateway 运行状态。</p>
+
+<pre><code>openclaw gateway status
+<p>openclaw gateway status --json</p>
+</code></pre>
+
+<h3><code>openclaw gateway logs</code></h3>
+
+<p>查看 Gateway 日志。</p>
+
+<pre><code>openclaw gateway logs
+<p>openclaw gateway logs --follow      # 实时跟踪</p>
+<p>openclaw gateway logs --lines 100   # 显示行数</p>
+<p>openclaw gateway logs --level error # 过滤级别</p>
+</code></pre>
+
+<h3><code>openclaw gateway health</code></h3>
+
+<p>运行健康检查。</p>
+
+<pre><code>openclaw gateway health
+<p>openclaw gateway health --full</p>
+</code></pre>
+
+<p>---</p>
+
+<h2>Agent 命令</h2>
+
+<h3><code>openclaw agent list</code></h3>
+
+<p>列出所有 Agent。</p>
+
+<pre><code>openclaw agent list
+<p>openclaw agent list --status</p>
+<p>openclaw agent list --json</p>
+</code></pre>
+
+<h3><code>openclaw agent create <name></code></h3>
+
+<p>创建新 Agent。</p>
+
+<pre><code>openclaw agent create my-assistant
+<p>openclaw agent create bot --template customer-service</p>
+<p>openclaw agent create dev --interactive</p>
+</code></pre>
+
+<strong>选项</strong>:
+<ul><li><code>--template, -t</code>: 使用模板</li>
+<li><code>--interactive, -i</code>: 交互式创建</li>
+<li><code>--path, -p</code>: 自定义路径</li>
+</ul>
+<h3><code>openclaw agent run <name></code></h3>
+
+<p>运行 Agent。</p>
+
+<pre><code>openclaw agent run my-assistant
+<p>openclaw agent run bot --message "你好"</p>
+<p>openclaw agent run dev --file task.md</p>
+</code></pre>
+
+<strong>选项</strong>:
+<ul><li><code>--message, -m</code>: 发送消息</li>
+<li><code>--file, -f</code>: 从文件读取任务</li>
+<li><code>--interactive, -i</code>: 交互模式</li>
+<li><code>--quiet, -q</code>: 安静模式</li>
+</ul>
+<h3><code>openclaw agent stop <name></code></h3>
+
+<p>停止运行中的 Agent。</p>
+
+<pre><code>openclaw agent stop my-assistant
+<p>openclaw agent stop all</p>
+</code></pre>
+
+<h3><code>openclaw agent status <name></code></h3>
+
+<p>查看 Agent 状态。</p>
+
+<pre><code>openclaw agent status my-assistant
+<p>openclaw agent status all</p>
+</code></pre>
+
+<h3><code>openclaw agent delete <name></code></h3>
+
+<p>删除 Agent。</p>
+
+<pre><code>openclaw agent delete my-assistant
+<p>openclaw agent delete old-bot --force</p>
+</code></pre>
+
+<h3><code>openclaw agent export <name></code></h3>
+
+<p>导出 Agent 配置。</p>
+
+<pre><code>openclaw agent export my-assistant
+<p>openclaw agent export bot --format json</p>
+<p>openclaw agent export all --output backup.zip</p>
+</code></pre>
+
+<h3><code>openclaw agent import <file></code></h3>
+
+<p>导入 Agent。</p>
+
+<pre><code>openclaw agent import agent-config.json
+<p>openclaw agent import backup.zip</p>
+</code></pre>
+
+<p>---</p>
+
+<h2>文件命令</h2>
+
+<h3><code>openclaw file read <path></code></h3>
+
+<p>读取文件内容。</p>
+
+<pre><code>openclaw file read myfile.txt
+<p>openclaw file read src/index.js --lines 50</p>
+<p>openclaw file read config.json --json</p>
+</code></pre>
+
+<strong>选项</strong>:
+<ul><li><code>--lines, -n</code>: 显示行数</li>
+<li><code>--offset, -o</code>: 起始行</li>
+<li><code>--json</code>: JSON 格式化输出</li>
+</ul>
+<h3><code>openclaw file write <path> [content]</code></h3>
+
+<p>写入文件内容。</p>
+
+<pre><code>openclaw file write hello.txt "Hello World"
+<p>openclaw file write config.json --input data.json</p>
+<p>openclaw file write output.md --stdin</p>
+</code></pre>
+
+<strong>选项</strong>:
+<ul><li><code>--input, -i</code>: 从文件读取内容</li>
+<li><code>--stdin</code>: 从标准输入读取</li>
+<li><code>--append, -a</code>: 追加模式</li>
+<li><code>--force, -f</code>: 强制覆盖</li>
+</ul>
+<h3><code>openclaw file edit <path></code></h3>
+
+<p>编辑文件。</p>
+
+<pre><code>openclaw file edit myfile.txt
+<p>openclaw file edit config.json --editor vim</p>
+</code></pre>
+
+<strong>选项</strong>:
+<ul><li><code>--editor, -e</code>: 指定编辑器</li>
+</ul>
+<h3><code>openclaw file list <directory></code></h3>
+
+<p>列出目录内容。</p>
+
+<pre><code>openclaw file list .
+<p>openclaw file list src --recursive</p>
+<p>openclaw file list docs --pattern "*.md"</p>
+</code></pre>
+
+<strong>选项</strong>:
+<ul><li><code>--recursive, -r</code>: 递归列出</li>
+<li><code>--pattern, -p</code>: 文件模式</li>
+<li><code>--long, -l</code>: 详细信息</li>
+</ul>
+<h3><code>openclaw file copy <src> <dest></code></h3>
+
+<p>复制文件。</p>
+
+<pre><code>openclaw file copy file.txt backup.txt
+<p>openclaw file copy src/ dist/ --recursive</p>
+</code></pre>
+
+<h3><code>openclaw file move <src> <dest></code></h3>
+
+<p>移动文件。</p>
+
+<pre><code>openclaw file move old.txt new.txt
+<p>openclaw file move temp/ archive/</p>
+</code></pre>
+
+<h3><code>openclaw file delete <path></code></h3>
+
+<p>删除文件。</p>
+
+<pre><code>openclaw file delete temp.txt
+<p>openclaw file delete old-folder --recursive</p>
+<p>openclaw file delete *.log --force</p>
+</code></pre>
+
+<p>---</p>
+
+<h2>网络命令</h2>
+
+<h3><code>openclaw web search <query></code></h3>
+
+<p>搜索网络。</p>
+
+<pre><code>openclaw web search "OpenClaw documentation"
+<p>openclaw web search "AI news" --count 10</p>
+<p>openclaw web search "tutorial" --freshness week</p>
+</code></pre>
+
+<strong>选项</strong>:
+<ul><li><code>--count, -n</code>: 结果数量（默认：10）</li>
+<li><code>--freshness, -f</code>: 时间过滤（day/week/month/year）</li>
+<li><code>--language, -l</code>: 语言代码</li>
+<li><code>--country, -c</code>: 国家代码</li>
+</ul>
+<h3><code>openclaw web fetch <url></code></h3>
+
+<p>获取网页内容。</p>
+
+<pre><code>openclaw web fetch https://example.com
+<p>openclaw web fetch https://example.com --markdown</p>
+<p>openclaw web fetch https://example.com --text</p>
+</code></pre>
+
+<strong>选项</strong>:
+<ul><li><code>--markdown, -m</code>: Markdown 格式输出</li>
+<li><code>--text, -t</code>: 纯文本输出</li>
+<li><code>--max-chars, -c</code>: 最大字符数</li>
+</ul>
+<h3><code>openclaw web download <url></code></h3>
+
+<p>下载文件。</p>
+
+<pre><code>openclaw web download https://example.com/file.pdf
+<p>openclaw web download https://example.com/image.jpg --output my-image.jpg</p>
+</code></pre>
+
+<p>---</p>
+
+<h2>浏览器命令</h2>
+
+<h3><code>openclaw browser open <url></code></h3>
+
+<p>打开浏览器。</p>
+
+<pre><code>openclaw browser open https://example.com
+<p>openclaw browser open --new-tab</p>
+<p>openclaw browser open --incognito</p>
+</code></pre>
+
+<h3><code>openclaw browser screenshot</code></h3>
+
+<p>截取屏幕截图。</p>
+
+<pre><code>openclaw browser screenshot
+<p>openclaw browser screenshot --full-page</p>
+<p>openclaw browser screenshot --output capture.png</p>
+</code></pre>
+
+<h3><code>openclaw browser click <selector></code></h3>
+
+<p>点击页面元素。</p>
+
+<pre><code>openclaw browser click "#submit-button"
+<p>openclaw browser click ".nav-item" --index 2</p>
+</code></pre>
+
+<h3><code>openclaw browser type <selector> <text></code></h3>
+
+<p>输入文本。</p>
+
+<pre><code>openclaw browser type "#username" "myuser"
+<p>openclaw browser type "input[name='email']" "test@example.com"</p>
+</code></pre>
+
+<h3><code>openclaw browser evaluate <script></code></h3>
+
+<p>执行 JavaScript。</p>
+
+<pre><code>openclaw browser evaluate "document.title"
+<p>openclaw browser evaluate "document.querySelectorAll('.item').length"</p>
+</code></pre>
+
+<h3><code>openclaw browser close</code></h3>
+
+<p>关闭浏览器。</p>
+
+<pre><code>openclaw browser close
+<p>openclaw browser close --all</p>
+</code></pre>
+
+<p>---</p>
+
+<h2>消息命令</h2>
+
+<h3><code>openclaw message send <message></code></h3>
+
+<p>发送消息。</p>
+
+<pre><code>openclaw message send "Hello World"
+<p>openclaw message send "Task complete" --channel general</p>
+<p>openclaw message send "Report" --thread 12345</p>
+</code></pre>
+
+<strong>选项</strong>:
+<ul><li><code>--channel, -c</code>: 目标频道</li>
+<li><code>--thread, -t</code>: 线程 ID</li>
+<li><code>--reply-to, -r</code>: 回复消息 ID</li>
+<li><code>--file, -f</code>: 附加文件</li>
+</ul>
+<h3><code>openclaw message broadcast <message></code></h3>
+
+<p>广播消息。</p>
+
+<pre><code>openclaw message broadcast "System maintenance in 1 hour"
+<p>openclaw message broadcast "Update available" --channels general,announcements</p>
+</code></pre>
+
+<h3><code>openclaw message list</code></h3>
+
+<p>列出消息。</p>
+
+<pre><code>openclaw message list --channel general
+<p>openclaw message list --limit 50</p>
+<p>openclaw message list --since "2024-01-01"</p>
+</code></pre>
+
+<p>---</p>
+
+<h2>技能命令</h2>
+
+<h3><code>openclaw skills list</code></h3>
+
+<p>列出可用技能。</p>
+
+<pre><code>openclaw skills list
+<p>openclaw skills list --installed</p>
+<p>openclaw skills list --available</p>
+</code></pre>
+
+<h3><code>openclaw skills install <name></code></h3>
+
+<p>安装技能。</p>
+
+<pre><code>openclaw skills install weather
+<p>openclaw skills install github-tools --version 1.2.0</p>
+<p>openclaw skills install ./local-skill</p>
+</code></pre>
+
+<h3><code>openclaw skills uninstall <name></code></h3>
+
+<p>卸载技能。</p>
+
+<pre><code>openclaw skills uninstall weather
+<p>openclaw skills uninstall old-skill --force</p>
+</code></pre>
+
+<h3><code>openclaw skills update [name]</code></h3>
+
+<p>更新技能。</p>
+
+<pre><code>openclaw skills update
+<p>openclaw skills update weather</p>
+<p>openclaw skills update --all</p>
+</code></pre>
+
+<h3><code>openclaw skills create <name></code></h3>
+
+<p>创建新技能。</p>
+
+<pre><code>openclaw skills create my-skill
+<p>openclaw skills create custom-tool --template basic</p>
+</code></pre>
+
+<h3><code>openclaw skills enable <name></code></h3>
+
+<p>启用技能。</p>
+
+<pre><code>openclaw skills enable weather
+<p>openclaw skills enable all</p>
+</code></pre>
+
+<h3><code>openclaw skills disable <name></code></h3>
+
+<p>禁用技能。</p>
+
+<pre><code>openclaw skills disable weather
+<p>openclaw skills disable experimental</p>
+</code></pre>
+
+<p>---</p>
+
+<h2>记忆命令</h2>
+
+<h3><code>openclaw memory list</code></h3>
+
+<p>列出记忆。</p>
+
+<pre><code>openclaw memory list
+<p>openclaw memory list --today</p>
+<p>openclaw memory list --agent my-assistant</p>
+</code></pre>
+
+<h3><code>openclaw memory add <content></code></h3>
+
+<p>添加记忆。</p>
+
+<pre><code>openclaw memory add "用户偏好使用中文"
+<p>openclaw memory add "项目截止日期：2024-12-31" --project my-project</p>
+<p>openclaw memory add "重要信息" --priority high</p>
+</code></pre>
+
+<h3><code>openclaw memory search <query></code></h3>
+
+<p>搜索记忆。</p>
+
+<pre><code>openclaw memory search "API key"
+<p>openclaw memory search "configuration" --agent dev-bot</p>
+</code></pre>
+
+<h3><code>openclaw memory delete <id></code></h3>
+
+<p>删除记忆。</p>
+
+<pre><code>openclaw memory delete 12345
+<p>openclaw memory delete --older-than 30d</p>
+</code></pre>
+
+<h3><code>openclaw memory export</code></h3>
+
+<p>导出记忆。</p>
+
+<pre><code>openclaw memory export --format json
+<p>openclaw memory export --output backup.json</p>
+</code></pre>
+
+<h3><code>openclaw memory import <file></code></h3>
+
+<p>导入记忆。</p>
+
+<pre><code>openclaw memory import backup.json
+</code></pre>
+
+<p>---</p>
+
+<h2>系统命令</h2>
+
+<h3><code>openclaw system info</code></h3>
+
+<p>显示系统信息。</p>
+
+<pre><code>openclaw system info
+<p>openclaw system info --json</p>
+</code></pre>
+
+<h3><code>openclaw system doctor</code></h3>
+
+<p>运行诊断。</p>
+
+<pre><code>openclaw system doctor
+<p>openclaw system doctor --full</p>
+</code></pre>
+
+<h3><code>openclaw system update</code></h3>
+
+<p>更新 OpenClaw。</p>
+
+<pre><code>openclaw system update
+<p>openclaw system update --check</p>
+<p>openclaw system update --force</p>
+</code></pre>
+
+<h3><code>openclaw system cleanup</code></h3>
+
+<p>清理缓存。</p>
+
+<pre><code>openclaw system cleanup
+<p>openclaw system cleanup --cache</p>
+<p>openclaw system cleanup --logs</p>
+<p>openclaw system cleanup --all</p>
+</code></pre>
+
+<h3><code>openclaw system backup</code></h3>
+
+<p>创建备份。</p>
+
+<pre><code>openclaw system backup
+<p>openclaw system backup --output backup-2024.zip</p>
+<p>openclaw system backup --include agents,skills,memory</p>
+</code></pre>
+
+<h3><code>openclaw system restore <backup></code></h3>
+
+<p>恢复备份。</p>
+
+<pre><code>openclaw system restore backup-2024.zip
+<p>openclaw system restore --dry-run backup.zip</p>
+</code></pre>
+
+<p>---</p>
+
+<h2>快捷键和别名</h2>
+
+<h3>常用别名</h3>
+
+<pre><code><h1>在 ~/.bashrc 或 ~/.zshrc 中添加</h1>
+<p>alias oc='openclaw'</p>
+<p>alias ocg='openclaw gateway'</p>
+<p>alias oca='openclaw agent'</p>
+<p>alias ocf='openclaw file'</p>
+<p>alias ocw='openclaw web'</p>
+</code></pre>
+
+<h3>快捷命令</h3>
+
+<pre><code><h1>快速启动</h1>
+<p>oc start          # openclaw gateway start</p>
+<p>oc stop           # openclaw gateway stop</p>
+<p>oc run bot        # openclaw agent run bot</p>
+
+<h1>快速开发</h1>
+<p>oc new skill      # openclaw skills create</p>
+<p>oc new agent      # openclaw agent create</p>
+<p>oc edit config    # openclaw config edit</p>
+</code></pre>
+
+<p>---</p>
+
+<h2>环境变量</h2>
+
+<p>| 变量 | 说明 | 默认值 |</p>
+<p>|------|------|--------|</p>
+<p>| <code>OPENCLAW_HOME</code> | 主目录 | <code>~/.openclaw</code> |</p>
+<p>| <code>OPENCLAW_WORKSPACE</code> | 工作空间 | <code>~/openclaw-workspace</code> |</p>
+<p>| <code>OPENCLAW_PORT</code> | 网关端口 | <code>3000</code> |</p>
+<p>| <code>OPENCLAW_LOG_LEVEL</code> | 日志级别 | <code>info</code> |</p>
+<p>| <code>OPENCLAW_API_KEY</code> | API 密钥 | - |</p>
+<p>| <code>OPENCLAW_DEBUG</code> | 调试模式 | <code>false</code> |</p>
+
+<p>---</p>
+
+<h2>退出代码</h2>
+
+<p>| 代码 | 含义 |</p>
+<p>|------|------|</p>
+<p>| 0 | 成功 |</p>
+<p>| 1 | 一般错误 |</p>
+<p>| 2 | 配置错误 |</p>
+<p>| 3 | 网络错误 |</p>
+<p>| 4 | 权限错误 |</p>
+<p>| 5 | 资源不存在 |</p>
+
+<p>---</p>
+
+<strong>提示</strong>: 使用 <code>openclaw help <command></code> 查看特定命令的详细帮助！
+
+        </div>
+    </div>
+    <footer>
+        <p>最后更新：2026-03-15 | 维护者：AI Publisher Agent 团队</p>
+        <p><a href="https://github.com/FreePineGo/ai-tools-docs">GitHub 仓库</a></p>
+    </footer>
+</body>
+</html>

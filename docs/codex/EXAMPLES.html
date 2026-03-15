@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>代码示例 - AI Publisher Agent 文档中心</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background: #f6f8fa; color: #24292e; line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        header { background: #0366d6; color: white; padding: 40px 20px; text-align: center; margin-bottom: 20px; }
+        header h1 { font-size: 2em; }
+        nav { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        nav a { color: #0366d6; text-decoration: none; margin-right: 15px; }
+        nav a:hover { text-decoration: underline; }
+        .content { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .content h1 { color: #0366d6; border-bottom: 2px solid #e1e4e8; padding-bottom: 10px; margin-bottom: 20px; }
+        .content h2 { color: #0366d6; margin: 30px 0 15px; }
+        .content h3 { color: #24292e; margin: 20px 0 10px; }
+        .content p { margin: 15px 0; }
+        .content ul, .content ol { margin: 15px 0; padding-left: 30px; }
+        .content li { margin: 8px 0; }
+        .content a { color: #0366d6; text-decoration: none; }
+        .content a:hover { text-decoration: underline; }
+        .content code { background: #f6f8fa; padding: 2px 6px; border-radius: 3px; font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace; }
+        .content pre { background: #f6f8fa; padding: 20px; border-radius: 6px; overflow-x: auto; margin: 20px 0; }
+        .content pre code { background: none; padding: 0; }
+        .content table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+        .content th, .content td { border: 1px solid #e1e4e8; padding: 10px 15px; text-align: left; }
+        .content th { background: #f6f8fa; font-weight: 600; }
+        .content tr:nth-child(even) { background: #f6f8fa; }
+        footer { text-align: center; padding: 20px; color: #586069; margin-top: 40px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🤖 AI Publisher Agent 文档中心</h1>
+    </header>
+    <div class="container">
+        <nav>
+            <a href="../index.html">🏠 主页</a> |
+            <a href="README.html">📚 总索引</a> |
+            <a href="PRD.html">📋 PRD</a> |
+            <a href="guides/SELECTION.html">🎯 选择指南</a> |
+            <a href="guides/COMPARISON.html">⚖️ 对比表</a>
+        </nav>
+        <div class="content">
+<h1>代码示例</h1>
+
+<h2>Python 示例</h2>
+
+<h3>1. 数据结构与算法</h3>
+
+#### 快速排序
+
+<strong>Prompt</strong>: "用 Python 实现快速排序，包含注释"
+
+<pre><code>def quick_sort(arr):
+<p>    """</p>
+<p>    快速排序实现</p>
+<p>    时间复杂度：平均 O(n log n)，最坏 O(n²)</p>
+<p>    空间复杂度：O(log n)</p>
+<p>    """</p>
+<p>    if len(arr) <= 1:</p>
+<p>        return arr</p>
+    
+<p>    pivot = arr[len(arr) // 2]</p>
+<p>    left = [x for x in arr if x < pivot]</p>
+<p>    middle = [x for x in arr if x == pivot]</p>
+<p>    right = [x for x in arr if x > pivot]</p>
+    
+<p>    return quick_sort(left) + middle + quick_sort(right)</p>
+
+<h1>使用示例</h1>
+<p>arr = [3, 6, 8, 10, 1, 2, 1]</p>
+<p>sorted_arr = quick_sort(arr)</p>
+<p>print(sorted_arr)  # [1, 1, 2, 3, 6, 8, 10]</p>
+</code></pre>
+
+#### 二分查找
+
+<strong>Prompt</strong>: "Python 二分查找，返回索引，找不到返回 -1"
+
+<pre><code>def binary_search(arr, target):
+<p>    """二分查找，返回目标值的索引"""</p>
+<p>    left, right = 0, len(arr) - 1</p>
+    
+<p>    while left <= right:</p>
+<p>        mid = (left + right) // 2</p>
+<p>        if arr[mid] == target:</p>
+<p>            return mid</p>
+<p>        elif arr[mid] < target:</p>
+<p>            left = mid + 1</p>
+<p>        else:</p>
+<p>            right = mid - 1</p>
+    
+<p>    return -1</p>
+
+<h1>使用示例</h1>
+<p>arr = [1, 3, 5, 7, 9, 11]</p>
+<p>print(binary_search(arr, 7))   # 3</p>
+<p>print(binary_search(arr, 4))   # -1</p>
+</code></pre>
+
+<h3>2. Web 开发</h3>
+
+#### Flask REST API
+
+<strong>Prompt</strong>: "用 Flask 创建一个简单的 REST API，包含 GET 和 POST 端点"
+
+<pre><code>from flask import Flask, request, jsonify
+<p>from datetime import datetime</p>
+
+<p>app = Flask(__name__)</p>
+
+<h1>内存存储</h1>
+<p>items = []</p>
+
+<p>@app.route('/api/items', methods=['GET'])</p>
+<p>def get_items():</p>
+<p>    """获取所有项目"""</p>
+<p>    return jsonify({</p>
+<p>        'success': True,</p>
+<p>        'data': items,</p>
+<p>        'count': len(items)</p>
+<p>    })</p>
+
+<p>@app.route('/api/items', methods=['POST'])</p>
+<p>def create_item():</p>
+<p>    """创建新项目"""</p>
+<p>    data = request.get_json()</p>
+    
+<p>    if not data or 'name' not in data:</p>
+<p>        return jsonify({</p>
+<p>            'success': False,</p>
+<p>            'error': 'Name is required'</p>
+<p>        }), 400</p>
+    
+<p>    item = {</p>
+<p>        'id': len(items) + 1,</p>
+<p>        'name': data['name'],</p>
+<p>        'description': data.get('description', ''),</p>
+<p>        'created_at': datetime.now().isoformat()</p>
+<p>    }</p>
+    
+<p>    items.append(item)</p>
+    
+<p>    return jsonify({</p>
+<p>        'success': True,</p>
+<p>        'data': item</p>
+<p>    }), 201</p>
+
+<p>@app.route('/api/items/<int:item_id>', methods=['GET'])</p>
+<p>def get_item(item_id):</p>
+<p>    """获取单个项目"""</p>
+<p>    item = next((i for i in items if i['id'] == item_id), None)</p>
+    
+<p>    if not item:</p>
+<p>        return jsonify({</p>
+<p>            'success': False,</p>
+<p>            'error': 'Item not found'</p>
+<p>        }), 404</p>
+    
+<p>    return jsonify({</p>
+<p>        'success': True,</p>
+<p>        'data': item</p>
+<p>    })</p>
+
+<p>if __name__ == '__main__':</p>
+<p>    app.run(debug=True)</p>
+</code></pre>
+
+#### 异步 HTTP 客户端
+
+<strong>Prompt</strong>: "使用 aiohttp 创建异步 HTTP 客户端，支持重试"
+
+<pre><code>import aiohttp
+<p>import asyncio</p>
+<p>from typing import Optional, Dict, Any</p>
+
+<p>class AsyncHTTPClient:</p>
+<p>    def __init__(self, max_retries: int = 3, timeout: int = 30):</p>
+<p>        self.max_retries = max_retries</p>
+<p>        self.timeout = timeout</p>
+    
+<p>    async def get(self, url: str, headers: Optional[Dict] = None) -> Optional[Dict[str, Any]]:</p>
+<p>        """发送 GET 请求"""</p>
+<p>        for attempt in range(self.max_retries):</p>
+<p>            try:</p>
+<p>                async with aiohttp.ClientSession() as session:</p>
+<p>                    async with session.get(</p>
+<p>                        url,</p>
+<p>                        headers=headers,</p>
+<p>                        timeout=aiohttp.ClientTimeout(total=self.timeout)</p>
+<p>                    ) as response:</p>
+<p>                        if response.status == 200:</p>
+<p>                            return await response.json()</p>
+<p>                        elif response.status >= 500:</p>
+<p>                            await asyncio.sleep(2 ** attempt)  # 指数退避</p>
+<p>                            continue</p>
+<p>                        else:</p>
+<p>                            response.raise_for_status()</p>
+<p>            except Exception as e:</p>
+<p>                if attempt == self.max_retries - 1:</p>
+<p>                    print(f"请求失败 after {self.max_retries} attempts: {e}")</p>
+<p>                    return None</p>
+<p>                await asyncio.sleep(2 ** attempt)</p>
+        
+<p>        return None</p>
+    
+<p>    async def post(self, url: str, data: Dict, headers: Optional[Dict] = None) -> Optional[Dict[str, Any]]:</p>
+<p>        """发送 POST 请求"""</p>
+<p>        for attempt in range(self.max_retries):</p>
+<p>            try:</p>
+<p>                async with aiohttp.ClientSession() as session:</p>
+<p>                    async with session.post(</p>
+<p>                        url,</p>
+<p>                        json=data,</p>
+<p>                        headers=headers,</p>
+<p>                        timeout=aiohttp.ClientTimeout(total=self.timeout)</p>
+<p>                    ) as response:</p>
+<p>                        if response.status in [200, 201]:</p>
+<p>                            return await response.json()</p>
+<p>                        elif response.status >= 500:</p>
+<p>                            await asyncio.sleep(2 ** attempt)</p>
+<p>                            continue</p>
+<p>                        else:</p>
+<p>                            response.raise_for_status()</p>
+<p>            except Exception as e:</p>
+<p>                if attempt == self.max_retries - 1:</p>
+<p>                    print(f"请求失败：{e}")</p>
+<p>                    return None</p>
+<p>                await asyncio.sleep(2 ** attempt)</p>
+        
+<p>        return None</p>
+
+<h1>使用示例</h1>
+<p>async def main():</p>
+<p>    client = AsyncHTTPClient()</p>
+<p>    data = await client.get('https://api.example.com/data')</p>
+<p>    print(data)</p>
+
+<p>asyncio.run(main())</p>
+</code></pre>
+
+<h3>3. 数据处理</h3>
+
+#### Pandas 数据清洗
+
+<strong>Prompt</strong>: "用 pandas 清洗数据：处理缺失值、删除重复、标准化列名"
+
+<pre><code>import pandas as pd
+<p>import numpy as np</p>
+
+<p>def clean_dataframe(df: pd.DataFrame) -> pd.DataFrame:</p>
+<p>    """</p>
+<p>    数据清洗函数</p>
+<p>    - 标准化列名</p>
+<p>    - 删除完全重复行</p>
+<p>    - 处理缺失值</p>
+<p>    """</p>
+    # 标准化列名：小写，空格变下划线
+<p>    df.columns = (</p>
+<p>        df.columns</p>
+<p>        .str.lower()</p>
+<p>        .str.replace(' ', '_')</p>
+<p>        .str.replace('[^a-z0-9_]', '', regex=True)</p>
+<p>    )</p>
+    
+    # 删除完全重复的行
+<p>    df = df.drop_duplicates()</p>
+    
+    # 处理缺失值
+<p>    for col in df.columns:</p>
+<p>        if df[col].dtype == 'object':</p>
+            # 字符串列：用众数填充
+<p>            df[col] = df[col].fillna(df[col].mode()[0] if not df[col].mode().empty else 'Unknown')</p>
+<p>        elif df[col].dtype in ['int64', 'float64']:</p>
+            # 数值列：用中位数填充
+<p>            df[col] = df[col].fillna(df[col].median())</p>
+<p>        elif df[col].dtype == 'datetime64[ns]':</p>
+            # 日期列：用众数填充
+<p>            df[col] = df[col].fillna(df[col].mode()[0] if not df[col].mode().empty else pd.NaT)</p>
+    
+    # 重置索引
+<p>    df = df.reset_index(drop=True)</p>
+    
+<p>    return df</p>
+
+<h1>使用示例</h1>
+<p>df = pd.read_csv('data.csv')</p>
+<p>clean_df = clean_dataframe(df)</p>
+<p>print(clean_df.info())</p>
+</code></pre>
+
+<h3>4. 装饰器与高级特性</h3>
+
+<strong>Prompt</strong>: "Python 装饰器：缓存、重试、计时"
+
+<pre><code>import functools
+<p>import time</p>
+<p>import hashlib</p>
+<p>from typing import Callable, Any</p>
+
+<h1>缓存装饰器</h1>
+<p>def cache_result(ttl: int = 300):</p>
+<p>    """结果缓存装饰器，ttl 为过期时间（秒）"""</p>
+<p>    cache = {}</p>
+    
+<p>    def decorator(func: Callable) -> Callable:</p>
+<p>        @functools.wraps(func)</p>
+<p>        def wrapper(*args, **kwargs) -> Any:</p>
+            # 创建缓存键
+<p>            key = hashlib.md5(</p>
+<p>                f"{func.__name__}:{args}:{kwargs}".encode()</p>
+<p>            ).hexdigest()</p>
+            
+            # 检查缓存
+<p>            if key in cache:</p>
+<p>                result, timestamp = cache[key]</p>
+<p>                if time.time() - timestamp < ttl:</p>
+<p>                    return result</p>
+            
+            # 执行函数并缓存
+<p>            result = func(*args, **kwargs)</p>
+<p>            cache[key] = (result, time.time())</p>
+<p>            return result</p>
+        
+<p>        wrapper.cache_clear = lambda: cache.clear()</p>
+<p>        return wrapper</p>
+<p>    return decorator</p>
+
+<h1>重试装饰器</h1>
+<p>def retry(max_attempts: int = 3, delay: float = 1.0, exceptions: tuple = (Exception,)):</p>
+<p>    """重试装饰器"""</p>
+<p>    def decorator(func: Callable) -> Callable:</p>
+<p>        @functools.wraps(func)</p>
+<p>        def wrapper(*args, **kwargs) -> Any:</p>
+<p>            last_exception = None</p>
+            
+<p>            for attempt in range(max_attempts):</p>
+<p>                try:</p>
+<p>                    return func(*args, **kwargs)</p>
+<p>                except exceptions as e:</p>
+<p>                    last_exception = e</p>
+<p>                    if attempt < max_attempts - 1:</p>
+<p>                        time.sleep(delay * (2 ** attempt))  # 指数退避</p>
+            
+<p>            raise last_exception</p>
+        
+<p>        return wrapper</p>
+<p>    return decorator</p>
+
+<h1>计时装饰器</h1>
+<p>def timing(func: Callable) -> Callable:</p>
+<p>    """函数执行时间统计"""</p>
+<p>    @functools.wraps(func)</p>
+<p>    def wrapper(*args, **kwargs) -> Any:</p>
+<p>        start = time.time()</p>
+<p>        result = func(*args, **kwargs)</p>
+<p>        end = time.time()</p>
+<p>        print(f"{func.__name__} 执行时间：{end - start:.4f}秒")</p>
+<p>        return result</p>
+<p>    return wrapper</p>
+
+<h1>使用示例</h1>
+<p>@cache_result(ttl=60)</p>
+<p>@timing</p>
+<p>def expensive_operation(n: int) -> int:</p>
+<p>    time.sleep(2)</p>
+<p>    return sum(range(n))</p>
+
+<p>@retry(max_attempts=3, delay=0.5)</p>
+<p>def flaky_request():</p>
+<p>    import random</p>
+<p>    if random.random() < 0.7:</p>
+<p>        raise ConnectionError("网络错误")</p>
+<p>    return "成功"</p>
+</code></pre>
+
+<h2>JavaScript/TypeScript 示例</h2>
+
+<h3>1. React 自定义 Hook</h3>
+
+<strong>Prompt</strong>: "TypeScript React 自定义 Hook：useFetch 带缓存和重试"
+
+<pre><code>import { useState, useEffect, useCallback } from 'react';
+
+<p>interface UseFetchResult<T> {</p>
+<p>  data: T | null;</p>
+<p>  loading: boolean;</p>
+<p>  error: Error | null;</p>
+<p>  refetch: () => void;</p>
+<p>}</p>
+
+<p>interface CacheEntry<T> {</p>
+<p>  data: T;</p>
+<p>  timestamp: number;</p>
+<p>}</p>
+
+<p>const cache = new Map<string, CacheEntry<any>>();</p>
+<p>const CACHE_TTL = 5 * 60 * 1000; // 5 分钟</p>
+
+<p>export function useFetch<T>(</p>
+<p>  url: string,</p>
+<p>  options: RequestInit = {},</p>
+<p>  cacheEnabled: boolean = true</p>
+<p>): UseFetchResult<T> {</p>
+<p>  const [data, setData] = useState<T | null>(null);</p>
+<p>  const [loading, setLoading] = useState<boolean>(true);</p>
+<p>  const [error, setError] = useState<Error | null>(null);</p>
+
+<p>  const fetchData = useCallback(async () => {</p>
+<p>    // 检查缓存</p>
+<p>    if (cacheEnabled && cache.has(url)) {</p>
+<p>      const entry = cache.get(url)!;</p>
+<p>      if (Date.now() - entry.timestamp < CACHE_TTL) {</p>
+<p>        setData(entry.data);</p>
+<p>        setLoading(false);</p>
+<p>        return;</p>
+<p>      }</p>
+<p>    }</p>
+
+<p>    setLoading(true);</p>
+<p>    setError(null);</p>
+
+<p>    try {</p>
+<p>      const response = await fetch(url, {</p>
+<p>        ...options,</p>
+<p>        headers: {</p>
+<p>          'Content-Type': 'application/json',</p>
+<p>          ...options.headers,</p>
+<p>        },</p>
+<p>      });</p>
+
+<p>      if (!response.ok) {</p>
+<p>        throw new Error(<code>HTTP error! status: ${response.status}</code>);</p>
+<p>      }</p>
+
+<p>      const result = await response.json();</p>
+<p>      setData(result);</p>
+
+<p>      // 缓存结果</p>
+<p>      if (cacheEnabled) {</p>
+<p>        cache.set(url, {</p>
+<p>          data: result,</p>
+<p>          timestamp: Date.now(),</p>
+<p>        });</p>
+<p>      }</p>
+<p>    } catch (err) {</p>
+<p>      setError(err instanceof Error ? err : new Error('Unknown error'));</p>
+<p>    } finally {</p>
+<p>      setLoading(false);</p>
+<p>    }</p>
+<p>  }, [url, options, cacheEnabled]);</p>
+
+<p>  useEffect(() => {</p>
+<p>    fetchData();</p>
+<p>  }, [fetchData]);</p>
+
+<p>  return { data, loading, error, refetch: fetchData };</p>
+<p>}</p>
+
+<p>// 使用示例</p>
+<p>function UserProfile({ userId }: { userId: string }) {</p>
+<p>  const { data, loading, error, refetch } = useFetch<User>(</p>
+    <code>https://api.example.com/users/${userId}</code>
+<p>  );</p>
+
+<p>  if (loading) return <div>加载中...</div>;</p>
+<p>  if (error) return <div>错误：{error.message}</div>;</p>
+<p>  if (!data) return null;</p>
+
+<p>  return (</p>
+    <div>
+      <h1>{data.name}</h1>
+      <button onClick={refetch}>刷新</button>
+    </div>
+<p>  );</p>
+<p>}</p>
+</code></pre>
+
+<h3>2. Node.js 中间件</h3>
+
+<strong>Prompt</strong>: "Express 中间件：日志、认证、限流"
+
+<pre><code>import { Request, Response, NextFunction } from 'express';
+<p>import rateLimit from 'express-rate-limit';</p>
+<p>import jwt from 'jsonwebtoken';</p>
+
+<p>// 日志中间件</p>
+<p>export function logger(req: Request, res: Response, next: NextFunction) {</p>
+<p>  const start = Date.now();</p>
+  
+<p>  res.on('finish', () => {</p>
+<p>    const duration = Date.now() - start;</p>
+<p>    console.log(</p>
+      <code>[${new Date().toISOString()}] ${req.method} ${req.originalUrl} </code> +
+      <code>${res.statusCode} ${duration}ms</code>
+<p>    );</p>
+<p>  });</p>
+  
+<p>  next();</p>
+<p>}</p>
+
+<p>// 认证中间件</p>
+<p>export function authenticate(</p>
+<p>  req: Request,</p>
+<p>  res: Response,</p>
+<p>  next: NextFunction</p>
+<p>) {</p>
+<p>  const authHeader = req.headers.authorization;</p>
+  
+<p>  if (!authHeader || !authHeader.startsWith('Bearer ')) {</p>
+<p>    res.status(401).json({ error: '缺少认证令牌' });</p>
+<p>    return;</p>
+<p>  }</p>
+  
+<p>  const token = authHeader.substring(7);</p>
+  
+<p>  try {</p>
+<p>    const payload = jwt.verify(token, process.env.JWT_SECRET!);</p>
+<p>    (req as any).user = payload;</p>
+<p>    next();</p>
+<p>  } catch (error) {</p>
+<p>    res.status(401).json({ error: '无效的认证令牌' });</p>
+<p>  }</p>
+<p>}</p>
+
+<p>// 限流中间件</p>
+<p>export const rateLimiter = rateLimit({</p>
+<p>  windowMs: 15 * 60 * 1000, // 15 分钟</p>
+<p>  max: 100, // 最多 100 请求</p>
+<p>  message: { error: '请求过于频繁，请稍后重试' },</p>
+<p>  standardHeaders: true,</p>
+<p>  legacyHeaders: false,</p>
+<p>});</p>
+
+<p>// 使用示例</p>
+<p>import express from 'express';</p>
+<p>const app = express();</p>
+
+<p>app.use(logger);</p>
+<p>app.use('/api/', rateLimiter);</p>
+<p>app.use('/api/protected/', authenticate);</p>
+</code></pre>
+
+<h2>SQL 示例</h2>
+
+<h3>复杂查询</h3>
+
+<strong>Prompt</strong>: "SQL 查询：统计每月活跃用户，包含留存率"
+
+<pre><code>-- 计算每月活跃用户和留存率
+<p>WITH monthly_active_users AS (</p>
+<p>    SELECT </p>
+<p>        DATE_TRUNC('month', login_date) AS month,</p>
+<p>        COUNT(DISTINCT user_id) AS active_users</p>
+<p>    FROM user_logins</p>
+<p>    WHERE login_date >= DATE_SUB(CURRENT_DATE, INTERVAL 12 MONTH)</p>
+<p>    GROUP BY DATE_TRUNC('month', login_date)</p>
+<p>),</p>
+<p>user_cohorts AS (</p>
+<p>    SELECT </p>
+<p>        u1.user_id,</p>
+<p>        DATE_TRUNC('month', u1.login_date) AS cohort_month,</p>
+<p>        DATE_TRUNC('month', u2.login_date) AS active_month</p>
+<p>    FROM (</p>
+<p>        SELECT user_id, MIN(login_date) AS login_date</p>
+<p>        FROM user_logins</p>
+<p>        GROUP BY user_id</p>
+<p>    ) u1</p>
+<p>    JOIN user_logins u2 ON u1.user_id = u2.user_id</p>
+<p>)</p>
+<p>SELECT </p>
+<p>    mau.month,</p>
+<p>    mau.active_users,</p>
+<p>    LAG(mau.active_users) OVER (ORDER BY mau.month) AS prev_month_users,</p>
+<p>    ROUND(</p>
+<p>        (mau.active_users * 100.0 / </p>
+<p>        LAG(mau.active_users) OVER (ORDER BY mau.month)), 2</p>
+<p>    ) AS retention_rate</p>
+<p>FROM monthly_active_users mau</p>
+<p>ORDER BY mau.month;</p>
+</code></pre>
+
+<h2>Shell 脚本示例</h2>
+
+<h3>自动化部署</h3>
+
+<strong>Prompt</strong>: "Bash 脚本：自动化部署，包含回滚功能"
+
+<pre><code>#!/bin/bash
+
+<p>set -e</p>
+
+<h1>配置</h1>
+<p>APP_NAME="myapp"</p>
+<p>DEPLOY_DIR="/var/www/$APP_NAME"</p>
+<p>BACKUP_DIR="/var/backups/$APP_NAME"</p>
+<p>GIT_REPO="git@github.com:user/repo.git"</p>
+<p>BRANCH="main"</p>
+
+<h1>颜色</h1>
+<p>RED='\033[0;31m'</p>
+<p>GREEN='\033[0;32m'</p>
+<p>YELLOW='\033[1;33m'</p>
+<p>NC='\033[0m'</p>
+
+<p>log() {</p>
+<p>    echo -e "${GREEN}[$(date +'%Y-%m-%d %H:%M:%S')]${NC} $1"</p>
+<p>}</p>
+
+<p>error() {</p>
+<p>    echo -e "${RED}[ERROR]${NC} $1"</p>
+<p>}</p>
+
+<h1>创建备份</h1>
+<p>backup() {</p>
+<p>    log "创建备份..."</p>
+<p>    mkdir -p "$BACKUP_DIR"</p>
+<p>    timestamp=$(date +%Y%m%d_%H%M%S)</p>
+<p>    tar -czf "$BACKUP_DIR/backup_$timestamp.tar.gz" "$DEPLOY_DIR"</p>
+<p>    log "备份完成：backup_$timestamp.tar.gz"</p>
+<p>}</p>
+
+<h1>拉取代码</h1>
+<p>pull_code() {</p>
+<p>    log "拉取最新代码..."</p>
+<p>    cd "$DEPLOY_DIR"</p>
+<p>    git fetch origin</p>
+<p>    git checkout "$BRANCH"</p>
+<p>    git pull origin "$BRANCH"</p>
+<p>}</p>
+
+<h1>安装依赖</h1>
+<p>install_deps() {</p>
+<p>    log "安装依赖..."</p>
+<p>    if [ -f "package.json" ]; then</p>
+<p>        npm ci --production</p>
+<p>    elif [ -f "requirements.txt" ]; then</p>
+<p>        pip install -r requirements.txt</p>
+<p>    fi</p>
+<p>}</p>
+
+<h1>重启服务</h1>
+<p>restart_service() {</p>
+<p>    log "重启服务..."</p>
+<p>    if [ -f "systemd.service" ]; then</p>
+<p>        sudo systemctl restart "$APP_NAME"</p>
+<p>    elif [ -f "Procfile" ]; then</p>
+<p>        sudo supervisorctl restart all</p>
+<p>    fi</p>
+<p>}</p>
+
+<h1>回滚</h1>
+<p>rollback() {</p>
+<p>    log "执行回滚..."</p>
+<p>    latest_backup=$(ls -t "$BACKUP_DIR" | head -1)</p>
+<p>    if [ -z "$latest_backup" ]; then</p>
+<p>        error "未找到备份文件"</p>
+<p>        exit 1</p>
+<p>    fi</p>
+    
+<p>    tar -xzf "$BACKUP_DIR/$latest_backup" -C /</p>
+<p>    log "回滚完成：$latest_backup"</p>
+<p>    restart_service</p>
+<p>}</p>
+
+<h1>主流程</h1>
+<p>main() {</p>
+<p>    if [ "$1" == "rollback" ]; then</p>
+<p>        rollback</p>
+<p>        exit 0</p>
+<p>    fi</p>
+    
+<p>    log "开始部署 $APP_NAME"</p>
+    
+<p>    backup</p>
+<p>    pull_code</p>
+<p>    install_deps</p>
+<p>    restart_service</p>
+    
+<p>    log "部署完成！"</p>
+<p>}</p>
+
+<p>main "$@"</p>
+</code></pre>
+
+<p>---</p>
+
+<p>*最后更新：2026-03-15*</p>
+
+        </div>
+    </div>
+    <footer>
+        <p>最后更新：2026-03-15 | 维护者：AI Publisher Agent 团队</p>
+        <p><a href="https://github.com/FreePineGo/ai-tools-docs">GitHub 仓库</a></p>
+    </footer>
+</body>
+</html>

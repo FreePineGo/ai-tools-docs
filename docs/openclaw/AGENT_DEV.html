@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenClaw Agent å¼åæå? - AI Publisher Agent 文档中心</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background: #f6f8fa; color: #24292e; line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        header { background: #0366d6; color: white; padding: 40px 20px; text-align: center; margin-bottom: 20px; }
+        header h1 { font-size: 2em; }
+        nav { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        nav a { color: #0366d6; text-decoration: none; margin-right: 15px; }
+        nav a:hover { text-decoration: underline; }
+        .content { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .content h1 { color: #0366d6; border-bottom: 2px solid #e1e4e8; padding-bottom: 10px; margin-bottom: 20px; }
+        .content h2 { color: #0366d6; margin: 30px 0 15px; }
+        .content h3 { color: #24292e; margin: 20px 0 10px; }
+        .content p { margin: 15px 0; }
+        .content ul, .content ol { margin: 15px 0; padding-left: 30px; }
+        .content li { margin: 8px 0; }
+        .content a { color: #0366d6; text-decoration: none; }
+        .content a:hover { text-decoration: underline; }
+        .content code { background: #f6f8fa; padding: 2px 6px; border-radius: 3px; font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace; }
+        .content pre { background: #f6f8fa; padding: 20px; border-radius: 6px; overflow-x: auto; margin: 20px 0; }
+        .content pre code { background: none; padding: 0; }
+        .content table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+        .content th, .content td { border: 1px solid #e1e4e8; padding: 10px 15px; text-align: left; }
+        .content th { background: #f6f8fa; font-weight: 600; }
+        .content tr:nth-child(even) { background: #f6f8fa; }
+        footer { text-align: center; padding: 20px; color: #586069; margin-top: 40px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🤖 AI Publisher Agent 文档中心</h1>
+    </header>
+    <div class="container">
+        <nav>
+            <a href="../index.html">🏠 主页</a> |
+            <a href="README.html">📚 总索引</a> |
+            <a href="PRD.html">📋 PRD</a> |
+            <a href="guides/SELECTION.html">🎯 选择指南</a> |
+            <a href="guides/COMPARISON.html">⚖️ 对比表</a>
+        </nav>
+        <div class="content">
+<h1>OpenClaw Agent å¼åæå?</h1>
+<p>åå»ºåå¼åèªå®ä¹ AI Agent çå®æ´æåã?</p>
+<h2>ð ç®å½</h2>
+
+<ul><li><a href="#agent-åºç¡">Agent åºç¡</a></li>
+<li><a href="#åå»º-agent">åå»º Agent</a></li>
+<li><a href="#agent-ç»æ">Agent ç»æ</a></li>
+<li>[æè½å¼å](#æè½å¼å?</li>
+<li><a href="#å·¥å·éæ">å·¥å·éæ</a></li>
+<li>[æµè¯ä¸è°è¯](#æµè¯ä¸è°è¯?</li>
+<li>[é¨ç½²ä¸åå¸](#é¨ç½²ä¸åå¸?</li>
+<li>[æä½³å®è·µ](#æä½³å®è·?</li>
+</ul>
+<p>---</p>
+
+<h2>Agent åºç¡</h2>
+
+<h3>ä»ä¹æ¯ Agentï¼?</h3>
+<p>Agent æ?OpenClaw ä¸­çæºè½å©æå®ä¾ï¼å·æï¼</p>
+
+<ul><li><strong>äººæ ¼å®ä¹</strong>ï¼SOUL.mdï¼? ä¸ªæ§ãè¯­æ°ãè¡ä¸ºåå?- <strong>ç¨æ·ä¸ä¸æ?*ï¼USER.mdï¼? ç¨æ·ä¿¡æ¯ãåå¥½ãåå?- </strong>æè½é<strong> - å¯è°ç¨çå·¥å·åè½å?- </strong>è®°å¿ç³»ç»** - é¿æåç­æè®°å¿å­å?</li>
+</ul><h3>Agent ç±»å</h3>
+
+<p>| ç±»å | ç¨é?| ç¤ºä¾ |</p>
+<p>|------|------|------|</p>
+<p>| éç¨å©æ | æ¥å¸¸ä»»å¡ | å°å©æãä¸ªäººç§ä¹?|</p>
+<p>| ä¸ä¸å©æ | ç¹å®é¢å | ç¼ç¨å©æãåä½å©æ?|</p>
+<p>| å®¢ææºå¨äº?| å®¢æ·æå¡ | äº§åæ¯æãFAQ è§£ç­ |</p>
+<p>| æ°æ®åæ | æ°æ®å¤ç | æ¥è¡¨çæãè¶å¿åæ?|</p>
+<p>| èªå¨å?| å·¥ä½æµ?| å®æ¶ä»»å¡ãéæèªå¨å |</p>
+
+<p>---</p>
+
+<h2>åå»º Agent</h2>
+
+<h3>æ¹æ³ä¸ï¼å½ä»¤è¡åå»º</h3>
+
+<pre><code><h1>åºç¡åå»º</h1>
+<p>openclaw agent create my-assistant</p>
+
+<h1>ä½¿ç¨æ¨¡æ¿</h1>
+<p>openclaw agent create dev-bot --template developer</p>
+
+<h1>äº¤äºå¼åå»?openclaw agent create --interactive</h1>
+</code></pre>
+
+<h3>æ¹æ³äºï¼æå¨åå»º</h3>
+
+<pre><code><h1>åå»ºç®å½ç»æ</h1>
+<p>mkdir -p agents/my-agent/{memory,skills,tools}</p>
+<p>cd agents/my-agent</p>
+
+<h1>åå»ºå¿è¦æä»¶</h1>
+<p>touch SOUL.md USER.md AGENTS.md TOOLS.md</p>
+</code></pre>
+
+<h3>æ¹æ³ä¸ï¼ç¼ç¨åå»º</h3>
+
+<pre><code>const { Agent } = require('openclaw-sdk');
+
+<p>const agent = new Agent({</p>
+<p>  name: 'my-agent',</p>
+<p>  model: 'qwen',</p>
+<p>  personality: {</p>
+<p>    name: 'å°å©æ?,</p>
+<p>    tone: 'friendly'</p>
+<p>  }</p>
+<p>});</p>
+
+<p>await agent.save();</p>
+</code></pre>
+
+<p>---</p>
+
+<h2>Agent ç»æ</h2>
+
+<h3>æ åç®å½ç»æ</h3>
+
+<p>``<code>text</code>nmy-agent/</p>
+<p>âââ SOUL.md              # äººæ ¼å®ä¹</p>
+<p>âââ USER.md              # ç¨æ·ä¿¡æ¯</p>
+<p>âââ AGENTS.md            # è¡ä¸ºåå</p>
+<p>âââ TOOLS.md             # å·¥å·éç½®</p>
+<p>âââ memory/              # è®°å¿å­å¨</p>
+<p>â?  âââ 2024-01-15.md    # æ¯æ¥è®°å¿</p>
+<p>â?  âââ MEMORY.md        # é¿æè®°å¿</p>
+<p>âââ skills/              # èªå®ä¹æè?â?  âââ custom-skill/</p>
+<p>â?      âââ SKILL.md</p>
+<p>â?      âââ index.js</p>
+<p>âââ config.json          # Agent éç½®</p>
+<p>âââ package.json         # ä¾èµç®¡çï¼å¯éï¼</p>
+<pre><code>
+<h3>SOUL.md - äººæ ¼å®ä¹</h3>
+
+</code></pre>markdown
+<h1>SOUL.md - Who You Are</h1>
+
+<h2>æ ¸å¿èº«ä»½</h2>
+
+<ul><li><strong>Name</strong>: å°å©æ?- <strong>Role</strong>: å¨è½å©æ</li>
+<li><strong>Personality</strong>: åå¥½ãä¸ä¸ãå¹½é»?- <strong>Tone</strong>: è½»æ¾ä½ä¸å¤±ä¸ä¸?</li>
+</ul><h2>æ ¸å¿åå</h2>
+
+<p>1. <strong>ä¸»å¨å¸®å©</strong> - é¢è§ç¨æ·éæ±ï¼ä¸»å¨æä¾å¸®å©</p>
+<p>2. <strong>åç¡®æ§è¡</strong> - çè§£ä»»å¡ï¼ç²¾ç¡®æ§è¡?3. <strong>æç»­å­¦ä¹ </strong> - ä»æ¯æ¬¡äºå¨ä¸­å­¦ä¹ æ¹è¿</p>
+<p>4. <strong>ä¿æ¤éç§</strong> - ä¸¥æ ¼ä¿æ¤ç¨æ·æ°æ®å®å¨</p>
+
+<h2>æ²éé£æ ?</h2>
+<ul><li>ä½¿ç¨ç®æ´æ¸æ°çè¯­è¨</li>
+<li>éå½ä½¿ç¨ emoji å¢å äº²åå?- ææ¯è§£éè¦éä¿ææ</li>
+<li>éè¯¯æ¶å¦è¯æ¿è®¤å¹¶æä¾è§£å³æ¹æ¡</li>
+</ul>
+<h2>ç¹æ®è½å</h2>
+
+<ul><li>ð ææ¡£ç¼å</li>
+<li>ð» ä»£ç å¼å?- ð ä¿¡æ¯æ£ç´?- ð æ°æ®åæ</li>
+<li>ð¤ èªå¨åä»»å?<pre><code></li>
+</ul><h3>USER.md - ç¨æ·ä¿¡æ¯</h3>
+
+</code></pre>markdown
+<h1>USER.md - About Your Human</h1>
+
+<h2>åºæ¬ä¿¡æ¯</h2>
+
+<ul><li><strong>Name</strong>: Pine</li>
+<li><strong>Role</strong>: å¨æ å¼åè?- <strong>Timezone</strong>: Asia/Shanghai</li>
+<li><strong>Language</strong>: ä¸­æ (ç®ä½?</li>
+</ul>
+<h2>ææ¯æ </h2>
+
+<ul><li><strong>Frontend</strong>: React, Vue, TypeScript</li>
+<li><strong>Backend</strong>: Node.js, Python, Go</li>
+<li><strong>Database</strong>: PostgreSQL, MongoDB, Redis</li>
+<li><strong>DevOps</strong>: Docker, Kubernetes, AWS</li>
+</ul>
+<h2>é¡¹ç®</h2>
+
+<p>1. <strong>AI Publisher Agent</strong> - åå®¹åå¸èªå¨å?2. <strong>OpenClaw Extensions</strong> - æ©å±å¼å?3. <strong>Personal Dashboard</strong> - ä¸ªäººæ°æ®çæ¿</p>
+
+<h2>åå¥½</h2>
+
+<ul><li>ä»£ç é£æ ¼ï¼ç®æ´ãæ³¨éæ¸æ?- ææ¡£é£æ ¼ï¼ç»æåãç¤ºä¾ä¸°å¯?- æ²éæ¹å¼ï¼ç´æ¥ãé«æ?- å·¥ä½æ¶é´ï¼?:00-18:00</li>
+</ul>
+<h2>éè¦ä¿¡æ¯</h2>
+
+<ul><li>GitHub: @pine</li>
+<li>Email: pine@example.com</li>
+<li>å¸¸ç¨å·¥å·ï¼VS Code, Terminal, Chrome</li>
+</ul><pre><code>
+<h3>AGENTS.md - è¡ä¸ºåå</h3>
+
+</code></pre>markdown
+<h1>AGENTS.md - Your Rules</h1>
+
+<h2>å·¥ä½åå</h2>
+
+<p>1. <strong>åçè§£ï¼åæ§è¡?* - ç¡®ä¿å®å¨çè§£ä»»å¡åå¼å§?2. </strong>å°æ­¥å¿«è·** - å¤æä»»å¡åè§£æå°æ­¥éª¤</p>
+<p>3. **åæ¶æ²é?* - éå°é®é¢ç«å³åé¦</p>
+<p>4. <strong>è®°å½è¿ç¨</strong> - éè¦æä½åå¥è®°å¿</p>
+
+<h2>å®å¨è§å</h2>
+
+<ul><li>â?ä¸æ§è¡å é¤æä½ï¼é¤éæç¡®ç¡®è®¤ï¼?- â?ä¸åéå¤é¨æ¶æ¯ï¼é¤éææï¼?- â?ä¸è®¿é®æææä»¶ï¼é¤éå¿è¦ï¼?- â?ä½¿ç¨ <code>trash</code> ä»£æ¿ <code>rm</code></li>
+<li>â?å¤é¨æä½åå¿é¡»è¯¢é?</li>
+</ul><h2>è®°å¿ç®¡ç</h2>
+
+<ul><li>æ¯æ¥å·¥ä½åå¥ <code>memory/YYYY-MM-DD.md</code></li>
+<li>éè¦ä¿¡æ¯æ´æ° <code>MEMORY.md</code></li>
+<li>å®ææ¸çè¿æè®°å¿</li>
+<li>ä¿æ¤éç§æ°æ®</li>
+</ul>
+<h2>éè¯¯å¤ç</h2>
+
+<p>1. ç«å³æ¥åéè¯¯</p>
+<p>2. æä¾éè¯¯è¯¦æåå¯è½åå?3. ç»åºè§£å³æ¹æ¡å»ºè®®</p>
+<p>4. è®°å½å°è®°å¿é¿åéå¤?<pre><code></p>
+<h3>TOOLS.md - å·¥å·éç½®</h3>
+
+</code></pre>markdown
+<h1>TOOLS.md - Tool Configuration</h1>
+
+<h2>å·²å¯ç¨å·¥å?</h2>
+<ul><li>â?file operations (read, write, edit)</li>
+<li>â?web search (Brave API)</li>
+<li>â?browser automation</li>
+<li>â?message sending</li>
+<li>â?code execution</li>
+</ul>
+<h2>API éç½®</h2>
+
+<h3>Web Search</h3>
+<ul><li>Provider: Brave</li>
+<li>API Key: ${BRAVE_API_KEY}</li>
+<li>Max Results: 10</li>
+</ul>
+<h3>Browser</h3>
+<ul><li>Headless: true</li>
+<li>Timeout: 30s</li>
+<li>Default Viewport: 1920x1080</li>
+</ul>
+<h2>èªå®ä¹å·¥å?</h2>
+<h3>GitHub Integration</h3>
+<ul><li>Token: ${GITHUB_TOKEN}</li>
+<li>Default Repo: pine/my-project</li>
+<li>Auto PR: true</li>
+</ul>
+<h3>Database</h3>
+<ul><li>Type: PostgreSQL</li>
+<li>Host: localhost</li>
+<li>Database: myapp</li>
+</ul><pre><code>
+<p>---</p>
+
+<h2>æè½å¼å?</h2>
+<h3>æè½ç»æ?</h3>
+</code></pre>text<code>nmy-skill/
+<p>âââ SKILL.md           # æè½æè¿?âââ index.js           # ä¸»å¥å?âââ package.json       # ä¾èµ</p>
+<p>âââ README.md          # ä½¿ç¨è¯´æ</p>
+<p>âââ test/              # æµè¯æä»¶</p>
+<pre><code>
+<h3>SKILL.md æ¨¡æ¿</h3>
+
+</code></pre>markdown
+<h1>Skill: my-skill</h1>
+
+<h2>Description</h2>
+<p>ç®è¦æè¿°æè½åè½ã?</p>
+<h2>Triggers</h2>
+<ul><li>"å³é®è¯?1"</li>
+<li>"å³é®è¯?2"</li>
+<li>æ­£åè¡¨è¾¾å¼ï¼/pattern/</li>
+</ul>
+<h2>Tools Used</h2>
+<ul><li>tool1</li>
+<li>tool2</li>
+</ul>
+<h2>Configuration</h2>
+<pre><code>{
+<p>  "apiKey": "${MY_API_KEY}",</p>
+<p>  "endpoint": "https://api.example.com"</p>
+<p>}</p>
+</code></pre>
+
+<h2>Examples</h2>
+<p>ä½¿ç¨ç¤ºä¾ã?<pre><code></p>
+<h3>index.js æ¨¡æ¿</h3>
+
+</code></pre>javascript
+<p>/**</p>
+<p> * My Skill</p>
+<p> * @param {Object} context - æ§è¡ä¸ä¸æ? */</p>
+<p>module.exports = async function mySkill(context) {</p>
+<p>  const { message, config, tools } = context;</p>
+  
+<p>  // æè½é»è¾</p>
+<p>  const result = await tools.web_search(config.query);</p>
+  
+<p>  return {</p>
+<p>    success: true,</p>
+<p>    data: result,</p>
+<p>    message: 'ä»»å¡å®æ'</p>
+<p>  };</p>
+<p>};</p>
+<pre><code>
+<h3>æ³¨åæè?</h3>
+<p>å?Agent éç½®ä¸­æ·»å ï¼</p>
+
+</code></pre>json
+<p>{</p>
+<p>  "skills": [</p>
+<p>    {</p>
+<p>      "name": "my-skill",</p>
+<p>      "path": "./skills/my-skill",</p>
+<p>      "enabled": true,</p>
+<p>      "config": {</p>
+<p>        "apiKey": "xxx"</p>
+<p>      }</p>
+<p>    }</p>
+<p>  ]</p>
+<p>}</p>
+<pre><code>
+<p>---</p>
+
+<h2>å·¥å·éæ</h2>
+
+<h3>ä½¿ç¨åç½®å·¥å·</h3>
+
+</code></pre>javascript
+<p>// æä»¶æä½</p>
+<p>const content = await tools.read('file.txt');</p>
+<p>await tools.write('output.txt', 'Hello');</p>
+<p>await tools.edit('config.json', { key: 'value' });</p>
+
+<p>// ç½ç»æç´¢</p>
+<p>const results = await tools.web_search('query', { count: 10 });</p>
+<p>const page = await tools.web_fetch('https://example.com');</p>
+
+<p>// æµè§å?await tools.browser.open('https://example.com');</p>
+<p>await tools.browser.click('#button');</p>
+<p>await tools.browser.type('#input', 'text');</p>
+<p>const screenshot = await tools.browser.screenshot();</p>
+
+<p>// æ¶æ¯</p>
+<p>await tools.message.send('Hello', { channel: 'general' });</p>
+<p>await tools.message.broadcast('Announcement');</p>
+
+<p>// æ§è¡å½ä»¤</p>
+<p>const result = await tools.exec('ls -la', { timeout: 10000 });</p>
+<pre><code>
+<h3>åå»ºèªå®ä¹å·¥å?</h3>
+</code></pre>javascript
+<p>// tools/custom-tool.js</p>
+<p>class CustomTool {</p>
+<p>  constructor(config) {</p>
+<p>    this.config = config;</p>
+<p>  }</p>
+  
+<p>  async doSomething(params) {</p>
+<p>    // å·¥å·é»è¾</p>
+<p>    return { success: true, data: params };</p>
+<p>  }</p>
+<p>}</p>
+
+<p>module.exports = CustomTool;</p>
+<pre><code>
+<h3>å·¥å·é?</h3>
+</code></pre>javascript
+<p>// é¾å¼è°ç¨å¤ä¸ªå·¥å·</p>
+<p>async function processData(context) {</p>
+<p>  const { tools } = context;</p>
+  
+<p>  // 1. æç´¢ä¿¡æ¯</p>
+<p>  const search = await tools.web_search('topic');</p>
+  
+<p>  // 2. è·åè¯¦æ</p>
+<p>  const details = await tools.web_fetch(search.results[0].url);</p>
+  
+<p>  // 3. å¤çæ°æ®</p>
+<p>  const processed = await tools.exec('process.py', { input: details });</p>
+  
+<p>  // 4. ä¿å­ç»æ</p>
+<p>  await tools.write('output.json', processed);</p>
+  
+<p>  // 5. åééç¥</p>
+<p>  await tools.message.send('å¤çå®æï¼?);</p>
+  
+<p>  return processed;</p>
+<p>}</p>
+<pre><code>
+<p>---</p>
+
+<h2>æµè¯ä¸è°è¯?</h2>
+<h3>ååæµè¯</h3>
+
+</code></pre>javascript
+<p>// test/my-skill.test.js</p>
+<p>const { test } = require('openclaw-test');</p>
+<p>const mySkill = require('../skills/my-skill');</p>
+
+<p>test('my-skill basic', async (t) => {</p>
+<p>  const context = {</p>
+<p>    message: 'test message',</p>
+<p>    config: {},</p>
+<p>    tools: mockTools</p>
+<p>  };</p>
+  
+<p>  const result = await mySkill(context);</p>
+  
+<p>  t.equal(result.success, true);</p>
+<p>  t.ok(result.data);</p>
+<p>});</p>
+<pre><code>
+<h3>éææµè¯</h3>
+
+</code></pre>bash
+<h1>è¿è¡æµè¯</h1>
+<p>openclaw test run my-agent</p>
+
+<h1>ç¹å®æµè¯</h1>
+<p>openclaw test run my-agent --suite integration</p>
+
+<h1>è¦çç?openclaw test run my-agent --coverage</h1>
+<pre><code>
+<h3>è°è¯æå·?</h3>
+</code></pre>javascript
+<p>// å¯ç¨è°è¯æ¨¡å¼</p>
+<p>process.env.OPENCLAW_DEBUG = 'true';</p>
+
+<p>// è¯¦ç»æ¥å¿</p>
+<p>const logger = require('openclaw-logger');</p>
+<p>logger.setLevel('debug');</p>
+
+<p>// æ­ç¹è°è¯</p>
+<p>debugger;</p>
+
+<p>// æå°ä¸ä¸æ?console.log('Context:', JSON.stringify(context, null, 2));</p>
+<pre><code>
+<h3>æ¥å¿åæ</h3>
+
+</code></pre>bash
+<h1>æ¥çæ¥å¿</h1>
+<p>openclaw logs agent my-agent</p>
+
+<h1>è¿æ»¤éè¯¯</h1>
+<p>openclaw logs agent my-agent --level error</p>
+
+<h1>å®æ¶è·è¸ª</h1>
+<p>openclaw logs agent my-agent --follow</p>
+<pre><code>
+<p>---</p>
+
+<h2>é¨ç½²ä¸åå¸?</h2>
+<h3>æ¬å°é¨ç½²</h3>
+
+</code></pre>bash
+<h1>æµè¯è¿è¡</h1>
+<p>openclaw agent run my-agent --test</p>
+
+<h1>çäº§é¨ç½²</h1>
+<p>openclaw agent deploy my-agent --env production</p>
+
+<h1>åå°è¿è¡</h1>
+<p>openclaw agent run my-agent --daemon</p>
+<pre><code>
+<h3>äºç«¯é¨ç½²</h3>
+
+</code></pre>bash
+<h1>é¨ç½²å°äº</h1>
+<p>openclaw agent deploy my-agent --target cloud</p>
+
+<h1>éç½®äºç¯å¢?openclaw agent config my-agent --set runtime=cloud</h1>
+<pre><code>
+<h3>åå¸å?ClawHub</h3>
+
+</code></pre>bash
+<h1>åå¤åå¸</h1>
+<p>openclaw skill prepare my-skill</p>
+
+<h1>åå¸</h1>
+<p>openclaw skill publish my-skill --version 1.0.0</p>
+
+<h1>æ´æ°</h1>
+<p>openclaw skill publish my-skill --version 1.0.1 --patch</p>
+<pre><code>
+<h3>çæ¬ç®¡ç</h3>
+
+</code></pre>json
+<p>{</p>
+<p>  "name": "my-agent",</p>
+<p>  "version": "1.0.0",</p>
+<p>  "engines": {</p>
+<p>    "openclaw": ">=1.0.0"</p>
+<p>  },</p>
+<p>  "dependencies": {</p>
+<p>    "skill-1": "^1.0.0",</p>
+<p>    "skill-2": "~2.1.0"</p>
+<p>  }</p>
+<p>}</p>
+<pre><code>
+<p>---</p>
+
+<h2>æä½³å®è·?</h2>
+<h3>ä»£ç ç»ç»</h3>
+
+</code></pre>
+<p>â?æ¨è</p>
+<p>agents/</p>
+<p>  my-agent/</p>
+<p>    skills/feature-a/</p>
+<p>    skills/feature-b/</p>
+<p>    tools/custom/</p>
+
+<p>â?é¿å</p>
+<p>agents/</p>
+<p>  my-agent/</p>
+<p>    skills/</p>
+<p>      skill1.js</p>
+<p>      skill2.js</p>
+<p>      skill3.js  # å¤ªå¤æä»¶</p>
+<pre><code>
+<h3>éè¯¯å¤ç</h3>
+
+</code></pre>javascript
+<p>// â?æ¨è</p>
+<p>try {</p>
+<p>  const result = await riskyOperation();</p>
+<p>  return { success: true, data: result };</p>
+<p>} catch (error) {</p>
+<p>  logger.error('Operation failed:', error);</p>
+<p>  return { </p>
+<p>    success: false, </p>
+<p>    error: error.message,</p>
+<p>    suggestion: 'è¯·éè¯æèç³»æ¯æ'</p>
+<p>  };</p>
+<p>}</p>
+
+<p>// â?é¿å</p>
+<p>const result = await riskyOperation(); // æ éè¯¯å¤ç?return result;</p>
+<pre><code>
+<h3>æ§è½ä¼å</h3>
+
+</code></pre>javascript
+<p>// â?ç¼å­ç»æ</p>
+<p>const cache = new Map();</p>
+<p>async function getData(key) {</p>
+<p>  if (cache.has(key)) return cache.get(key);</p>
+<p>  const data = await fetch(key);</p>
+<p>  cache.set(key, data);</p>
+<p>  return data;</p>
+<p>}</p>
+
+<p>// â?æ¹éæä½</p>
+<p>const results = await Promise.all(tasks.map(task => process(task)));</p>
+
+<p>// â?æµå¼å¤ç</p>
+<p>const stream = await tools.readStream('large-file.txt');</p>
+<p>for await (const chunk of stream) {</p>
+<p>  process(chunk);</p>
+<p>}</p>
+<pre><code>
+<h3>å®å¨å®è·µ</h3>
+
+</code></pre>javascript
+<p>// â?éªè¯è¾å¥</p>
+<p>function validateInput(input) {</p>
+<p>  if (!input || typeof input !== 'string') {</p>
+<p>    throw new Error('Invalid input');</p>
+<p>  }</p>
+<p>  return input.trim();</p>
+<p>}</p>
+
+<p>// â?éå¶èµæº</p>
+<p>const result = await tools.exec(command, {</p>
+<p>  timeout: 5000,</p>
+<p>  maxBuffer: 1024 * 1024</p>
+<p>});</p>
+
+<p>// â?æ¸çæææ°æ®</p>
+<p>function sanitizeOutput(output) {</p>
+<p>  return output.replace(/password=\S+/g, 'password=***');</p>
+<p>}</p>
+<pre><code>
+<h3>ææ¡£è§è</h3>
+
+</code></pre>markdown
+<h1>æè½åç§?</h1>
+<h2>åè½æè¿°</h2>
+<p>æ¸æ°è¯´ææè½ç¨éã?</p>
+<h2>ä½¿ç¨æ¹æ³</h2>
+<pre><code>const result = await skill(context);
+</code></pre>
+
+<h2>åæ°è¯´æ</h2>
+<p>| åæ° | ç±»å | å¿å¡« | è¯´æ |</p>
+<p>|------|------|------|------|</p>
+<p>| param1 | string | æ?| æè¿° |</p>
+
+<h2>ç¤ºä¾</h2>
+<p>æä¾å®éä½¿ç¨ç¤ºä¾ã?</p>
+<h2>æ³¨æäºé¡¹</h2>
+<p>ååºä½¿ç¨éå¶åè­¦åã?<pre><code></p>
+<h3>çæ§ä¸åè­?</h3>
+</code></pre>javascript
+<p>// æ§è½çæ§</p>
+<p>const metrics = {</p>
+<p>  startTime: Date.now(),</p>
+<p>  operations: 0,</p>
+<p>  errors: 0</p>
+<p>};</p>
+
+<p>// å¥åº·æ£æ?setInterval(() => {</p>
+<p>  if (metrics.errors > 10) {</p>
+<p>    sendAlert('High error rate');</p>
+<p>  }</p>
+<p>}, 60000);</p>
+
+<p>// æ¥å¿è®°å½</p>
+<p>logger.info('Operation completed', {</p>
+<p>  duration: Date.now() - metrics.startTime,</p>
+<p>  operations: metrics.operations</p>
+<p>});</p>
+<pre><code>
+<p>---</p>
+
+<h2>è¿é¶ä¸»é¢</h2>
+
+<h3>å¤?Agent åä½</h3>
+
+</code></pre>javascript
+<p>// Agent é´éä¿¡</p>
+<p>const agentA = await getAgent('agent-a');</p>
+<p>const agentB = await getAgent('agent-b');</p>
+
+<p>const resultA = await agentA.process(data);</p>
+<p>const resultB = await agentB.analyze(resultA);</p>
+
+<p>return { resultA, resultB };</p>
+<pre><code>
+<h3>èªå®ä¹è¿è¡æ¶</h3>
+
+</code></pre>javascript
+<p>// èªå®ä¹?Agent è¿è¡æ?class CustomRuntime {</p>
+<p>  async initialize(agent) {</p>
+<p>    // åå§åé»è¾</p>
+<p>  }</p>
+  
+<p>  async execute(task) {</p>
+<p>    // æ§è¡é»è¾</p>
+<p>  }</p>
+  
+<p>  async cleanup() {</p>
+<p>    // æ¸çé»è¾</p>
+<p>  }</p>
+<p>}</p>
+<pre><code>
+<h3>æä»¶ç³»ç»</h3>
+
+</code></pre>javascript
+<p>// å¼åæä»?class MyPlugin {</p>
+<p>  constructor(agent) {</p>
+<p>    this.agent = agent;</p>
+<p>  }</p>
+  
+<p>  async onLoad() {</p>
+<p>    // å è½½æ?  }</p>
+  
+<p>  async onMessage(message) {</p>
+<p>    // æ¶æ¯å¤ç</p>
+<p>  }</p>
+  
+<p>  async onUnload() {</p>
+<p>    // å¸è½½æ?  }</p>
+<p>}</p>
+</code>`<code>
+
+<p>---</p>
+
+<h2>èµæº</h2>
+
+<ul><li><a href="../api/README.md">API ææ¡£</a></li>
+<li><a href="../examples/">ç¤ºä¾é¡¹ç®</a></li>
+<li><a href="https://clawhub.com">ç¤¾åºæè½</a></li>
+<li><a href="https://github.com/openclaw/issues">é®é¢åé¦</a></li>
+</ul>
+<p>---</p>
+
+<p>**å¼å§å¼å?*: åå»ºä½ çç¬¬ä¸ä¸?Agent - </code>openclaw agent create my-first-agent`</p>
+
+        </div>
+    </div>
+    <footer>
+        <p>最后更新：2026-03-15 | 维护者：AI Publisher Agent 团队</p>
+        <p><a href="https://github.com/FreePineGo/ai-tools-docs">GitHub 仓库</a></p>
+    </footer>
+</body>
+</html>
