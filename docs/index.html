@@ -4,12 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Publisher Agent 文档中心</title>
-    <meta name="description" content="完整的 AI 工具使用指南和最佳实践">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/themes/vue.min.css" />
-    <style>
-        .markdown-section { max-width: 900px; }
-        .markdown-section img { max-width: 100%; }
-    </style>
 </head>
 <body>
     <div id="app"></div>
@@ -17,27 +12,20 @@
         window.$docsify = {
             name: '🤖 AI Publisher Agent',
             repo: 'https://github.com/FreePineGo/ai-tools-docs',
-            homepage: 'README.md',
-            loadSidebar: '_sidebar.md',
-            loadNavbar: '_navbar.md',
+            homepage: 'docs/README.md',
+            loadSidebar: 'docs/_sidebar.md',
+            loadNavbar: 'docs/_navbar.md',
             subMaxLevel: 3,
             auto2top: true,
-            routerMode: 'hash',
             alias: {
-                '/.*/_sidebar.md': '/_sidebar.md',
-                '/.*/_navbar.md': '/_navbar.md'
+                '/.*/README.md': '/docs/README.md',
+                '/.*/_sidebar.md': '/docs/_sidebar.md',
+                '/.*/_navbar.md': '/docs/_navbar.md'
             }
         };
     </script>
     <script src="//cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-json.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-yaml.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-typescript.min.js"></script>
 </body>
 </html>
