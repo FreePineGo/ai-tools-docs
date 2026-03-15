@@ -1,0 +1,52 @@
+# 依赖
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+
+# 环境
+.env
+.env.local
+.env.*.local
+.venv
+env/
+venv/
+ENV/
+
+# 构建输出
+dist/
+build/
+*.egg-info/
+
+# 日志
+*.log
+logs/
+
+# 缓存
+.cache/
+.npm/
+.eslintcache
+
+# 测试
+coverage/
+.nyc_output/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 临时文件
+tmp/
+temp/
+*.tmp
