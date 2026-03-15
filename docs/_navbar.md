@@ -1,0 +1,5 @@
+*   [🏠 主页](/)
+*   [📚 总索引](docs/README.md)
+*   [🎯 选择指南](docs/guides/SELECTION.md)
+*   [⚖️ 对比表](docs/guides/COMPARISON.md)
+*   [GitHub](https://github.com/FreePineGo/ai-tools-docs)
